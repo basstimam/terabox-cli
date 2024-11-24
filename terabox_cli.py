@@ -250,11 +250,12 @@ class TeraboxDownloader:
         
         # Download setiap file
         for idx, file in enumerate(flattened_files, 1):
-            console.print(f"\n[bold cyan]Downloading file {idx}/{total_files}[/]")
+            # Ganti print detail dengan progress yang lebih sederhana
+            console.print(f"[bold blue]({idx}/{total_files})[/] ", end="")
             
             try:
                 # Dapatkan link download
-                with console.status(f"[bold blue]🔗 Mengambil link download untuk {file['name']}...[/]", spinner="dots"):
+                with console.status(f"🔗 Mengambil link untuk {file['name']}...", spinner="dots"):
                     tl = TeraboxLink(
                         fs_id=str(file['fs_id']),
                         uk=str(tf.result['uk']),
@@ -284,11 +285,11 @@ class TeraboxDownloader:
                     
                 download_url = self.test_download_speed(download_urls)
                 
-                # Download file ke folder yang sesuai
+                # Download file tanpa print detail selesai
                 filename = download_dir / file['name']
                 filesize = int(file['size'])
                 
-                if self.download_file(download_url, str(filename), filesize):
+                if self.download_file(download_url, str(filename), filesize, quiet=True):
                     successful_downloads += 1
                 else:
                     failed_downloads.append((file['name'], "Gagal saat download"))
@@ -374,7 +375,7 @@ class TeraboxDownloader:
         except Exception as e:
             console.print(f"[red]Chunk download error: {str(e)}[/]")
 
-    def download_file(self, url: str, filename: str, filesize: int) -> bool:
+    def download_file(self, url: str, filename: str, filesize: int, quiet: bool = False) -> bool:
         """Download file dengan multiple connections dan progress realtime"""
         temp_filename = filename + ".part"
         mode = "wb"
@@ -458,21 +459,22 @@ class TeraboxDownloader:
         # Verifikasi file
         if os.path.getsize(temp_filename) == filesize:
             os.rename(temp_filename, filename)
-            duration = time.time() - self.start_time
-            speed = filesize / duration if duration > 0 else 0
-            
-            console.print(Panel(
-                f"[green]✅ Download selesai: {os.path.basename(filename)}\n"
-                f"⚡ Kecepatan rata-rata: {self.format_size(speed)}/s\n"
-                f"⏱️ Waktu: {int(duration)} detik[/]",
-                border_style="green"
-            ))
+            if not quiet:  # Hanya print jika quiet=False
+                duration = time.time() - self.start_time
+                speed = filesize / duration if duration > 0 else 0
+                console.print(Panel(
+                    f"[green]✅ Download selesai: {os.path.basename(filename)}\n"
+                    f"⚡ Kecepatan rata-rata: {self.format_size(speed)}/s\n"
+                    f"⏱️ Waktu: {int(duration)} detik[/]",
+                    border_style="green"
+                ))
             return True
         else:
-            console.print(Panel(
-                "[red]❌ File tidak lengkap, silakan coba download ulang[/]",
-                border_style="red"
-            ))
+            if not quiet:  # Hanya print jika quiet=False
+                console.print(Panel(
+                    "[red]❌ File tidak lengkap, silakan coba download ulang[/]",
+                    border_style="red"
+                ))
             return False
 
     def get_folder_by_path(self, files: List[Dict[str, Any]], path: str) -> Optional[List[Dict[str, Any]]]:
