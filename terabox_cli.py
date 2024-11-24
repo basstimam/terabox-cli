@@ -27,6 +27,7 @@ from urllib.parse import urlparse
 import socket
 import mmap
 import multiprocessing
+from rich.console import Group
 
 console = Console()
 
