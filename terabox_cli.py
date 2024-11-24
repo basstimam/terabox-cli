@@ -34,6 +34,7 @@ console = Console()
 class TeraboxDownloader:
     def __init__(self):
         self.chunk_size = 4 * 1024 * 1024  # 4MB chunks
+        self.use_chunks = False  # Flag untuk chunk download
         self.max_workers = min(64, multiprocessing.cpu_count() * 4)
         self.session = self._create_session()
         self.progress = Progress(
@@ -469,6 +470,83 @@ class TeraboxDownloader:
                 console.print(Panel(f"[red]❌ Error saat download: {str(e)}[/]", border_style="red"))
             return False
 
+    def download_file_chunked(self, url: str, filename: str, filesize: int, quiet: bool = False) -> bool:
+        """Download file dengan metode chunk untuk kecepatan lebih tinggi"""
+        temp_filename = filename + ".part"
+        chunk_size = self.chunk_size
+        total_chunks = (filesize + chunk_size - 1) // chunk_size
+        
+        # Buat array untuk tracking chunk yang sudah didownload
+        downloaded_chunks = [False] * total_chunks
+        
+        def download_chunk(chunk_id: int):
+            start = chunk_id * chunk_size
+            end = min(start + chunk_size - 1, filesize - 1)
+            
+            headers = {'Range': f'bytes={start}-{end}'}
+            try:
+                response = self.session.get(url, headers=headers, timeout=30)
+                response.raise_for_status()
+                
+                with self.download_lock:
+                    with open(temp_filename, 'rb+' if os.path.exists(temp_filename) else 'wb') as f:
+                        f.seek(start)
+                        f.write(response.content)
+                    downloaded_chunks[chunk_id] = True
+                    self.total_downloaded += len(response.content)
+                return True
+            except Exception:
+                return False
+
+        try:
+            # Inisialisasi file
+            with open(temp_filename, 'wb') as f:
+                f.truncate(filesize)
+            
+            with self.progress as progress:
+                task_id = progress.add_task(
+                    "download",
+                    filename=os.path.basename(filename),
+                    total=filesize
+                )
+                
+                with concurrent.futures.ThreadPoolExecutor(max_workers=self.max_workers) as executor:
+                    futures = []
+                    for chunk_id in range(total_chunks):
+                        futures.append(executor.submit(download_chunk, chunk_id))
+                    
+                    # Monitor progress
+                    while futures:
+                        done, futures = concurrent.futures.wait(
+                            futures, 
+                            timeout=0.1,
+                            return_when=concurrent.futures.FIRST_COMPLETED
+                        )
+                        progress.update(task_id, completed=self.total_downloaded)
+                        
+            # Verifikasi file
+            if all(downloaded_chunks) and os.path.getsize(temp_filename) == filesize:
+                os.rename(temp_filename, filename)
+                if not quiet:
+                    duration = time.time() - self.start_time
+                    speed = filesize / duration if duration > 0 else 0
+                    console.print(Panel(
+                        f"[green]✅ Download selesai: {os.path.basename(filename)}\n"
+                        f"⚡ Kecepatan rata-rata: {self.format_size(speed)}/s\n"
+                        f"⏱️ Waktu: {int(duration)} detik[/]",
+                        border_style="green"
+                    ))
+                return True
+            else:
+                if not quiet:
+                    console.print(Panel("[red]❌ Download tidak lengkap[/]", border_style="red"))
+                return False
+                
+        except Exception as e:
+            if not quiet:
+                console.print(Panel(f"[red]❌ Error: {str(e)}[/]", border_style="red"))
+            return False
+
     def get_folder_by_path(self, files: List[Dict[str, Any]], path: str) -> Optional[List[Dict[str, Any]]]:
         """Mendapatkan folder berdasarkan path"""
         if not path or path == '/':
@@ -490,8 +568,9 @@ class TeraboxDownloader:
                 return None
         return current_files
 
-    def process_url(self, url: str) -> None:
+    def process_url(self, url: str, use_chunks: bool = False) -> None:
         """Memproses URL Terabox dan menangani download"""
+        self.use_chunks = use_chunks
         # Ekstrak path dari URL jika ada
         path = ''
         
@@ -639,7 +718,10 @@ class TeraboxDownloader:
             ))
             
             if Confirm.ask("Mulai download?"):
-                self.download_file(download_url, str(filename), filesize)
+                if self.use_chunks:
+                    self.download_file_chunked(download_url, str(filename), filesize)
+                else:
+                    self.download_file(download_url, str(filename), filesize)
                 
         except Exception as e:
             console.print(Panel(f"[red]❌ Error saat mempersiapkan download: {str(e)}[/]", border_style="red"))
@@ -650,15 +732,21 @@ def main():
         downloader = TeraboxDownloader()
         downloader.show_banner()
         
-        if len(sys.argv) != 2:
+        if len(sys.argv) < 2:
             console.print(Panel(
-                "[red]Usage: python terabox_cli.py <terabox_url>[/]",
+                "[red]Usage: python terabox_cli.py <terabox_url> [--chunk][/]",
                 border_style="red"
             ))
             sys.exit(1)
             
         url = sys.argv[1]
-        downloader.process_url(url)
+        use_chunks = "--chunk" in sys.argv
+        
+        if use_chunks:
+            console.print(Panel("[yellow]💨 Menggunakan mode download chunks untuk kecepatan tinggi (rawan gagal)[/]", 
+                              border_style="yellow"))
+        
+        downloader.process_url(url, use_chunks)
         
     except KeyboardInterrupt:
         console.print("\n[yellow]⚠️ Download dibatalkan oleh pengguna[/]")
