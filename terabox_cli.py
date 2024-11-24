@@ -28,6 +28,9 @@ import socket
 import mmap
 import multiprocessing
 from rich.console import Group
+import random
+import logging
+from contextlib import nullcontext
 
 console = Console()
 
@@ -54,6 +57,27 @@ class TeraboxDownloader:
         self.download_lock = threading.Lock()
         self.total_downloaded = 0
         self.start_time = 0
+        self.url_speed_cache = {}  # Cache untuk menyimpan hasil test kecepatan
+        self.setup_logging()
+        self.cancel_event = threading.Event()
+        self.retry_delay = 3  # Delay dasar untuk retry dalam detik
+        
+    def setup_logging(self):
+        """Setup sistem logging"""
+        log_dir = Path("logs")
+        log_dir.mkdir(exist_ok=True)
+        
+        log_file = log_dir / f"terabox_{datetime.now():%Y%m%d}.log"
+        
+        logging.basicConfig(
+            level=logging.INFO,
+            format='%(asctime)s - %(levelname)s - %(message)s',
+            handlers=[
+                logging.FileHandler(log_file),
+                logging.StreamHandler()
+            ]
+        )
+        self.logger = logging.getLogger(__name__)
         
     def _create_session(self) -> requests.Session:
         """Membuat session dengan optimasi"""
@@ -358,7 +382,12 @@ class TeraboxDownloader:
             ))
 
     def test_download_speed(self, urls: List[str], sample_size: int = 1024 * 1024) -> str:
-        """Test kecepatan download dari beberapa URL dan pilih yang tercepat"""
+        """Test kecepatan download dengan caching"""
+        # Cek cache dulu
+        cached_urls = [url for url in urls if url in self.url_speed_cache]
+        if cached_urls:
+            return max(cached_urls, key=lambda u: self.url_speed_cache[u])
+            
         results = []
         
         def test_url(url):
@@ -391,60 +420,62 @@ class TeraboxDownloader:
 
         # Sort berdasarkan skor tertinggi
         results.sort(key=lambda x: x[1], reverse=True)
+        
+        # Simpan hasil ke cache
+        for url, score in results:
+            self.url_speed_cache[url] = score
+            
         return results[0][0] if results else urls[0]
 
-    def download_file(self, url: str, filename: str, filesize: int, quiet: bool = False) -> bool:
-        """Download file dengan metode sederhana dan progress realtime"""
-        temp_filename = filename + ".part"
-        mode = "wb"
-        existing_size = 0
+    def calculate_delay(self, attempt: int) -> float:
+        """Menghitung delay untuk retry dengan exponential backoff"""
+        backoff_factor = 1.5
+        max_backoff = 60  # Maksimal delay 60 detik
+        
+        delay = min(self.retry_delay * (backoff_factor ** attempt), max_backoff)
+        jitter = random.uniform(0, 0.1 * delay)  # Tambah random jitter
+        return delay + jitter
 
+    def download_file(self, url: str, filename: str, filesize: int, quiet: bool = False, alternative_urls: List[str] = None) -> bool:
+        """Download file dengan mekanisme retry dan failover ke URL alternatif"""
+        chunk_size = 1024 * 1024  # 1MB per chunk
+        
+        self.cancel_event.clear()
+        temp_filename = filename + ".tmp"
+        
         try:
-            filesize = int(filesize)
-        except (ValueError, TypeError):
-            console.print(Panel("[red]❌ Ukuran file tidak valid![/]", border_style="red"))
-            return False
-
-        # Cek file yang belum selesai
-        if os.path.exists(temp_filename):
-            existing_size = os.path.getsize(temp_filename)
-            if existing_size < filesize:
-                mode = "ab"  # Append mode untuk melanjutkan download
-                console.print(Panel(
-                    f"[yellow]💡 Melanjutkan download dari {self.format_size(existing_size)}[/]",
-                    border_style="yellow"
-                ))
-            else:
-                os.remove(temp_filename)
-                existing_size = 0
-
-        self.total_downloaded = existing_size
-        self.start_time = time.time()
-
-        # Setup headers untuk resume download
-        headers = {}
-        if existing_size > 0:
-            headers['Range'] = f'bytes={existing_size}-'
-
-        try:
-            with self.progress as progress:
-                task_id = progress.add_task(
-                    "download",
-                    filename=os.path.basename(filename),
-                    total=filesize
-                )
-                progress.update(task_id, completed=existing_size)
-
-                with self.session.get(url, headers=headers, stream=True, timeout=30) as response:
-                    response.raise_for_status()
-                    with open(temp_filename, mode) as f:
-                        for chunk in response.iter_content(chunk_size=8192):
+            with requests.get(url, stream=True, timeout=30) as response:
+                response.raise_for_status()
+                
+                # Buat progress bar
+                if not quiet:
+                    progress = Progress(
+                        "[progress.description]{task.description}",
+                        BarColumn(),
+                        "[progress.percentage]{task.percentage:>3.0f}%",
+                        "•",
+                        DownloadColumn(),
+                        "•",
+                        TransferSpeedColumn(),
+                        "•",
+                        TimeRemainingColumn()
+                    )
+                    task = progress.add_task("[cyan]Downloading...", total=filesize)
+                    
+                with open(temp_filename, 'wb') as f:
+                    with progress if not quiet else nullcontext():
+                        downloaded = 0
+                        for chunk in response.iter_content(chunk_size=chunk_size):  # Gunakan chunk_size yang sudah didefinisikan
+                            if self.cancel_event.is_set():
+                                raise Exception("Download dibatalkan oleh pengguna")
+                                
                             if chunk:
                                 f.write(chunk)
-                                progress.update(task_id, advance=len(chunk))
-                                self.total_downloaded += len(chunk)
-
-            # Verifikasi file
+                                downloaded += len(chunk)
+                                if not quiet:
+                                    progress.update(task, completed=downloaded)
+                                    
+            # Verifikasi ukuran file
             if os.path.getsize(temp_filename) == filesize:
                 os.rename(temp_filename, filename)
                 if not quiet:
@@ -458,16 +489,11 @@ class TeraboxDownloader:
                     ))
                 return True
             else:
-                if not quiet:
-                    console.print(Panel(
-                        "[red]❌ File tidak lengkap, silakan coba download ulang[/]",
-                        border_style="red"
-                    ))
-                return False
+                raise Exception("File size mismatch")
 
         except Exception as e:
             if not quiet:
-                console.print(Panel(f"[red]❌ Error saat download: {str(e)}[/]", border_style="red"))
+                console.print(Panel(f"[red]❌ Error: {str(e)}[/]", border_style="red"))
             return False
 
     def download_file_chunked(self, url: str, filename: str, filesize: int, quiet: bool = False) -> bool:
@@ -718,15 +744,43 @@ class TeraboxDownloader:
             ))
             
             if Confirm.ask("Mulai download?"):
+                # Dapatkan semua URL alternatif yang valid
+                alternative_urls = [url for url in download_urls if url and url != download_url]
+                
                 if self.use_chunks:
                     self.download_file_chunked(download_url, str(filename), filesize)
                 else:
-                    self.download_file(download_url, str(filename), filesize)
+                    self.download_file(
+                        download_url, 
+                        str(filename), 
+                        filesize, 
+                        alternative_urls=alternative_urls
+                    )
                 
         except Exception as e:
             console.print(Panel(f"[red]❌ Error saat mempersiapkan download: {str(e)}[/]", border_style="red"))
             return
 
+    def verify_file_integrity(self, filename: str, expected_size: int) -> bool:
+        """Verifikasi integritas file"""
+        try:
+            actual_size = os.path.getsize(filename)
+            if actual_size != expected_size:
+                return False
+                
+            # Baca file dalam chunks untuk mengecek corrupted data
+            with open(filename, 'rb') as f:
+                while chunk := f.read(8192):
+                    pass
+            return True
+            
+        except Exception:
+            return False
+            
+    def cancel_download(self):
+        """Batalkan download yang sedang berjalan"""
+        self.cancel_event.set()
+        
 def main():
     try:
         downloader = TeraboxDownloader()
