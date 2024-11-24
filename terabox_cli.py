@@ -32,8 +32,9 @@ console = Console()
 
 class TeraboxDownloader:
     def __init__(self):
-        self.chunk_size = 1024 * 1024  # 1MB chunks (dikurangi untuk update lebih sering)
-        self.max_workers = min(32, multiprocessing.cpu_count() * 2)
+        self.chunk_size = 4 * 1024 * 1024  # 4MB chunks
+        self.max_workers = min(64, multiprocessing.cpu_count() * 4)
+        self.session = self._create_session()
         self.progress = Progress(
             SpinnerColumn(),
             TextColumn("[bold blue]{task.fields[filename]}", justify="right"),
@@ -52,6 +53,25 @@ class TeraboxDownloader:
         self.total_downloaded = 0
         self.start_time = 0
         
+    def _create_session(self) -> requests.Session:
+        """Membuat session dengan optimasi"""
+        session = requests.Session()
+        adapter = requests.adapters.HTTPAdapter(
+            pool_connections=100,
+            pool_maxsize=100,
+            max_retries=3,
+            pool_block=False
+        )
+        session.mount('http://', adapter)
+        session.mount('https://', adapter)
+        session.headers.update({
+            'Connection': 'keep-alive',
+            'Keep-Alive': 'timeout=300',
+            'Accept-Encoding': 'gzip, deflate',
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+        })
+        return session
+
     def show_banner(self) -> None:
         """Menampilkan banner aplikasi"""
         banner = """
@@ -329,51 +349,54 @@ class TeraboxDownloader:
                 border_style="green"
             ))
 
-    def test_download_speed(self, urls: List[str], sample_size: int = 1024 * 1024) -> str:
-        fastest_url = None
-        fastest_speed = 0
+    def test_download_speed(self, urls: List[str], sample_size: int = 2 * 1024 * 1024) -> str:
+        """Test kecepatan dengan sample yang lebih besar dan parallel testing"""
+        results = []
         
-        # Gunakan session untuk reuse connection
-        session = requests.Session()
-        session.headers.update({'Connection': 'keep-alive'})
-
-        for url in urls:
+        def test_url(url):
             try:
                 start_time = time.time()
-                response = session.get(url, stream=True, timeout=5)
+                response = self.session.get(url, stream=True, timeout=5)
                 chunk = next(response.iter_content(chunk_size=sample_size))
                 duration = time.time() - start_time
-                speed = len(chunk) / duration
-
-                if speed > fastest_speed:
-                    fastest_speed = speed
-                    fastest_url = url
-
+                return (url, len(chunk) / duration)
             except Exception:
-                continue
+                return (url, 0)
 
-        return fastest_url or urls[0]
+        with concurrent.futures.ThreadPoolExecutor(max_workers=len(urls)) as executor:
+            futures = [executor.submit(test_url, url) for url in urls]
+            for future in concurrent.futures.as_completed(futures):
+                url, speed = future.result()
+                results.append((url, speed))
+
+        # Sort by speed descending
+        results.sort(key=lambda x: x[1], reverse=True)
+        return results[0][0] if results else urls[0]
 
     def download_chunk(self, url: str, start: int, end: int, filename: str, progress_callback) -> None:
         headers = {'Range': f'bytes={start}-{end}'}
-        try:
-            # Tambahkan timeout dan keepalive
-            session = requests.Session()
-            session.headers.update({'Connection': 'keep-alive'})
-            
-            with session.get(url, headers=headers, stream=True, timeout=30) as response:
-                response.raise_for_status()
-                with open(filename, 'r+b') as f:
-                    f.seek(start)
-                    # Gunakan memoryview untuk mengurangi copy memory
-                    for chunk in response.iter_content(chunk_size=self.chunk_size):
-                        if chunk:
-                            mv = memoryview(chunk)
-                            f.write(mv)
-                            with self.download_lock:
-                                progress_callback(len(chunk))
-        except Exception as e:
-            console.print(f"[red]Chunk download error: {str(e)}[/]")
+        retries = 3
+        
+        for attempt in range(retries):
+            try:
+                with self.session.get(url, headers=headers, stream=True, timeout=30) as response:
+                    response.raise_for_status()
+                    with open(filename, 'r+b') as f:
+                        mm = mmap.mmap(f.fileno(), 0)
+                        mm.seek(start)
+                        # Gunakan memoryview untuk efisiensi memory
+                        for chunk in response.iter_content(chunk_size=self.chunk_size):
+                            if chunk:
+                                mv = memoryview(chunk)
+                                mm.write(mv)
+                                with self.download_lock:
+                                    progress_callback(len(chunk))
+                        mm.close()
+                return  # Success
+            except Exception as e:
+                if attempt == retries - 1:  # Last attempt
+                    raise e
+                time.sleep(1)  # Wait before retry
 
     def download_file(self, url: str, filename: str, filesize: int, quiet: bool = False) -> bool:
         """Download file dengan multiple connections dan progress realtime"""
@@ -411,11 +434,18 @@ class TeraboxDownloader:
             console.print(Panel("[yellow]⚠️ File sudah lengkap![/]", border_style="yellow"))
             return True
 
-        # Bagi file menjadi chunk yang lebih kecil untuk update lebih smooth
-        chunk_size = max(remaining_size // (self.max_workers * 4), self.chunk_size)
+        # Optimize chunk distribution
+        chunk_size = max(remaining_size // (self.max_workers * 2), self.chunk_size)
         chunks = []
         
-        current_pos = existing_size
+        # Buat chunk yang lebih besar di awal untuk fast start
+        first_chunk_size = min(chunk_size * 2, remaining_size)
+        if first_chunk_size > 0:
+            chunks.append((existing_size, existing_size + first_chunk_size - 1))
+            current_pos = existing_size + first_chunk_size
+        else:
+            current_pos = existing_size
+
         while current_pos < filesize:
             start = current_pos
             end = min(start + chunk_size, filesize - 1)
@@ -437,8 +467,13 @@ class TeraboxDownloader:
                 self.total_downloaded += size
                 progress.update(task_id, advance=size)
 
-            # Download dengan ThreadPoolExecutor
-            with concurrent.futures.ThreadPoolExecutor(max_workers=self.max_workers) as executor:
+            # Gunakan ProcessPoolExecutor untuk CPU-bound tasks
+            if filesize > 100 * 1024 * 1024:  # > 100MB
+                executor_class = concurrent.futures.ProcessPoolExecutor
+            else:
+                executor_class = concurrent.futures.ThreadPoolExecutor
+
+            with executor_class(max_workers=self.max_workers) as executor:
                 futures = []
                 for start, end in chunks:
                     future = executor.submit(
