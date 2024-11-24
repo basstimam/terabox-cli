@@ -597,170 +597,178 @@ class TeraboxDownloader:
     def process_url(self, url: str, use_chunks: bool = False) -> None:
         """Memproses URL Terabox dan menangani download"""
         self.use_chunks = use_chunks
-        # Ekstrak path dari URL jika ada
         path = ''
         
-        # Handle URL dengan format baru
-        if 'path=' in url:
-            parsed_url = urlparse(url)
-            query_params = dict(param.split('=') for param in parsed_url.query.split('&'))
-            
-            # Ekstrak surl dan path
-            surl = query_params.get('surl', '')
-            path = query_params.get('path', '')
-            
-            # Buat URL baru tanpa path
-            base_url = f"https://www.terabox.com/sharing/link?surl={surl}"
-            url = base_url
-            
-            # Decode path
-            path = requests.utils.unquote(path)
-            
-        with console.status("[bold blue]🔍 Mengambil informasi file...[/]", spinner="dots"):
-            tf = TeraboxFile()
-            tf.search(url)
-        
-        if tf.result['status'] != 'success':
-            console.print(Panel("[red]❌ Gagal mendapatkan informasi file![/]", border_style="red"))
-            return
-            
-        # Jika ada path, coba dapatkan folder yang sesuai
-        files_to_show = tf.result['list']
-        if path:
-            # Bersihkan path dari karakter khusus
-            clean_path = path.strip('/')
-            folder_files = self.get_folder_by_path(files_to_show, clean_path)
-            
-            if folder_files is not None:
-                files_to_show = folder_files
-                console.print(Panel(f"[green]📂 Menampilkan isi folder: {clean_path}[/]", border_style="green"))
-            else:
-                console.print(Panel(f"[yellow]⚠️ Path folder tidak ditemukan: {clean_path}\nMenampilkan semua file[/]", border_style="yellow"))
-            
-        # Tampilkan daftar file
-        console.print("\n[bold cyan]📑 Daftar Semua File:[/]")
-        table = self.create_file_table(files_to_show)
-        console.print(table)
-        
-        # Tampilkan total informasi
-        flattened_files = self.flatten_files(files_to_show)
-        total_files = len([f for f in flattened_files if not f['is_dir']])
-        total_folders = len([f for f in flattened_files if f['is_dir']])
-        total_size = sum(int(f['size']) for f in flattened_files if not f['is_dir'])
-        
-        summary = Table.grid(padding=1)
-        summary.add_row("[bold cyan]Total File:[/]", f"{total_files}")
-        summary.add_row("[bold cyan]Total Folder:[/]", f"{total_folders}")
-        summary.add_row("[bold cyan]Total Ukuran:[/]", f"{self.format_size(total_size)}")
-        
-        console.print(Panel(summary, title="[bold]Ringkasan[/]", border_style="cyan"))
-        
-        # Pilih file
-        selected_file = self.select_file(files_to_show)
-        if not selected_file:
-            return
-            
-        # Handle download all dengan menyertakan path
-        if selected_file == "download_all":
-            self.download_all_files(files_to_show, tf, path)
-            return
-            
-        # Dapatkan link download
-        with console.status("[bold blue]🔗 Mengambil link download...[/]", spinner="dots"):
-            try:
-                tl = TeraboxLink(
-                    fs_id=str(selected_file['fs_id']),  # Pastikan dalam bentuk string
-                    uk=str(tf.result['uk']),
-                    shareid=str(tf.result['shareid']),
-                    timestamp=str(tf.result['timestamp']),
-                    sign=str(tf.result['sign']),
-                    js_token=str(tf.result['js_token']),
-                    cookie=str(tf.result['cookie'])
-                )
-                tl.generate()
-            except Exception as e:
-                console.print(Panel(f"[red]❌ Error saat mengambil link download: {str(e)}[/]", border_style="red"))
-                return
-        
-        if tl.result['status'] != 'success':
-            console.print(Panel("[red]❌ Gagal mendapatkan link download![/]", border_style="red"))
-            return
-
-        # Dapatkan URL download terbaik
         try:
-            download_urls = [
-                tl.result['download_link'].get('url_1', ''),
-                tl.result['download_link'].get('url_2', ''),
-                tl.result['download_link'].get('url_3', '')
-            ]
-            download_urls = [url for url in download_urls if url]  # Filter URL kosong
+            # Handle berbagai format URL
+            if 'surl=' in url:
+                parsed_url = urlparse(url)
+                # Ambil semua parameter query
+                query_params = dict(param.split('=', 1) for param in parsed_url.query.split('&') if '=' in param)
+                
+                # Ekstrak surl dan path
+                surl = query_params.get('surl', '')
+                path = query_params.get('path', '')
+                
+                # Buat URL baru hanya dengan parameter surl
+                base_url = f"https://www.terabox.com/sharing/link?surl={surl}"
+                url = base_url
+                
+                # Decode path jika ada
+                if path:
+                    path = requests.utils.unquote(path)
+                    
+            # Log URL yang akan diproses
+            self.logger.info(f"🔗 Memproses URL: {url}")
             
-            if not download_urls:
-                console.print(Panel("[red]❌ Tidak ada URL download yang valid![/]", border_style="red"))
+            with console.status("[bold blue]🔍 Mengambil informasi file...[/]", spinner="dots"):
+                tf = TeraboxFile()
+                tf.search(url)
+                
+            if tf.result['status'] != 'success':
+                console.print(Panel("[red]❌ Gagal mendapatkan informasi file![/]", border_style="red"))
                 return
             
-            # Tampilkan semua URL download yang tersedia
-            url_info = Table.grid(padding=1)
-            url_info.add_row("[bold cyan]URL Download yang tersedia:[/]")
-            for i, url in enumerate(download_urls, 1):
-                url_info.add_row(f"[yellow]URL {i}:[/] {url}")
-            console.print(Panel(url_info, border_style="blue"))
+            # Jika ada path, coba dapatkan folder yang sesuai
+            files_to_show = tf.result['list']
+            if path:
+                # Bersihkan path dari karakter khusus
+                clean_path = path.strip('/')
+                folder_files = self.get_folder_by_path(files_to_show, clean_path)
                 
-            # Pilih URL tercepat
-            download_url = self.test_download_speed(download_urls)
-            
-            if not download_url:
-                console.print(Panel("[yellow]⚠️ Gagal test kecepatan, menggunakan URL pertama[/]", border_style="yellow"))
-                download_url = download_urls[0]
-            
-            console.print(Panel(
-                f"[green]URL yang akan digunakan:[/]\n{download_url}",
-                border_style="green"
-            ))
-            
-        except Exception as e:
-            console.print(Panel(f"[red]❌ Error saat memproses URL download: {str(e)}[/]", border_style="red"))
-            return
-            
-        # Buat direktori downloads jika belum ada
-        download_dir = Path("downloads")
-        download_dir.mkdir(exist_ok=True)
-        
-        # Persiapkan download
-        try:
-            filename = download_dir / selected_file['name']
-            filesize = int(selected_file['size'])  # Pastikan size adalah integer
-            
-            # Tampilkan informasi file
-            file_info = Table.grid(padding=1)
-            file_info.add_row("[bold]Nama File:[/]", selected_file['name'])
-            file_info.add_row("[bold]Ukuran:[/]", self.format_size(filesize))
-            file_info.add_row("[bold]Lokasi:[/]", str(filename))
-            
-            console.print(Panel(
-                file_info,
-                title="[bold]Informasi Download[/]",
-                border_style="cyan"
-            ))
-            
-            if Confirm.ask("Mulai download?"):
-                # Dapatkan semua URL alternatif yang valid
-                alternative_urls = [url for url in download_urls if url and url != download_url]
-                
-                if self.use_chunks:
-                    self.download_file_chunked(download_url, str(filename), filesize)
+                if folder_files is not None:
+                    files_to_show = folder_files
+                    console.print(Panel(f"[green]📂 Menampilkan isi folder: {clean_path}[/]", border_style="green"))
                 else:
-                    self.download_file(
-                        download_url, 
-                        str(filename), 
-                        filesize, 
-                        alternative_urls=alternative_urls
+                    console.print(Panel(f"[yellow]⚠️ Path folder tidak ditemukan: {clean_path}\nMenampilkan semua file[/]", border_style="yellow"))
+            
+            # Tampilkan daftar file
+            console.print("\n[bold cyan]📑 Daftar Semua File:[/]")
+            table = self.create_file_table(files_to_show)
+            console.print(table)
+            
+            # Tampilkan total informasi
+            flattened_files = self.flatten_files(files_to_show)
+            total_files = len([f for f in flattened_files if not f['is_dir']])
+            total_folders = len([f for f in flattened_files if f['is_dir']])
+            total_size = sum(int(f['size']) for f in flattened_files if not f['is_dir'])
+            
+            summary = Table.grid(padding=1)
+            summary.add_row("[bold cyan]Total File:[/]", f"{total_files}")
+            summary.add_row("[bold cyan]Total Folder:[/]", f"{total_folders}")
+            summary.add_row("[bold cyan]Total Ukuran:[/]", f"{self.format_size(total_size)}")
+            
+            console.print(Panel(summary, title="[bold]Ringkasan[/]", border_style="cyan"))
+            
+            # Pilih file
+            selected_file = self.select_file(files_to_show)
+            if not selected_file:
+                return
+            
+            # Handle download all dengan menyertakan path
+            if selected_file == "download_all":
+                self.download_all_files(files_to_show, tf, path)
+                return
+            
+            # Dapatkan link download
+            with console.status("[bold blue]🔗 Mengambil link download...[/]", spinner="dots"):
+                try:
+                    tl = TeraboxLink(
+                        fs_id=str(selected_file['fs_id']),  # Pastikan dalam bentuk string
+                        uk=str(tf.result['uk']),
+                        shareid=str(tf.result['shareid']),
+                        timestamp=str(tf.result['timestamp']),
+                        sign=str(tf.result['sign']),
+                        js_token=str(tf.result['js_token']),
+                        cookie=str(tf.result['cookie'])
                     )
+                    tl.generate()
+                except Exception as e:
+                    console.print(Panel(f"[red]❌ Error saat mengambil link download: {str(e)}[/]", border_style="red"))
+                    return
+            
+            if tl.result['status'] != 'success':
+                console.print(Panel("[red]❌ Gagal mendapatkan link download![/]", border_style="red"))
+                return
+
+            # Dapatkan URL download terbaik
+            try:
+                download_urls = [
+                    tl.result['download_link'].get('url_1', ''),
+                    tl.result['download_link'].get('url_2', ''),
+                    tl.result['download_link'].get('url_3', '')
+                ]
+                download_urls = [url for url in download_urls if url]  # Filter URL kosong
+                
+                if not download_urls:
+                    console.print(Panel("[red]❌ Tidak ada URL download yang valid![/]", border_style="red"))
+                    return
+                
+                # Tampilkan semua URL download yang tersedia
+                url_info = Table.grid(padding=1)
+                url_info.add_row("[bold cyan]URL Download yang tersedia:[/]")
+                for i, url in enumerate(download_urls, 1):
+                    url_info.add_row(f"[yellow]URL {i}:[/] {url}")
+                console.print(Panel(url_info, border_style="blue"))
+                    
+                # Pilih URL tercepat
+                download_url = self.test_download_speed(download_urls)
+                
+                if not download_url:
+                    console.print(Panel("[yellow]⚠️ Gagal test kecepatan, menggunakan URL pertama[/]", border_style="yellow"))
+                    download_url = download_urls[0]
+                
+                console.print(Panel(
+                    f"[green]URL yang akan digunakan:[/]\n{download_url}",
+                    border_style="green"
+                ))
+                
+            except Exception as e:
+                console.print(Panel(f"[red]❌ Error saat memproses URL download: {str(e)}[/]", border_style="red"))
+                return
+            
+            # Buat direktori downloads jika belum ada
+            download_dir = Path("downloads")
+            download_dir.mkdir(exist_ok=True)
+            
+            # Persiapkan download
+            try:
+                filename = download_dir / selected_file['name']
+                filesize = int(selected_file['size'])  # Pastikan size adalah integer
+                
+                # Tampilkan informasi file
+                file_info = Table.grid(padding=1)
+                file_info.add_row("[bold]Nama File:[/]", selected_file['name'])
+                file_info.add_row("[bold]Ukuran:[/]", self.format_size(filesize))
+                file_info.add_row("[bold]Lokasi:[/]", str(filename))
+                
+                console.print(Panel(
+                    file_info,
+                    title="[bold]Informasi Download[/]",
+                    border_style="cyan"
+                ))
+                
+                if Confirm.ask("Mulai download?"):
+                    # Dapatkan semua URL alternatif yang valid
+                    alternative_urls = [url for url in download_urls if url and url != download_url]
+                    
+                    if self.use_chunks:
+                        self.download_file_chunked(download_url, str(filename), filesize)
+                    else:
+                        self.download_file(
+                            download_url, 
+                            str(filename), 
+                            filesize, 
+                            alternative_urls=alternative_urls
+                        )
+                    
+            except Exception as e:
+                console.print(Panel(f"[red]❌ Error saat mempersiapkan download: {str(e)}[/]", border_style="red"))
+                return
                 
         except Exception as e:
-            console.print(Panel(f"[red]❌ Error saat mempersiapkan download: {str(e)}[/]", border_style="red"))
+            console.print(Panel(f"[red]❌ Error: {str(e)}[/]", border_style="red"))
             return
-
     def verify_file_integrity(self, filename: str, expected_size: int) -> bool:
         """Verifikasi integritas file"""
         try:
