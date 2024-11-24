@@ -212,7 +212,7 @@ class TeraboxDownloader:
         return None
 
     def download_all_files(self, files: List[Dict[str, Any]], tf: Any, path: str = "") -> None:
-        """Download semua file dalam list"""
+        """Download semua file dalam list dengan metode sederhana"""
         flattened_files = [f for f in self.flatten_files(files) if not f['is_dir']]
         
         if not flattened_files:
@@ -238,23 +238,15 @@ class TeraboxDownloader:
         
         # Buat subfolder jika file > 5
         if total_files > 5:
-            # Tentukan nama folder
-            if path:
-                # Gunakan nama folder dari path
-                folder_name = path.strip('/').split('/')[-1]
-            else:
-                # Gunakan timestamp jika tidak ada path
-                folder_name = datetime.now().strftime("%Y%m%d_%H%M%S")
-                
-            # Bersihkan nama folder
+            folder_name = (path.strip('/').split('/')[-1] if path 
+                          else datetime.now().strftime("%Y%m%d_%H%M%S"))
             folder_name = ''.join(c for c in folder_name if c.isalnum() or c in (' ', '-', '_'))
-            download_dir = base_download_dir / folder_name
             
-            # Jika folder sudah ada, tambahkan angka
+            # Handle folder yang sudah ada
+            download_dir = base_download_dir / folder_name
             counter = 1
-            original_name = folder_name
             while download_dir.exists():
-                folder_name = f"{original_name}_{counter}"
+                folder_name = f"{folder_name}_{counter}"
                 download_dir = base_download_dir / folder_name
                 counter += 1
                 
@@ -270,7 +262,6 @@ class TeraboxDownloader:
         
         # Download setiap file
         for idx, file in enumerate(flattened_files, 1):
-            # Ganti print detail dengan progress yang lebih sederhana
             console.print(f"[bold blue]({idx}/{total_files})[/] ", end="")
             
             try:
@@ -303,26 +294,42 @@ class TeraboxDownloader:
                     failed_downloads.append((file['name'], "Tidak ada URL download yang valid"))
                     continue
                     
-                download_url = self.test_download_speed(download_urls)
+                # Test dan pilih URL terbaik
+                with console.status("🔄 Testing kecepatan server...", spinner="dots"):
+                    download_url = self.test_download_speed(download_urls)
                 
-                # Download file tanpa print detail selesai
+                # Download file
                 filename = download_dir / file['name']
                 filesize = int(file['size'])
                 
                 if self.download_file(download_url, str(filename), filesize, quiet=True):
                     successful_downloads += 1
+                    console.print(Panel(
+                        f"[green]✅ {file['name']} berhasil didownload[/]",
+                        border_style="green"
+                    ))
                 else:
                     failed_downloads.append((file['name'], "Gagal saat download"))
+                    console.print(Panel(
+                        f"[red]❌ {file['name']} gagal didownload[/]",
+                        border_style="red"
+                    ))
                 
             except Exception as e:
                 failed_downloads.append((file['name'], str(e)))
+                console.print(Panel(
+                    f"[red]❌ Error: {str(e)}[/]",
+                    border_style="red"
+                ))
                 continue
 
         # Tampilkan ringkasan akhir
         duration = time.time() - start_time
+        avg_speed = total_size / duration if duration > 0 else 0
         
         summary = Table.grid(padding=1)
         summary.add_row("[bold cyan]Total Waktu:[/]", f"{int(duration)} detik")
+        summary.add_row("[bold cyan]Kecepatan Rata-rata:[/]", f"{self.format_size(avg_speed)}/s")
         summary.add_row("[bold green]Berhasil Download:[/]", f"{successful_downloads} file")
         summary.add_row("[bold red]Gagal Download:[/]", f"{len(failed_downloads)} file")
         
@@ -336,11 +343,10 @@ class TeraboxDownloader:
             console.print(Panel(
                 Group(
                     Panel(summary, title="[bold]📊 Ringkasan Download[/]", border_style="cyan"),
-                    Panel(failed_table, title="[bold red]❌ Daftar File Gagal[/]", border_style="red"),
-                    padding=1
+                    Panel(failed_table, title="[bold red]❌ Daftar File Gagal[/]", border_style="red")
                 ),
                 title="[bold]Download Selesai[/]",
-                border_style="green" if not failed_downloads else "yellow"
+                border_style="yellow"
             ))
         else:
             console.print(Panel(
@@ -349,57 +355,44 @@ class TeraboxDownloader:
                 border_style="green"
             ))
 
-    def test_download_speed(self, urls: List[str], sample_size: int = 2 * 1024 * 1024) -> str:
-        """Test kecepatan dengan sample yang lebih besar dan parallel testing"""
+    def test_download_speed(self, urls: List[str], sample_size: int = 1024 * 1024) -> str:
+        """Test kecepatan download dari beberapa URL dan pilih yang tercepat"""
         results = []
         
         def test_url(url):
             try:
                 start_time = time.time()
                 response = self.session.get(url, stream=True, timeout=5)
-                chunk = next(response.iter_content(chunk_size=sample_size))
+                response.raise_for_status()
+                
+                # Baca chunk pertama saja
+                next(response.iter_content(chunk_size=sample_size))
+                
                 duration = time.time() - start_time
-                return (url, len(chunk) / duration)
+                latency = response.elapsed.total_seconds()
+                
+                # Hitung skor berdasarkan latency dan kecepatan
+                speed_score = sample_size / duration if duration > 0 else 0
+                latency_score = 1 / latency if latency > 0 else 0
+                total_score = speed_score * 0.7 + latency_score * 0.3
+                
+                return (url, total_score)
+                
             except Exception:
                 return (url, 0)
 
         with concurrent.futures.ThreadPoolExecutor(max_workers=len(urls)) as executor:
             futures = [executor.submit(test_url, url) for url in urls]
             for future in concurrent.futures.as_completed(futures):
-                url, speed = future.result()
-                results.append((url, speed))
+                url, score = future.result()
+                results.append((url, score))
 
-        # Sort by speed descending
+        # Sort berdasarkan skor tertinggi
         results.sort(key=lambda x: x[1], reverse=True)
         return results[0][0] if results else urls[0]
 
-    def download_chunk(self, url: str, start: int, end: int, filename: str, progress_callback) -> None:
-        headers = {'Range': f'bytes={start}-{end}'}
-        retries = 3
-        
-        for attempt in range(retries):
-            try:
-                with self.session.get(url, headers=headers, stream=True, timeout=30) as response:
-                    response.raise_for_status()
-                    with open(filename, 'r+b') as f:
-                        mm = mmap.mmap(f.fileno(), 0)
-                        mm.seek(start)
-                        # Gunakan memoryview untuk efisiensi memory
-                        for chunk in response.iter_content(chunk_size=self.chunk_size):
-                            if chunk:
-                                mv = memoryview(chunk)
-                                mm.write(mv)
-                                with self.download_lock:
-                                    progress_callback(len(chunk))
-                        mm.close()
-                return  # Success
-            except Exception as e:
-                if attempt == retries - 1:  # Last attempt
-                    raise e
-                time.sleep(1)  # Wait before retry
-
     def download_file(self, url: str, filename: str, filesize: int, quiet: bool = False) -> bool:
-        """Download file dengan multiple connections dan progress realtime"""
+        """Download file dengan metode sederhana dan progress realtime"""
         temp_filename = filename + ".part"
         mode = "wb"
         existing_size = 0
@@ -414,7 +407,7 @@ class TeraboxDownloader:
         if os.path.exists(temp_filename):
             existing_size = os.path.getsize(temp_filename)
             if existing_size < filesize:
-                mode = "r+b"
+                mode = "ab"  # Append mode untuk melanjutkan download
                 console.print(Panel(
                     f"[yellow]💡 Melanjutkan download dari {self.format_size(existing_size)}[/]",
                     border_style="yellow"
@@ -423,93 +416,56 @@ class TeraboxDownloader:
                 os.remove(temp_filename)
                 existing_size = 0
 
-        # Buat file kosong
-        if mode == "wb":
-            with open(temp_filename, "wb") as f:
-                f.truncate(filesize)
-
-        # Hitung chunk
-        remaining_size = filesize - existing_size
-        if remaining_size <= 0:
-            console.print(Panel("[yellow]⚠️ File sudah lengkap![/]", border_style="yellow"))
-            return True
-
-        # Optimize chunk distribution
-        chunk_size = max(remaining_size // (self.max_workers * 2), self.chunk_size)
-        chunks = []
-        
-        # Buat chunk yang lebih besar di awal untuk fast start
-        first_chunk_size = min(chunk_size * 2, remaining_size)
-        if first_chunk_size > 0:
-            chunks.append((existing_size, existing_size + first_chunk_size - 1))
-            current_pos = existing_size + first_chunk_size
-        else:
-            current_pos = existing_size
-
-        while current_pos < filesize:
-            start = current_pos
-            end = min(start + chunk_size, filesize - 1)
-            chunks.append((start, end))
-            current_pos = end + 1
-
         self.total_downloaded = existing_size
         self.start_time = time.time()
 
-        with self.progress as progress:
-            task_id = progress.add_task(
-                "download",
-                filename=os.path.basename(filename),
-                total=filesize
-            )
-            progress.update(task_id, completed=existing_size)
+        # Setup headers untuk resume download
+        headers = {}
+        if existing_size > 0:
+            headers['Range'] = f'bytes={existing_size}-'
 
-            def update_progress(size):
-                self.total_downloaded += size
-                progress.update(task_id, advance=size)
+        try:
+            with self.progress as progress:
+                task_id = progress.add_task(
+                    "download",
+                    filename=os.path.basename(filename),
+                    total=filesize
+                )
+                progress.update(task_id, completed=existing_size)
 
-            # Gunakan ProcessPoolExecutor untuk CPU-bound tasks
-            if filesize > 100 * 1024 * 1024:  # > 100MB
-                executor_class = concurrent.futures.ProcessPoolExecutor
+                with self.session.get(url, headers=headers, stream=True, timeout=30) as response:
+                    response.raise_for_status()
+                    with open(temp_filename, mode) as f:
+                        for chunk in response.iter_content(chunk_size=8192):
+                            if chunk:
+                                f.write(chunk)
+                                progress.update(task_id, advance=len(chunk))
+                                self.total_downloaded += len(chunk)
+
+            # Verifikasi file
+            if os.path.getsize(temp_filename) == filesize:
+                os.rename(temp_filename, filename)
+                if not quiet:
+                    duration = time.time() - self.start_time
+                    speed = filesize / duration if duration > 0 else 0
+                    console.print(Panel(
+                        f"[green]✅ Download selesai: {os.path.basename(filename)}\n"
+                        f"⚡ Kecepatan rata-rata: {self.format_size(speed)}/s\n"
+                        f"⏱️ Waktu: {int(duration)} detik[/]",
+                        border_style="green"
+                    ))
+                return True
             else:
-                executor_class = concurrent.futures.ThreadPoolExecutor
+                if not quiet:
+                    console.print(Panel(
+                        "[red]❌ File tidak lengkap, silakan coba download ulang[/]",
+                        border_style="red"
+                    ))
+                return False
 
-            with executor_class(max_workers=self.max_workers) as executor:
-                futures = []
-                for start, end in chunks:
-                    future = executor.submit(
-                        self.download_chunk,
-                        url, start, end,
-                        temp_filename,
-                        update_progress
-                    )
-                    futures.append(future)
-
-                # Monitor progress
-                done = 0
-                total = len(futures)
-                while done < total:
-                    done = sum(1 for f in futures if f.done())
-                    time.sleep(0.1)  # Prevent CPU overload
-
-        # Verifikasi file
-        if os.path.getsize(temp_filename) == filesize:
-            os.rename(temp_filename, filename)
-            if not quiet:  # Hanya print jika quiet=False
-                duration = time.time() - self.start_time
-                speed = filesize / duration if duration > 0 else 0
-                console.print(Panel(
-                    f"[green]✅ Download selesai: {os.path.basename(filename)}\n"
-                    f"⚡ Kecepatan rata-rata: {self.format_size(speed)}/s\n"
-                    f"⏱️ Waktu: {int(duration)} detik[/]",
-                    border_style="green"
-                ))
-            return True
-        else:
-            if not quiet:  # Hanya print jika quiet=False
-                console.print(Panel(
-                    "[red]❌ File tidak lengkap, silakan coba download ulang[/]",
-                    border_style="red"
-                ))
+        except Exception as e:
+            if not quiet:
+                console.print(Panel(f"[red]❌ Error saat download: {str(e)}[/]", border_style="red"))
             return False
 
     def get_folder_by_path(self, files: List[Dict[str, Any]], path: str) -> Optional[List[Dict[str, Any]]]:
