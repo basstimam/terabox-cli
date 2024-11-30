@@ -17,7 +17,6 @@ from rich.progress import (
     BarColumn,
     ProgressColumn,
     SpinnerColumn,
-    TaskProgressColumn,
     FileSizeColumn
 )
 from rich.prompt import Prompt, Confirm
@@ -45,7 +44,7 @@ class TeraboxDownloader:
             SpinnerColumn(spinner_name="dots"),
             TextColumn("[bold blue]{task.fields[filename]}", justify="right"),
             BarColumn(bar_width=40, complete_style="green", finished_style="bright_green"),
-            TaskProgressColumn(),
+            TextColumn("[progress.percentage]{task.percentage:>3.0f}%"),
             "•",
             FileSizeColumn(),
             "•", 
@@ -445,91 +444,96 @@ class TeraboxDownloader:
         return delay + jitter
 
     def download_file(self, url: str, filename: str, filesize: int, quiet: bool = False, alternative_urls: List[str] = None) -> bool:
-        """Download file dengan mekanisme retry dan failover ke URL alternatif"""
+        """Download file dengan tampilan progress yang lebih bersih"""
         self.cancel_event.clear()
         self.start_time = time.time()
         temp_filename = filename + ".tmp"
         
         try:
-            # Cek apakah bisa resume
-            if os.path.exists(temp_filename):
-                return self.resume_download(filename, url, filesize)
-            
             with requests.get(url, stream=True, timeout=self.read_timeout) as response:
                 response.raise_for_status()
                 
                 if not quiet:
+                    # Tampilkan informasi download sekali di awal
+                    info_table = Table.grid(padding=1)
+                    info_table.add_row("[cyan]Nama File:[/]", os.path.basename(filename))
+                    info_table.add_row("[cyan]Ukuran:[/]", self.format_size(filesize))
+                    
+                    console.print(Panel(
+                        info_table,
+                        title="[bold]Informasi Download[/]",
+                        border_style="cyan"
+                    ))
+                    
+                    # Buat progress bar tunggal
                     progress = Progress(
-                        SpinnerColumn(spinner_name="dots"),
-                        TextColumn("[bold blue]{task.description}", justify="right"),
-                        BarColumn(bar_width=40, complete_style="green", finished_style="bright_green"),
-                        TaskProgressColumn(),
-                        "•",
-                        FileSizeColumn(),
-                        "•",
+                        TextColumn("[bold blue]{task.fields[filename]}"),
+                        TextColumn("[dim cyan]•[/]"),
+                        BarColumn(bar_width=50, style="cyan", complete_style="green"),
+                        TextColumn("[dim cyan]•[/]"),
+                        TextColumn("[progress.percentage]{task.percentage:>3.1f}%"),
+                        TextColumn("[dim cyan]•[/]"),
                         DownloadColumn(),
-                        "•",
+                        TextColumn("[dim cyan]•[/]"),
                         TransferSpeedColumn(),
-                        "•",
+                        TextColumn("[dim cyan]•[/]"),
                         TimeRemainingColumn(),
-                        refresh_per_second=10,
                         expand=True
                     )
-                    task = progress.add_task(
-                        f"[cyan]Downloading {os.path.basename(filename)}...", 
-                        total=filesize,
-                        filename=os.path.basename(filename)
-                    )
                     
-                with open(temp_filename, 'wb') as f:
-                    with progress if not quiet else nullcontext():
-                        downloaded = 0
-                        for chunk in response.iter_content(chunk_size=self.chunk_size):
-                            if self.cancel_event.is_set():
-                                raise Exception("Download dibatalkan oleh pengguna")
-                                
+                    with progress:
+                        task_id = progress.add_task(
+                            "download",
+                            filename=os.path.basename(filename),
+                            total=filesize
+                        )
+                        
+                        with open(temp_filename, 'wb') as f:
+                            downloaded = 0
+                            for chunk in response.iter_content(chunk_size=8192):
+                                if self.cancel_event.is_set():
+                                    console.print("\n[bold red]Download dibatalkan![/]")
+                                    raise Exception("Download dibatalkan oleh pengguna")
+                                    
+                                if chunk:
+                                    f.write(chunk)
+                                    downloaded += len(chunk)
+                                    progress.update(task_id, completed=downloaded)
+                                    
+                            # Setelah selesai, tampilkan ringkasan
+                            duration = time.time() - self.start_time
+                            speed = filesize / duration if duration > 0 else 0
+                            
+                            console.print()  # Beri jarak
+                            summary = Table.grid(padding=1)
+                            summary.add_row("[bold green]✅ Download berhasil![/]")
+                            summary.add_row("[cyan]Total Waktu:[/]", f"{int(duration)} detik")
+                            summary.add_row("[cyan]Kecepatan Rata-rata:[/]", f"{self.format_size(speed)}/s")
+                            
+                            console.print(Panel(
+                                summary,
+                                title="[bold]Download Selesai[/]",
+                                border_style="green"
+                            ))
+                
+                else:
+                    # Download tanpa progress bar untuk quiet mode
+                    with open(temp_filename, 'wb') as f:
+                        for chunk in response.iter_content(chunk_size=8192):
                             if chunk:
                                 f.write(chunk)
-                                downloaded += len(chunk)
-                                if not quiet:
-                                    progress.update(
-                                        task, 
-                                        completed=downloaded,
-                                        refresh=True
-                                    )
-                                self.progress_callback(downloaded, filesize)
-                                    
+                
             # Verifikasi ukuran file
             if os.path.getsize(temp_filename) == filesize:
                 os.rename(temp_filename, filename)
-                if not quiet:
-                    duration = time.time() - self.start_time
-                    speed = filesize / duration if duration > 0 else 0
-                    console.print(Panel(
-                        Group(
-                            "[green]✅ Download berhasil![/]",
-                            Table.grid(padding=1)
-                                .add_row("[bold]File:[/]", os.path.basename(filename))
-                                .add_row("[bold]Ukuran:[/]", self.format_size(filesize))
-                                .add_row("[bold]Kecepatan:[/]", f"{self.format_size(speed)}/s")
-                                .add_row("[bold]Waktu:[/]", f"{int(duration)} detik")
-                        ),
-                        title="[bold]Download Selesai[/]",
-                        border_style="green"
-                    ))
                 return True
             else:
-                raise Exception("File size mismatch")
+                raise Exception("Ukuran file tidak sesuai")
 
         except Exception as e:
+            if os.path.exists(temp_filename):
+                os.remove(temp_filename)
             self.handle_error(e, "Download gagal")
-            
-            # Coba URL alternatif jika ada
-            if alternative_urls:
-                for alt_url in alternative_urls:
-                    console.print("[yellow]Mencoba URL alternatif...[/]")
-                    if self.download_file(alt_url, filename, filesize, quiet=True):
-                        return True
             return False
 
     def get_folder_by_path(self, files: List[Dict[str, Any]], path: str) -> Optional[List[Dict[str, Any]]]:
