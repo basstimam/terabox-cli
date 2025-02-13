@@ -2,7 +2,7 @@ import os
 import sys
 import time
 import requests
-from typing import Optional, List, Dict, Any
+from typing import Optional, List, Dict, Any, Tuple
 from pathlib import Path
 from datetime import datetime
 from rich.console import Console
@@ -32,13 +32,17 @@ from rich.console import Group
 import random
 import logging
 from contextlib import nullcontext
+import subprocess
+import json
+import shutil
+import aria2p
 
 console = Console()
 
 class TeraboxDownloader:
     def __init__(self):
-        self.chunk_size = 4 * 1024 * 1024  # 4MB chunks
-        self.max_workers = min(32, multiprocessing.cpu_count() * 4)  # Batasi max workers
+        self.chunk_size = 16 * 1024 * 1024  # Meningkatkan chunk size ke 16MB
+        self.max_workers = min(64, multiprocessing.cpu_count() * 8)  # Meningkatkan jumlah workers
         self.session = self._create_session()
         self.progress = Progress(
             SpinnerColumn(spinner_name="dots"),
@@ -62,12 +66,203 @@ class TeraboxDownloader:
         self.url_speed_cache = {}
         self.setup_logging()
         self.cancel_event = threading.Event()
-        self.retry_delay = 3
-        self.connect_timeout = 30
-        self.read_timeout = 60
-        self.retry_timeout = 300
+        self.retry_delay = 2  # Mengurangi delay retry
+        self.connect_timeout = 15  # Mengurangi timeout koneksi
+        self.read_timeout = 30  # Mengurangi read timeout
+        self.retry_timeout = 180  # Mengurangi retry timeout
         self.last_request_time = 0
-        self.min_request_interval = 1.0
+        self.min_request_interval = 0.5  # Mengurangi interval minimum antar request
+        
+        # Setup direktori untuk log URL
+        self.url_log_dir = Path("url_logs")
+        self.url_log_dir.mkdir(exist_ok=True)
+        
+        # Cek keberadaan aria2c
+        self.use_aria2 = self._setup_aria2()
+        if not self.use_aria2:
+            console.print(Panel("[yellow]⚠️ aria2 tidak ditemukan, menggunakan metode download default[/]", border_style="yellow"))
+
+    def _setup_aria2(self) -> bool:
+        """Setup aria2 dan aria2p"""
+        try:
+            # Cek di folder lokal dulu
+            local_aria2 = Path("aria2/aria2c.exe")
+            if local_aria2.exists():
+                # Start aria2c daemon
+                cmd = [
+                    str(local_aria2),
+                    "--enable-rpc",
+                    "--rpc-listen-all=false",
+                    "--rpc-listen-port=6800",
+                    "--max-concurrent-downloads=1",
+                    "--max-connection-per-server=16",
+                    "--split=16",
+                    "--min-split-size=1M",
+                    "--max-overall-download-limit=0",
+                    "--max-download-limit=0",
+                    "--file-allocation=none",
+                    "--daemon=true"
+                ]
+                subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+                
+                # Initialize aria2p API
+                self.aria2 = aria2p.API(
+                    aria2p.Client(
+                        host="http://localhost",
+                        port=6800,
+                        secret=""
+                    )
+                )
+                return True
+            return False
+        except Exception as e:
+            self.logger.error(f"Error setting up aria2: {str(e)}")
+            return False
+
+    def _create_aria2_config(self) -> str:
+        """Membuat konfigurasi aria2"""
+        trackers = """udp://93.158.213.92:1337/announce
+udp://91.216.110.53:451/announce
+udp://185.243.218.213:80/announce
+udp://23.157.120.14:6969/announce
+udp://45.154.96.35:6969/announce
+udp://23.153.248.83:6969/announce
+udp://51.159.54.68:6666/announce
+http://34.94.76.146:6969/announce
+http://34.94.76.146:2710/announce
+http://34.94.76.146:80/announce
+udp://83.6.230.142:6969/announce
+udp://54.39.48.3:6969/announce
+udp://210.61.187.208:80/announce
+udp://135.125.202.143:6969/announce
+udp://144.126.245.19:6969/announce
+udp://209.141.59.25:6969/announce
+udp://108.53.194.223:6969/announce
+udp://52.58.128.163:6969/announce
+udp://47.243.23.189:6969/announce
+udp://211.75.210.220:6969/announce
+udp://tracker.opentrackr.org:1337/announce
+udp://open.demonii.com:1337/announce
+udp://open.tracker.cl:1337/announce
+udp://tracker.torrent.eu.org:451/announce
+udp://open.stealth.si:80/announce
+udp://exodus.desync.com:6969/announce
+udp://explodie.org:6969/announce
+udp://tracker.tiny-vps.com:6969/announce
+udp://tracker.theoks.net:6969/announce
+udp://tracker.qu.ax:6969/announce
+udp://tracker.dump.cl:6969/announce
+udp://tracker.0x7c0.com:6969/announce
+udp://tracker-udp.gbitt.info:80/announce
+udp://opentracker.io:6969/announce
+udp://open.dstud.io:6969/announce
+udp://ns-1.x-fins.com:6969/announce
+udp://bt.ktrackers.com:6666/announce
+http://tracker.xiaoduola.xyz:6969/announce
+http://tracker.lintk.me:2710/announce
+http://bt.poletracker.org:2710/announce"""
+
+        config = {
+            'max-connection-per-server': '16',
+            'min-split-size': '1M',
+            'split': '16',
+            'max-concurrent-downloads': '1',
+            'continue': 'true',
+            'max-tries': '0',
+            'retry-wait': '3',
+            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+            'bt-tracker': trackers.replace('\n', ','),
+            'enable-dht': 'true',
+            'enable-peer-exchange': 'true',
+            'bt-enable-lpd': 'true',
+            'bt-max-peers': '0',
+            'bt-request-peer-speed-limit': '50M',
+            'seed-ratio': '0.0'
+        }
+        
+        config_path = Path('aria2.conf')
+        with open(config_path, 'w') as f:
+            for key, value in config.items():
+                f.write(f'{key}={value}\n')
+                
+        return str(config_path)
+
+    def download_with_aria2(self, url: str, filename: str, filesize: int, quiet: bool = False) -> bool:
+        """Download file menggunakan aria2p"""
+        try:
+            if not quiet:
+                console.print(Panel("[bold cyan]🚀 Memulai download dengan aria2...[/]", border_style="cyan"))
+            
+            # Tambahkan download ke aria2
+            download = self.aria2.add_uris(
+                [url],
+                options={
+                    "dir": str(Path(filename).parent),
+                    "out": Path(filename).name,
+                    "max-connection-per-server": "16",
+                    "split": "16",
+                    "min-split-size": "1M",
+                    "max-concurrent-downloads": "1",
+                    "continue": "true",
+                    "max-tries": "10",
+                    "retry-wait": "3",
+                    "connect-timeout": "60",
+                    "timeout": "60",
+                    "max-file-not-found": "5",
+                    "max-overall-download-limit": "0",
+                    "max-download-limit": "0",
+                    "file-allocation": "none",
+                    "auto-file-renaming": "false",
+                    "allow-overwrite": "true"
+                }
+            )
+            
+            # Monitor progress
+            last_progress = -1
+            no_progress_time = time.time()
+            
+            while not download.is_complete:
+                if self.cancel_event.is_set():
+                    download.remove()
+                    console.print("\n[bold red]Download dibatalkan![/]")
+                    return False
+                
+                try:
+                    download.update()
+                    progress = download.progress
+                    speed = download.download_speed
+                    
+                    if progress != last_progress:
+                        last_progress = progress
+                        no_progress_time = time.time()
+                        if not quiet:
+                            console.print(f"[cyan]Progress: {progress:.1f}% ({self.format_size(speed)}/s)[/]")
+                    elif time.time() - no_progress_time > 30:
+                        raise Exception("Download timeout - tidak ada progress selama 30 detik")
+                        
+                except aria2p.client.ClientException as e:
+                    self.logger.error(f"Aria2 error: {str(e)}")
+                    if not quiet:
+                        console.print(f"[red]Error: {str(e)}[/]")
+                    continue
+                    
+                time.sleep(1)
+            
+            # Verifikasi hasil download
+            if os.path.exists(filename):
+                actual_size = os.path.getsize(filename)
+                if actual_size == filesize:
+                    if not quiet:
+                        console.print(Panel("[bold green]✅ Download selesai![/]", border_style="green"))
+                    return True
+                else:
+                    raise Exception(f"Ukuran file tidak sesuai (expected: {filesize}, actual: {actual_size})")
+            
+            raise Exception("File tidak ditemukan setelah download selesai")
+            
+        except Exception as e:
+            self.handle_error(e, "Download dengan aria2 gagal")
+            return False
 
     def setup_logging(self):
         """Setup sistem logging"""
@@ -80,7 +275,7 @@ class TeraboxDownloader:
             level=logging.INFO,
             format='%(asctime)s - %(levelname)s - %(message)s',
             handlers=[
-                logging.FileHandler(log_file),
+                logging.FileHandler(log_file, encoding='utf-8'),
                 logging.StreamHandler()
             ]
         )
@@ -90,9 +285,9 @@ class TeraboxDownloader:
         """Membuat session dengan optimasi"""
         session = requests.Session()
         adapter = requests.adapters.HTTPAdapter(
-            pool_connections=100,
-            pool_maxsize=100,
-            max_retries=3,
+            pool_connections=200,  # Meningkatkan jumlah koneksi
+            pool_maxsize=200,  # Meningkatkan pool size
+            max_retries=5,  # Meningkatkan jumlah retry
             pool_block=False
         )
         session.mount('http://', adapter)
@@ -101,7 +296,11 @@ class TeraboxDownloader:
             'Connection': 'keep-alive',
             'Keep-Alive': 'timeout=300',
             'Accept-Encoding': 'gzip, deflate',
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+            'Accept': '*/*',  # Menambahkan header accept
+            'Accept-Language': 'en-US,en;q=0.9',  # Menambahkan header bahasa
+            'Cache-Control': 'no-cache',  # Menambahkan cache control
+            'Pragma': 'no-cache'  # Menambahkan pragma
         })
         return session
 
@@ -245,7 +444,7 @@ class TeraboxDownloader:
         return None
 
     def download_all_files(self, files: List[Dict[str, Any]], tf: Any, path: str = "") -> None:
-        """Download semua file dalam list dengan metode sederhana"""
+        """Download semua file dalam list dengan aria2p"""
         flattened_files = [f for f in self.flatten_files(files) if not f['is_dir']]
         
         if not flattened_files:
@@ -315,38 +514,113 @@ class TeraboxDownloader:
                     failed_downloads.append((file['name'], "Gagal mendapatkan link download"))
                     continue
                     
-                # Dapatkan URL download terbaik
-                download_urls = [
-                    tl.result['download_link'].get('url_1', ''),
-                    tl.result['download_link'].get('url_2', ''),
-                    tl.result['download_link'].get('url_3', '')
-                ]
-                download_urls = [url for url in download_urls if url]
-                
-                if not download_urls:
+                # Dapatkan URL download dengan domain d.terabox.com
+                download_url = tl.result['download_link'].get('url_1', '')
+                if download_url:
+                    download_url = download_url.replace('//cdn.', '//d.').replace('//c.', '//d.').replace('//b.', '//d.').replace('//a.', '//d.')
+                else:
                     failed_downloads.append((file['name'], "Tidak ada URL download yang valid"))
                     continue
+                
+                # Download file dengan aria2 jika tersedia
+                if self.use_aria2:
+                    filename = download_dir / file['name']
+                    filesize = int(file['size'])
                     
-                # Test dan pilih URL terbaik
-                with console.status("🔄 Testing kecepatan server...", spinner="dots"):
-                    download_url = self.test_download_speed(download_urls)
-                
-                # Download file
-                filename = download_dir / file['name']
-                filesize = int(file['size'])
-                
-                if self.download_file(download_url, str(filename), filesize, quiet=True):
-                    successful_downloads += 1
-                    console.print(Panel(
-                        f"[green]✅ {file['name']} berhasil didownload[/]",
-                        border_style="green"
-                    ))
+                    # Tambahkan download ke aria2
+                    try:
+                        download = self.aria2.add_uris(
+                            [download_url],
+                            options={
+                                "dir": str(download_dir),
+                                "out": file['name'],
+                                "max-connection-per-server": "16",
+                                "split": "16",
+                                "min-split-size": "1M",
+                                "max-concurrent-downloads": "1",
+                                "continue": "true",
+                                "max-tries": "10",
+                                "retry-wait": "3",
+                                "connect-timeout": "60",
+                                "timeout": "60",
+                                "max-file-not-found": "5",
+                                "max-overall-download-limit": "0",
+                                "max-download-limit": "0",
+                                "file-allocation": "none",
+                                "auto-file-renaming": "false",
+                                "allow-overwrite": "true"
+                            }
+                        )
+                        
+                        # Monitor progress
+                        last_progress = -1
+                        no_progress_time = time.time()
+                        
+                        while not download.is_complete:
+                            if self.cancel_event.is_set():
+                                download.remove()
+                                console.print("\n[bold red]Download dibatalkan![/]")
+                                return
+                            
+                            try:
+                                download.update()
+                                progress = download.progress
+                                speed = download.download_speed
+                                
+                                if progress != last_progress:
+                                    last_progress = progress
+                                    no_progress_time = time.time()
+                                    console.print(f"[cyan]Progress: {progress:.1f}% ({self.format_size(speed)}/s)[/]")
+                                elif time.time() - no_progress_time > 30:
+                                    raise Exception("Download timeout - tidak ada progress selama 30 detik")
+                                    
+                            except aria2p.client.ClientException as e:
+                                self.logger.error(f"Aria2 error: {str(e)}")
+                                console.print(f"[red]Error: {str(e)}[/]")
+                                continue
+                                
+                            time.sleep(1)
+                        
+                        # Verifikasi hasil download
+                        if os.path.exists(filename):
+                            actual_size = os.path.getsize(filename)
+                            if actual_size == filesize:
+                                successful_downloads += 1
+                                console.print(Panel(
+                                    f"[green]✅ {file['name']} berhasil didownload[/]",
+                                    border_style="green"
+                                ))
+                                continue
+                            else:
+                                raise Exception(f"Ukuran file tidak sesuai (expected: {filesize}, actual: {actual_size})")
+                        
+                        raise Exception("File tidak ditemukan setelah download selesai")
+                        
+                    except Exception as e:
+                        failed_downloads.append((file['name'], str(e)))
+                        console.print(Panel(
+                            f"[red]❌ {file['name']} gagal didownload: {str(e)}[/]",
+                            border_style="red"
+                        ))
+                        continue
+                        
                 else:
-                    failed_downloads.append((file['name'], "Gagal saat download"))
-                    console.print(Panel(
-                        f"[red]❌ {file['name']} gagal didownload[/]",
-                        border_style="red"
-                    ))
+                    # Gunakan metode download default jika aria2 tidak tersedia
+                    filename = download_dir / file['name']
+                    filesize = int(file['size'])
+                    
+                    if self.download_file(download_url, str(filename), filesize, quiet=True):
+                        successful_downloads += 1
+                        console.print(Panel(
+                            f"[green]✅ {file['name']} berhasil didownload[/]",
+                            border_style="green"
+                        ))
+                    else:
+                        failed_downloads.append((file['name'], "Gagal saat download"))
+                        console.print(Panel(
+                            f"[red]❌ {file['name']} gagal didownload[/]",
+                            border_style="red"
+                        ))
                 
             except Exception as e:
                 failed_downloads.append((file['name'], str(e)))
@@ -390,49 +664,17 @@ class TeraboxDownloader:
 
     def test_download_speed(self, urls: List[str], sample_size: int = 1024 * 1024) -> str:
         """Test kecepatan download dengan caching"""
-        # Cek cache dulu
-        cached_urls = [url for url in urls if url in self.url_speed_cache]
-        if cached_urls:
-            return max(cached_urls, key=lambda u: self.url_speed_cache[u])
+        # Ambil URL dengan domain d.terabox.com
+        for url in urls:
+            if 'd.terabox.com' in url:
+                return url
+                
+        # Jika tidak ada yang menggunakan d.terabox.com, ubah domain URL pertama
+        if urls:
+            url = urls[0]
+            return url.replace('//cdn.', '//d.').replace('//c.', '//d.').replace('//b.', '//d.').replace('//a.', '//d.')
             
-        results = []
-        
-        def test_url(url):
-            try:
-                start_time = time.time()
-                response = self.session.get(url, stream=True, timeout=5)
-                response.raise_for_status()
-                
-                # Baca chunk pertama saja
-                next(response.iter_content(chunk_size=sample_size))
-                
-                duration = time.time() - start_time
-                latency = response.elapsed.total_seconds()
-                
-                # Hitung skor berdasarkan latency dan kecepatan
-                speed_score = sample_size / duration if duration > 0 else 0
-                latency_score = 1 / latency if latency > 0 else 0
-                total_score = speed_score * 0.7 + latency_score * 0.3
-                
-                return (url, total_score)
-                
-            except Exception:
-                return (url, 0)
-
-        with concurrent.futures.ThreadPoolExecutor(max_workers=len(urls)) as executor:
-            futures = [executor.submit(test_url, url) for url in urls]
-            for future in concurrent.futures.as_completed(futures):
-                url, score = future.result()
-                results.append((url, score))
-
-        # Sort berdasarkan skor tertinggi
-        results.sort(key=lambda x: x[1], reverse=True)
-        
-        # Simpan hasil ke cache
-        for url, score in results:
-            self.url_speed_cache[url] = score
-            
-        return results[0][0] if results else urls[0]
+        return urls[0] if urls else ""
 
     def calculate_delay(self, attempt: int) -> float:
         """Menghitung delay untuk retry dengan exponential backoff"""
@@ -444,9 +686,15 @@ class TeraboxDownloader:
         return delay + jitter
 
     def download_file(self, url: str, filename: str, filesize: int, quiet: bool = False, alternative_urls: List[str] = None) -> bool:
-        """Download file dengan tampilan progress yang lebih bersih"""
+        """Download file dengan aria2 atau metode default"""
         self.cancel_event.clear()
         self.start_time = time.time()
+        
+        # Gunakan aria2 jika tersedia
+        if self.use_aria2:
+            return self.download_with_aria2(url, filename, filesize, quiet)
+            
+        # Jika aria2 tidak tersedia, gunakan metode default
         temp_filename = filename + ".tmp"
         
         try:
@@ -557,11 +805,33 @@ class TeraboxDownloader:
                 return None
         return current_files
 
+    def log_urls(self, filename: str, urls: List[str], url_types: List[str]) -> None:
+        """Mencatat URL ke dalam file log"""
+        try:
+            log_file = self.url_log_dir / f"url_log_{datetime.now():%Y%m%d}.txt"
+            
+            with open(log_file, 'a', encoding='utf-8') as f:
+                f.write(f"\n{'='*50}\n")
+                f.write(f"Timestamp: {datetime.now():%Y-%m-%d %H:%M:%S}\n")
+                f.write(f"File: {filename}\n")
+                f.write(f"{'='*50}\n")
+                
+                for url_type, url in zip(url_types, urls):
+                    f.write(f"\n{url_type}:\n{url}\n")
+                
+                f.write(f"\n{'='*50}\n")
+                
+        except Exception as e:
+            self.logger.error(f"Gagal mencatat URL: {str(e)}")
+
     def process_url(self, url: str) -> None:
         """Memproses URL Terabox dan menangani download"""
         path = ''
         
         try:
+            # Ganti emoji dengan teks biasa untuk logging
+            self.logger.info(f"[LINK] Memproses URL: {url}")
+            
             # Handle berbagai format URL
             if 'surl=' in url:
                 parsed_url = urlparse(url)
@@ -636,7 +906,7 @@ class TeraboxDownloader:
             with console.status("[bold blue]🔗 Mengambil link download...[/]", spinner="dots"):
                 try:
                     tl = TeraboxLink(
-                        fs_id=str(selected_file['fs_id']),  # Pastikan dalam bentuk string
+                        fs_id=str(selected_file['fs_id']),
                         uk=str(tf.result['uk']),
                         shareid=str(tf.result['shareid']),
                         timestamp=str(tf.result['timestamp']),
@@ -652,43 +922,15 @@ class TeraboxDownloader:
             if tl.result['status'] != 'success':
                 console.print(Panel("[red]❌ Gagal mendapatkan link download![/]", border_style="red"))
                 return
-
-            # Dapatkan URL download terbaik
-            try:
-                download_urls = [
-                    tl.result['download_link'].get('url_1', ''),
-                    tl.result['download_link'].get('url_2', ''),
-                    tl.result['download_link'].get('url_3', '')
-                ]
-                download_urls = [url for url in download_urls if url]  # Filter URL kosong
                 
-                if not download_urls:
-                    console.print(Panel("[red]❌ Tidak ada URL download yang valid![/]", border_style="red"))
-                    return
-                
-                # Tampilkan semua URL download yang tersedia
-                url_info = Table.grid(padding=1)
-                url_info.add_row("[bold cyan]URL Download yang tersedia:[/]")
-                for i, url in enumerate(download_urls, 1):
-                    url_info.add_row(f"[yellow]URL {i}:[/] {url}")
-                console.print(Panel(url_info, border_style="blue"))
-                    
-                # Pilih URL tercepat
-                download_url = self.test_download_speed(download_urls)
-                
-                if not download_url:
-                    console.print(Panel("[yellow]⚠️ Gagal test kecepatan, menggunakan URL pertama[/]", border_style="yellow"))
-                    download_url = download_urls[0]
-                
-                console.print(Panel(
-                    f"[green]URL yang akan digunakan:[/]\n{download_url}",
-                    border_style="green"
-                ))
-                
-            except Exception as e:
-                console.print(Panel(f"[red]❌ Error saat memproses URL download: {str(e)}[/]", border_style="red"))
+            # Dapatkan URL download dengan domain d.terabox.com
+            download_url = tl.result['download_link'].get('url_1', '')
+            if download_url:
+                download_url = download_url.replace('//cdn.', '//d.').replace('//c.', '//d.').replace('//b.', '//d.').replace('//a.', '//d.')
+            else:
+                console.print(Panel("[red]❌ Tidak ada URL download yang valid![/]", border_style="red"))
                 return
-            
+
             # Buat direktori downloads jika belum ada
             download_dir = Path("downloads")
             download_dir.mkdir(exist_ok=True)
@@ -710,9 +952,42 @@ class TeraboxDownloader:
                     border_style="cyan"
                 ))
                 
-                if Confirm.ask("Mulai download?"):
+                # Tampilkan opsi untuk download atau copy
+                console.print("\n[bold yellow]Pilihan:[/]")
+                console.print("[green]y[/] - Mulai download")
+                console.print("[red]n[/] - Batalkan")
+                console.print("[cyan]c[/] - Copy semua URL")
+                
+                choice = Prompt.ask(
+                    "\n[bold yellow]Pilihan Anda[/]",
+                    choices=["y", "n", "c"],
+                    default="y"
+                )
+                
+                if choice == "c":
+                    # Buat teks URL yang akan disalin
+                    url_text = "\nURL Download Terabox:\n"
+                    url_text += f"Normal Speed: {download_url}\n"
+                    
+                    # Catat URL ke dalam log
+                    self.log_urls(selected_file['name'], [download_url], ["Normal Speed"])
+                    
+                    # Tampilkan URL yang bisa disalin
+                    console.print(Panel(
+                        f"[green]Berikut adalah semua URL yang bisa disalin:[/]\n{url_text}\n[cyan]URL telah dicatat di: {self.url_log_dir}[/]",
+                        title="[bold]📋 Copy URL[/]",
+                        border_style="cyan"
+                    ))
+                    
+                    # Tanya apakah ingin melanjutkan download
+                    if Confirm.ask("\nLanjutkan download?"):
+                        choice = "y"
+                    else:
+                        return
+                
+                if choice == "y":
                     # Dapatkan semua URL alternatif yang valid
-                    alternative_urls = [url for url in download_urls if url and url != download_url]
+                    alternative_urls = [url for url in [download_url] if url and url != download_url]
                     
                     self.download_file(
                         download_url, 
@@ -728,6 +1003,7 @@ class TeraboxDownloader:
         except Exception as e:
             console.print(Panel(f"[red]❌ Error: {str(e)}[/]", border_style="red"))
             return
+
     def verify_file_integrity(self, filename: str, expected_size: int) -> bool:
         """Verifikasi integritas file"""
         try:
