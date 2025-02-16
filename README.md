@@ -29,42 +29,17 @@ A fast and easy-to-use TeraBox file downloader application. Available in both Co
 2. Extract the zip file to your desired folder
 3. Run `Trauso.exe`
 
-### Method 2: Install from Source
-
-```bash
-# Clone repository
-git clone https://github.com/basstimam/terabox-cli.git
-cd terabox-cli
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Run the application
-# For GUI:
-python terabox_gui.py
-# For CLI:
-python terabox_cli.py <terabox_url>
-```
 
 ## 📚 Usage
 
 ### GUI Version
 
-1. Run `Trauso.exe` or `python terabox_gui.py`
+1. Run `Trauso.exe` 
 2. Paste your TeraBox URL
 3. Click "Process URL"
 4. Select the files you want to download
 5. Click "Download Selected" or "Download All"
 
-### CLI Version
-
-```bash
-# Download single file/folder
-python terabox_cli.py "https://terabox.com/s/xxx"
-
-# Help
-python terabox_cli.py --help
-```
 
 ## ⚙️ Configuration
 
@@ -136,7 +111,7 @@ If you find this application helpful, you can support the development through:
 ## 📞 Contact
 
 - GitHub: [@basstimam](https://github.com/basstimam)
-- Email: [your.email@example.com]
+- Email: [basstimam@gmail.com]
 
 ## 🙏 Credits
 
