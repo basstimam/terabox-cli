@@ -6,7 +6,7 @@ import queue
 import json
 import os
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timedelta
 from terabox_cli import TeraboxDownloader
 import logging
 from rich.console import Console
@@ -31,25 +31,20 @@ class TeraboxGUI:
     
     def __init__(self):
         """Initialize the TeraBox GUI application."""
-        # Cache untuk menyimpan data file yang sering diakses
         self._file_cache = {}
         self._last_file_check = 0
-        self._cache_timeout = 300  # 5 menit
+        self._cache_timeout = 300
         
-        # Queue untuk update UI
         self._ui_update_queue = queue.Queue()
         self._ui_update_running = False
         
-        self.root = tk.Tk()  # Gunakan tk.Tk() untuk Sun Valley theme
+        self.root = tk.Tk()
         self.root.title("Trauso")
         
-        # Setup logging first
         self.setup_logging()
         
-        # Set window icon
         try:
-            # Convert SVG to PNG using PIL
-            svg_path = Path("icon/box.svg")
+            svg_path = Path("icon/box.svg") if Path("icon/box.svg").exists() else Path("_internal/icon/box.svg")
             if svg_path.exists():
                 from cairosvg import svg2png
                 png_data = svg2png(url=str(svg_path), output_width=64, output_height=64)
@@ -63,64 +58,50 @@ class TeraboxGUI:
         self.root.geometry("1000x700")
         self.root.minsize(800, 600)
 
-        # Apply Sun Valley theme
         sv_ttk.set_theme("light")
         
-        # Initialize downloader dengan thread pool
         self.downloader = TeraboxDownloader()
         self.console = Console()
         self.download_queue = queue.Queue()
         self.current_downloads = {}
         
-        # Setup thread pool untuk download
         self.download_pool = ThreadPoolExecutor(max_workers=min(32, multiprocessing.cpu_count() * 4))
         
-        # Setup chunk size dan workers
-        self.chunk_size = 16 * 1024 * 1024  # 16MB chunk size
+        self.chunk_size = 16 * 1024 * 1024
         self.max_workers = min(64, multiprocessing.cpu_count() * 8)
         
-        # Load saved settings
         self.config_file = Path("config/settings.json")
         self.config_file.parent.mkdir(exist_ok=True)
         self.settings = self.load_settings()
         
-        # Update trackers
         self.update_trackers()
         
-        # Setup aria2
         self._setup_aria2()
         
-        # Load download history
         self.history_file = Path("config/download_history.json")
         self.history_file.parent.mkdir(exist_ok=True)
         self.download_history = self.load_download_history()
         
-        # Create main container dengan padding yang lebih kecil
         self.main_container = ttk.Frame(self.root)
         self.main_container.pack(fill=tk.BOTH, expand=True, padx=5, pady=5)
         
-        # Create and setup UI components
         self.create_header()
         self.create_url_input()
         self.create_file_list()
         self.create_download_progress()
         self.create_status_bar()
         
-        # Initialize variables
         self.current_url = ""
         self.file_list_data = []
         
-        # Bind events
         self.root.protocol("WM_DELETE_WINDOW", self.on_closing)
         
-        # Cek pembaruan saat startup
-        self.root.after(1000, self.check_updates_on_startup)  # Cek setelah 1 detik
+        self.root.after(1000, self.check_updates_on_startup)
         
     def setup_styles(self):
         """Setup custom styles for widgets."""
         style = ttk.Style()
         
-        # Konfigurasi style untuk tombol accent
         style.configure("Accent.TButton",
             font=("Segoe UI", 9)
         )
@@ -162,7 +143,6 @@ class TeraboxGUI:
             padding=5
         )
         
-        # Add theme toggle button
         self.theme_button = ttk.Button(
             self.main_container,
             text="🌓",
@@ -199,12 +179,10 @@ class TeraboxGUI:
     def _setup_aria2(self) -> bool:
         """Setup aria2 dan aria2p"""
         try:
-            # Cek di folder lokal dulu
             local_aria2 = Path("aria2/aria2c.exe")
             if not local_aria2.exists():
                 local_aria2 = Path("_internal/aria2/aria2c.exe")
             if local_aria2.exists():
-                # Start aria2c daemon dengan konfigurasi yang sama dengan CLI
                 cmd = [
                     str(local_aria2),
                     "--enable-rpc",
@@ -218,7 +196,7 @@ class TeraboxGUI:
                     "--max-download-limit=0",
                     "--file-allocation=none",
                     "--daemon=true",
-                    f"--disk-cache={self.chunk_size}",  # Set disk cache sama dengan chunk size
+                    f"--disk-cache={self.chunk_size}",
                     "--async-dns=true",
                     "--enable-mmap=true",
                     "--optimize-concurrent-downloads=true",
@@ -231,9 +209,8 @@ class TeraboxGUI:
                     "--min-tls-version=TLSv1.2"
                 ]
                 
-                # Gunakan CREATE_NO_WINDOW flag untuk mencegah munculnya console window
                 startupinfo = None
-                if os.name == 'nt':  # Windows
+                if os.name == 'nt':
                     startupinfo = subprocess.STARTUPINFO()
                     startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
                     startupinfo.wShowWindow = subprocess.SW_HIDE
@@ -246,7 +223,6 @@ class TeraboxGUI:
                     creationflags=subprocess.CREATE_NO_WINDOW if os.name == 'nt' else 0
                 )
                 
-                # Initialize aria2p API
                 self.aria2 = aria2p.API(
                     aria2p.Client(
                         host="http://localhost",
@@ -271,11 +247,9 @@ class TeraboxGUI:
         header_frame = ttk.Frame(self.main_container)
         header_frame.pack(fill=tk.X, pady=(0, 10))
 
-        # Container untuk tombol donate di kiri
         donate_container = ttk.Frame(header_frame)
         donate_container.pack(side=tk.LEFT, padx=5)
 
-        # Donate button
         donate_btn = ttk.Button(
             donate_container,
             text="☕ Donate",
@@ -284,11 +258,9 @@ class TeraboxGUI:
         )
         donate_btn.pack(side=tk.LEFT)
         
-        # Container untuk logo dan judul
         title_container = ttk.Frame(header_frame)
         title_container.pack(expand=True)
         
-        # Logo
         logo_label = ttk.Label(
             title_container,
             text="📦",
@@ -296,7 +268,6 @@ class TeraboxGUI:
         )
         logo_label.pack(side=tk.LEFT, padx=5)
         
-        # Title
         title_label = ttk.Label(
             title_container,
             text="Trauso",
@@ -304,7 +275,6 @@ class TeraboxGUI:
         )
         title_label.pack(side=tk.LEFT)
         
-        # Subtitle
         subtitle = ttk.Label(
             header_frame,
             text="A lightning fast terabox downloader",
@@ -321,7 +291,6 @@ class TeraboxGUI:
         )
         url_frame.pack(fill=tk.X, pady=(0, 10), padx=5)
         
-        # URL Entry dengan padding
         self.url_var = tk.StringVar()
         url_entry = ttk.Entry(
             url_frame,
@@ -330,7 +299,6 @@ class TeraboxGUI:
         )
         url_entry.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=(5, 10))
         
-        # Process Button dengan style accent
         process_btn = ttk.Button(
             url_frame,
             text="Process URL",
@@ -348,11 +316,9 @@ class TeraboxGUI:
         )
         list_frame.pack(fill=tk.BOTH, expand=True, pady=(0, 10), padx=5)
         
-        # Container untuk treeview dan tombol
         tree_container = ttk.Frame(list_frame)
         tree_container.pack(fill=tk.BOTH, expand=True)
         
-        # Create Treeview dengan style modern
         columns = ("Name", "Type", "Size", "Status")
         self.tree = ttk.Treeview(
             tree_container,
@@ -361,7 +327,6 @@ class TeraboxGUI:
             style="Treeview"
         )
         
-        # Setup columns dengan proporsi yang lebih baik
         self.tree.heading("Name", text="File Name")
         self.tree.heading("Type", text="Type")
         self.tree.heading("Size", text="Size")
@@ -372,23 +337,18 @@ class TeraboxGUI:
         self.tree.column("Size", width=100)
         self.tree.column("Status", width=100)
         
-        # Scrollbar yang menyatu dengan Treeview
         scrollbar = ttk.Scrollbar(tree_container, orient=tk.VERTICAL, command=self.tree.yview)
         self.tree.configure(yscrollcommand=scrollbar.set)
         
-        # Pack elements dengan padding
         self.tree.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
         scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
         
-        # Button frame dengan layout yang lebih rapi
         btn_frame = ttk.Frame(list_frame)
         btn_frame.pack(fill=tk.X, pady=(5, 0))
         
-        # Container untuk tombol download di kiri
         download_container = ttk.Frame(btn_frame)
         download_container.pack(side=tk.LEFT)
         
-        # Download buttons dengan style yang konsisten
         download_btn = ttk.Button(
             download_container,
             text="Download Selected",
@@ -405,11 +365,9 @@ class TeraboxGUI:
         )
         download_all_btn.pack(side=tk.LEFT)
         
-        # Container untuk tombol di kanan
         right_btn_container = ttk.Frame(btn_frame)
         right_btn_container.pack(side=tk.RIGHT)
 
-        # Theme toggle button
         theme_btn = ttk.Button(
             right_btn_container,
             text="🌓",
@@ -419,7 +377,6 @@ class TeraboxGUI:
         )
         theme_btn.pack(side=tk.LEFT, padx=(0, 5))
 
-        # History button
         history_btn = ttk.Button(
             right_btn_container,
             text="📋 History",
@@ -428,7 +385,6 @@ class TeraboxGUI:
         )
         history_btn.pack(side=tk.LEFT, padx=(0, 5))
 
-        # Settings button
         settings_btn = ttk.Button(
             right_btn_container,
             text="⚙️ Settings",
@@ -446,11 +402,9 @@ class TeraboxGUI:
         )
         progress_frame.pack(fill=tk.X, pady=(0, 10), padx=5)
         
-        # Progress info frame dengan layout yang lebih baik
         info_frame = ttk.Frame(progress_frame)
         info_frame.pack(fill=tk.X, pady=(0, 5))
         
-        # File name label dengan style yang konsisten
         self.current_file_label = ttk.Label(
             info_frame,
             text="",
@@ -458,7 +412,6 @@ class TeraboxGUI:
         )
         self.current_file_label.pack(side=tk.LEFT)
         
-        # Speed and ETA frame
         stats_frame = ttk.Frame(info_frame)
         stats_frame.pack(side=tk.RIGHT)
         
@@ -476,11 +429,9 @@ class TeraboxGUI:
         )
         self.eta_label.pack(side=tk.LEFT)
         
-        # Progress bar frame dengan layout yang lebih baik
         bar_frame = ttk.Frame(progress_frame)
         bar_frame.pack(fill=tk.X, pady=(0, 5))
         
-        # Progress bar yang lebih tebal dan modern
         self.progress_var = tk.DoubleVar()
         self.progress_bar = ttk.Progressbar(
             bar_frame,
@@ -490,7 +441,6 @@ class TeraboxGUI:
         )
         self.progress_bar.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=(0, 5))
         
-        # Cancel button dengan style yang konsisten
         self.cancel_btn = ttk.Button(
             bar_frame,
             text="❌ Cancel",
@@ -499,7 +449,6 @@ class TeraboxGUI:
         )
         self.cancel_btn.pack(side=tk.RIGHT)
         
-        # Progress details dengan layout yang lebih baik
         details_frame = ttk.Frame(progress_frame)
         details_frame.pack(fill=tk.X)
         
@@ -517,7 +466,6 @@ class TeraboxGUI:
         )
         self.size_label.pack(side=tk.RIGHT)
         
-        # Inisialisasi flag cancel
         self.cancel_flag = threading.Event()
         
     def create_status_bar(self):
@@ -576,42 +524,34 @@ class TeraboxGUI:
         settings_window.transient(self.root)
         settings_window.grab_set()
         
-        # Create notebook for settings categories
         notebook = ttk.Notebook(settings_window)
         notebook.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
         
-        # Aria2 Settings
         aria2_frame = ttk.Frame(notebook, padding=10)
         notebook.add(aria2_frame, text="Aria2")
         
-        # Aria2 settings
         ttk.Label(aria2_frame, text="Aria2 Configuration").pack(anchor=tk.W)
         
-        # Max connections
         ttk.Label(aria2_frame, text="Max Connections:").pack(anchor=tk.W)
         max_conn = ttk.Entry(aria2_frame)
         max_conn.insert(0, str(self.settings.get("max_connections", 16)))
         max_conn.pack(fill=tk.X, pady=5)
         
-        # Split
         ttk.Label(aria2_frame, text="Split:").pack(anchor=tk.W)
         split = ttk.Entry(aria2_frame)
         split.insert(0, str(self.settings.get("split", 16)))
         split.pack(fill=tk.X, pady=5)
         
-        # Min split size
         ttk.Label(aria2_frame, text="Min Split Size:").pack(anchor=tk.W)
         min_split = ttk.Entry(aria2_frame)
         min_split.insert(0, self.settings.get("min_split_size", "1M"))
         min_split.pack(fill=tk.X, pady=5)
         
-        # User Agent
         ttk.Label(aria2_frame, text="User Agent:").pack(anchor=tk.W)
         user_agent = ttk.Entry(aria2_frame)
         user_agent.insert(0, self.settings.get("user_agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"))
         user_agent.pack(fill=tk.X, pady=5)
         
-        # Tombol reset User Agent
         def reset_user_agent():
             default_ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
             user_agent.delete(0, tk.END)
@@ -624,11 +564,9 @@ class TeraboxGUI:
         )
         reset_ua_btn.pack(pady=5)
         
-        # Download Settings
         download_frame = ttk.Frame(notebook, padding=10)
         notebook.add(download_frame, text="Download")
         
-        # Download directory
         ttk.Label(download_frame, text="Download Directory:").pack(anchor=tk.W)
         dir_frame = ttk.Frame(download_frame)
         dir_frame.pack(fill=tk.X, pady=5)
@@ -646,11 +584,9 @@ class TeraboxGUI:
         browse_btn = ttk.Button(dir_frame, text="Browse", command=choose_dir)
         browse_btn.pack(side=tk.RIGHT, padx=5)
 
-        # About Settings
         about_frame = ttk.Frame(notebook, padding=10)
         notebook.add(about_frame, text="About")
 
-        # Add version and author info
         version_container = ttk.Frame(about_frame)
         version_container.pack(fill=tk.X, pady=5)
         
@@ -691,10 +627,8 @@ class TeraboxGUI:
         )
         donate_btn.pack(pady=5)
         
-        # Save button
         def save_settings():
             try:
-                # Update settings
                 self.settings.update({
                     "download_dir": dir_entry.get(),
                     "max_connections": int(max_conn.get()),
@@ -703,7 +637,6 @@ class TeraboxGUI:
                     "user_agent": user_agent.get()
                 })
                 
-                # Save to file
                 self.save_settings()
                 
                 messagebox.showinfo("Success", "Settings saved successfully!")
@@ -732,7 +665,6 @@ class TeraboxGUI:
         
         def process():
             try:
-                # Cek cache
                 current_time = time.time()
                 if url in self._file_cache and current_time - self._last_file_check < self._cache_timeout:
                     self.file_list_data = self._file_cache[url]
@@ -741,14 +673,12 @@ class TeraboxGUI:
                     return
                     
                 from terabox1 import TeraboxFile
-                # Get file information
                 tf = TeraboxFile()
                 tf.search(url)
                 
                 if tf.result['status'] != 'success':
                     raise Exception("Failed to get file information!")
                     
-                # Save important information for download
                 self.current_uk = tf.result['uk']
                 self.current_shareid = tf.result['shareid']
                 self.current_timestamp = tf.result['timestamp']
@@ -756,10 +686,8 @@ class TeraboxGUI:
                 self.current_js_token = tf.result['js_token']
                 self.current_cookie = tf.result['cookie']
                 
-                # Update UI with file list
                 self.file_list_data = self.downloader.flatten_files(tf.result['list'])
                 
-                # Update cache
                 self._file_cache[url] = self.file_list_data
                 self._last_file_check = current_time
                 
@@ -838,12 +766,9 @@ class TeraboxGUI:
         """Download a single file."""
         filename = None
         try:
-            # Reset cancel flag
             self.cancel_flag.clear()
-            # Enable cancel button
             self.root.after(0, lambda: self.cancel_btn.config(state=tk.NORMAL))
             
-            # Get download link
             self.logger.info(f"Getting download link for {file_data['name']}...")
             from terabox1 import TeraboxLink
             tl = TeraboxLink(
@@ -862,27 +787,22 @@ class TeraboxGUI:
                 self.logger.error(error_msg)
                 raise Exception(error_msg)
                 
-            # Get download URL and force d.terabox.com domain
             download_url = tl.result['download_link'].get('url_1', '')
             if not download_url:
                 raise Exception("Tidak ada URL download yang valid!")
                 
-            # Pastikan menggunakan d.terabox.com
             download_url = download_url.replace('//cdn.', '//d.').replace('//c.', '//d.').replace('//b.', '//d.').replace('//a.', '//d.')
             self.logger.info(f"URL download: {download_url}")
                 
-            # Prepare download - gunakan direktori dari settings
             download_dir = Path(self.settings.get("download_dir", "downloads"))
             download_dir.mkdir(exist_ok=True)
             
             filename = download_dir / file_data['name']
             filesize = int(file_data['size'])
             
-            # Start download
             self.status_var.set(f"Downloading: {file_data['name']}")
             self.logger.info(f"Starting download {file_data['name']} ({self.downloader.format_size(filesize)})")
             
-            # Update status in treeview
             for item in self.tree.get_children():
                 if self.tree.item(item)['values'][0] == file_data['name']:
                     self.tree.set(item, "Status", "Downloading...")
@@ -890,11 +810,9 @@ class TeraboxGUI:
             
             self.start_time = time.time()
             
-            # Buat konfigurasi aria2 dengan trackers
             aria2_config = self.downloader._create_aria2_config()
             self.logger.info("Konfigurasi aria2 berhasil dibuat dengan trackers")
             
-            # Tambahkan download ke aria2 dengan konfigurasi dari settings dan optimasi
             download = self.aria2.add_uris(
                 [download_url],
                 options={
@@ -934,7 +852,6 @@ class TeraboxGUI:
             )
             self.logger.info("Download berhasil ditambahkan ke aria2 dengan priority network")
             
-            # Monitor progress dengan optimasi
             last_update_time = time.time()
             last_downloaded = 0
             retry_count = 0
@@ -951,16 +868,13 @@ class TeraboxGUI:
                     download.update()
                     current_time = time.time()
                     
-                    # Batasi update progress ke 4 kali per detik
                     if current_time - last_update_time >= 0.25:
                         downloaded = download.completed_length
                         speed = download.download_speed
                         
-                        # Log progress lebih detail
                         progress = (downloaded / filesize) * 100
                         self.logger.info(f"Progress: {progress:.1f}% Speed: {self.downloader.format_size(speed)}/s Downloaded: {self.downloader.format_size(downloaded)} / {self.downloader.format_size(filesize)}")
                         
-                        # Update UI
                         self.update_progress_ui(
                             file_data['name'],
                             downloaded,
@@ -968,19 +882,16 @@ class TeraboxGUI:
                             speed
                         )
                         
-                        # Deteksi jika download stuck dengan optimasi
                         if downloaded == last_downloaded:
                             stall_time = current_time - last_progress_time
-                            if stall_time > 30:  # Jika stuck lebih dari 30 detik
+                            if stall_time > 30:
                                 retry_count += 1
                                 self.logger.warning(f"Download stuck selama {stall_time:.1f} detik")
                                 
                                 if retry_count >= max_retries:
-                                    # Coba restart download dengan parameter berbeda dan optimasi
                                     self.logger.info("Download stuck, mencoba restart dengan parameter berbeda...")
                                     download.remove()
                                     
-                                    # Coba dengan parameter yang berbeda dan optimasi
                                     download = self.aria2.add_uris(
                                         [download_url],
                                         options={
@@ -1015,14 +926,11 @@ class TeraboxGUI:
                     
                 time.sleep(0.1)
             
-            # Verifikasi hasil download dengan lebih ketat
             if os.path.exists(filename):
                 actual_size = os.path.getsize(filename)
                 if actual_size == filesize:
-                    # Coba baca file untuk memastikan integritas
                     try:
                         with open(filename, 'rb') as f:
-                            # Baca file dalam chunks untuk verifikasi
                             chunk_size = 8192
                             while chunk := f.read(chunk_size):
                                 pass
@@ -1038,7 +946,6 @@ class TeraboxGUI:
                 success = False
                 self.logger.error("File tidak ditemukan setelah download")
                 
-            # Update final status in treeview
             for item in self.tree.get_children():
                 if self.tree.item(item)['values'][0] == file_data['name']:
                     status = "Completed" if success else "Failed"
@@ -1061,7 +968,6 @@ class TeraboxGUI:
                 if os.path.exists(filename):
                     os.remove(filename)
                 
-            # Reset progress UI
             self.root.after(0, lambda: [
                 self.progress_var.set(0),
                 self.current_file_label.config(text=""),
@@ -1076,7 +982,6 @@ class TeraboxGUI:
             self.logger.error(f"Error downloading {file_data['name']}: {str(e)}")
             self.status_var.set(f"Error: {str(e)}")
             self.add_to_history(file_data, "Error")
-            # Update status error di treeview
             for item in self.tree.get_children():
                 if self.tree.item(item)['values'][0] == file_data['name']:
                     status = "Cancelled"
@@ -1084,10 +989,8 @@ class TeraboxGUI:
                         status = "Cancelled"
                     self.tree.set(item, "Status", status)
                     break
-            # Hapus file yang gagal
             if filename and os.path.exists(filename):
                 os.remove(filename)
-            # Disable cancel button
             self.root.after(0, lambda: self.cancel_btn.config(state=tk.DISABLED))
             
     def get_file_data(self, item: str) -> Optional[Dict[str, Any]]:
@@ -1104,7 +1007,6 @@ class TeraboxGUI:
     def on_closing(self):
         """Handle application closing."""
         if messagebox.askokcancel("Exit", "Are you sure you want to exit?"):
-            # Kill proses aria2c.exe sebelum menutup aplikasi
             self.kill_aria2_process()
             self.root.quit()
             
@@ -1115,15 +1017,12 @@ class TeraboxGUI:
     def update_progress_ui(self, file_name: str, downloaded: int, total: int, speed: float):
         """Update progress UI with download information."""
         try:
-            # Batasi update UI ke maksimal 4 kali per detik untuk mengurangi beban
             current_time = time.time()
             if not hasattr(self, '_last_ui_update') or current_time - self._last_ui_update >= 0.25:
                 self._last_ui_update = current_time
                 
-                # Calculate progress percentage
                 progress = (downloaded / total) * 100
                 
-                # Calculate ETA
                 if speed > 0:
                     eta_seconds = (total - downloaded) / speed
                     if eta_seconds < 60:
@@ -1135,12 +1034,10 @@ class TeraboxGUI:
                 else:
                     eta_text = "ETA: Calculating..."
                 
-                # Format sizes
                 current_size = self.downloader.format_size(downloaded)
                 total_size = self.downloader.format_size(total)
                 speed_text = f"{self.downloader.format_size(speed)}/s"
                 
-                # Queue update UI untuk diproses di thread utama
                 self._ui_update_queue.put({
                     'progress': progress,
                     'file_name': file_name,
@@ -1150,7 +1047,6 @@ class TeraboxGUI:
                     'size_text': f"{current_size} / {total_size}"
                 })
                 
-                # Start UI update thread jika belum berjalan
                 if not self._ui_update_running:
                     self._start_ui_update_thread()
                 
@@ -1163,7 +1059,6 @@ class TeraboxGUI:
             self._ui_update_running = True
             while True:
                 try:
-                    # Get semua update yang tersedia
                     updates = []
                     while not self._ui_update_queue.empty():
                         updates.append(self._ui_update_queue.get_nowait())
@@ -1172,10 +1067,8 @@ class TeraboxGUI:
                         self._ui_update_running = False
                         break
                         
-                    # Ambil update terakhir saja
                     update = updates[-1]
                     
-                    # Update UI elements
                     self.root.after(0, lambda: [
                         self.progress_var.set(update['progress']),
                         self.current_file_label.config(text=update['file_name']),
@@ -1185,7 +1078,7 @@ class TeraboxGUI:
                         self.size_label.config(text=update['size_text'])
                     ])
                     
-                    time.sleep(0.25)  # Limit update rate
+                    time.sleep(0.25)
                     
                 except queue.Empty:
                     self._ui_update_running = False
@@ -1207,27 +1100,22 @@ class TeraboxGUI:
     def update_trackers(self):
         """Download dan update trackers dari GitHub."""
         try:
-            # URL trackers dari dua sumber
             trackers_urls = [
                 "https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt",
                 "https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt"
             ]
             
-            # Path untuk file trackers
             trackers_file = Path("config/trackers.txt")
             
-            # Hapus file lama jika ada
             if trackers_file.exists():
                 trackers_file.unlink()
             
-            # Download dan gabungkan trackers dari kedua sumber
-            combined_trackers = set()  # Gunakan set untuk menghindari duplikat
+            combined_trackers = set()
             
             for url in trackers_urls:
                 try:
                     response = requests.get(url)
                     response.raise_for_status()
-                    # Tambahkan trackers ke set, hilangkan baris kosong
                     trackers = set(line.strip() for line in response.text.split('\n') if line.strip())
                     combined_trackers.update(trackers)
                     self.logger.info(f"Berhasil mengambil trackers dari {url}")
@@ -1235,17 +1123,14 @@ class TeraboxGUI:
                     self.logger.error(f"Error mengambil trackers dari {url}: {str(e)}")
             
             if combined_trackers:
-                # Simpan trackers yang sudah digabung
                 trackers_file.write_text('\n'.join(sorted(combined_trackers)))
                 self.logger.info(f"Berhasil menyimpan {len(combined_trackers)} trackers unik")
             else:
-                # Jika kedua sumber gagal, gunakan trackers default
                 trackers_file.write_text(self.downloader._get_default_trackers())
                 self.logger.info("Menggunakan trackers default karena gagal mengambil dari sumber online")
             
         except Exception as e:
             self.logger.error(f"Error updating trackers: {str(e)}")
-            # Jika gagal total, gunakan trackers default
             if not trackers_file.exists():
                 trackers_file.write_text(self.downloader._get_default_trackers())
                 self.logger.info("Menggunakan trackers default")
@@ -1253,14 +1138,12 @@ class TeraboxGUI:
     def _create_aria2_config(self) -> str:
         """Membuat konfigurasi aria2 dengan trackers dari file."""
         try:
-            # Baca trackers dari file
             trackers_file = Path("config/trackers.txt")
             if not trackers_file.exists():
                 self.update_trackers()
             
             trackers = trackers_file.read_text().strip()
             
-            # Buat konfigurasi
             config = {
                 'max-connection-per-server': str(self.settings.get("max_connections", 16)),
                 'min-split-size': self.settings.get("min_split_size", "1M"),
@@ -1279,7 +1162,6 @@ class TeraboxGUI:
                 'seed-ratio': '0.0'
             }
             
-            # Simpan konfigurasi
             config_path = Path('aria2.conf')
             with open(config_path, 'w') as f:
                 for key, value in config.items():
@@ -1289,7 +1171,6 @@ class TeraboxGUI:
             
         except Exception as e:
             self.logger.error(f"Error creating aria2 config: {str(e)}")
-            # Gunakan konfigurasi dari CLI jika gagal
             return self.downloader._create_aria2_config()
 
     def load_download_history(self) -> List[Dict[str, Any]]:
@@ -1325,8 +1206,8 @@ class TeraboxGUI:
             "status": status,
             "location": file_path
         }
-        self.download_history.insert(0, history_entry)  # Add to start of list
-        if len(self.download_history) > 100:  # Keep only last 100 entries
+        self.download_history.insert(0, history_entry)
+        if len(self.download_history) > 100:
             self.download_history = self.download_history[:100]
         self.save_download_history()
 
@@ -1334,11 +1215,10 @@ class TeraboxGUI:
         """Show download history window."""
         history_window = tk.Toplevel(self.root)
         history_window.title("Download History")
-        history_window.geometry("1000x500")  # Perbesar window untuk menampung kolom lokasi
+        history_window.geometry("1000x500")
         history_window.transient(self.root)
         history_window.grab_set()
 
-        # Create treeview for history
         columns = ("Name", "Size", "Date", "Status", "Location")
         tree = ttk.Treeview(
             history_window,
@@ -1347,7 +1227,6 @@ class TeraboxGUI:
             style="Treeview"
         )
 
-        # Setup columns
         tree.heading("Name", text="File Name")
         tree.heading("Size", text="Size")
         tree.heading("Date", text="Date")
@@ -1360,15 +1239,12 @@ class TeraboxGUI:
         tree.column("Status", width=100)
         tree.column("Location", width=400)
 
-        # Add scrollbar
         scrollbar = ttk.Scrollbar(history_window, orient=tk.VERTICAL, command=tree.yview)
         tree.configure(yscrollcommand=scrollbar.set)
 
-        # Pack elements
         tree.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
         scrollbar.pack(side=tk.RIGHT, fill=tk.Y, pady=5)
 
-        # Add clear history button
         btn_frame = ttk.Frame(history_window)
         btn_frame.pack(fill=tk.X, padx=5, pady=5)
 
@@ -1379,14 +1255,13 @@ class TeraboxGUI:
         )
         clear_btn.pack(side=tk.RIGHT)
 
-        # Populate treeview
         for entry in self.download_history:
             tree.insert("", tk.END, values=(
                 entry['name'],
                 self.downloader.format_size(entry['size']),
                 entry['date'],
                 entry['status'],
-                entry.get('location', 'N/A')  # Gunakan N/A jika lokasi tidak ada (untuk kompatibilitas dengan riwayat lama)
+                entry.get('location', 'N/A')
             ))
 
     def clear_history(self, tree: ttk.Treeview):
@@ -1403,60 +1278,34 @@ class TeraboxGUI:
 
     def get_version(self):
         """Get application version."""
-        return "1.0.0"  # Versi statis untuk saat ini
+        return "1.0.0"
 
     def check_for_updates(self) -> None:
-        """Cek pembaruan dari GitHub repository."""
+        """Check for updates from GitHub repository."""
         try:
-            # URL API GitHub untuk mengecek rilis terbaru
-            api_url = "https://api.github.com/repos/basstimam/terabox-cli/releases/latest"
+            release_url = "https://github.com/basstimam/terabox-cli/releases"
             
-            response = requests.get(api_url)
-            response.raise_for_status()
-            
-            latest_release = response.json()
-            latest_version = latest_release['tag_name'].lstrip('v')
-            current_version = self.get_version()
-            
-            if latest_version > current_version:
-                # Ada versi baru tersedia
-                message = f"Versi baru tersedia!\n\nVersi saat ini: {current_version}\nVersi terbaru: {latest_version}\n\nApakah Anda ingin mengunduh versi terbaru?"
-                if messagebox.askyesno("Update Tersedia", message):
-                    webbrowser.open(latest_release['html_url'])
-            else:
-                messagebox.showinfo("Check Update", "Anda sudah menggunakan versi terbaru!")
+            if messagebox.askyesno("Check Update", "Buka halaman release di browser?"):
+                webbrowser.open(release_url)
             
         except Exception as e:
             self.logger.error(f"Error checking for updates: {str(e)}")
-            messagebox.showerror("Error", "Gagal mengecek pembaruan. Silakan coba lagi nanti.")
+            messagebox.showerror("Error", "Gagal membuka halaman update. Silakan coba lagi nanti.")
 
     def check_updates_on_startup(self) -> None:
-        """Cek pembaruan saat aplikasi pertama kali dijalankan."""
+        """Check for updates when application first starts."""
         try:
-            # URL API GitHub untuk mengecek rilis terbaru
-            api_url = "https://api.github.com/repos/arumam1/terabox-downloader-cli/releases/latest"
+            release_url = "https://github.com/basstimam/terabox-cli/releases/tag/release"
             
-            response = requests.get(api_url)
-            response.raise_for_status()
-            
-            latest_release = response.json()
-            latest_version = latest_release['tag_name'].lstrip('v')
-            current_version = self.get_version()
-            
-            if latest_version > current_version:
-                # Ada versi baru tersedia
-                message = f"Versi baru tersedia!\n\nVersi saat ini: {current_version}\nVersi terbaru: {latest_version}\n\nApakah Anda ingin mengunduh versi terbaru?"
-                if messagebox.askyesno("Update Tersedia", message):
-                    webbrowser.open(latest_release['html_url'])
+            if messagebox.askyesno("Check Update", "Buka halaman release di browser?"):
+                webbrowser.open(release_url)
             
         except Exception as e:
             self.logger.error(f"Error checking for updates on startup: {str(e)}")
-            # Tidak perlu menampilkan pesan error ke user saat startup
 
     def kill_aria2_process(self):
         """Kill proses aria2c.exe saat program ditutup."""
         try:
-            # Gunakan taskkill untuk mematikan proses aria2c.exe
             subprocess.run(['taskkill', '/F', '/IM', 'aria2c.exe'], 
                          stdout=subprocess.DEVNULL, 
                          stderr=subprocess.DEVNULL)
