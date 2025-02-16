@@ -1,0 +1,25 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Build files
+dist/
+build/
+*.spec
+file_version_info.txt
+
+# Logs
+logs/
+url_logs/
+
+# Configuration
+config/
+.cursor/
+
+# Documentation
+flowchart.md
+
+# IDE settings
+.vscode/
+.idea/ 
