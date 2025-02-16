@@ -2,7 +2,7 @@ import os
 import sys
 import time
 import requests
-from typing import Optional, List, Dict, Any, Tuple
+from typing import Optional, List, Dict, Any
 from pathlib import Path
 from datetime import datetime
 from rich.console import Console
@@ -15,7 +15,6 @@ from rich.progress import (
     TransferSpeedColumn,
     TimeRemainingColumn,
     BarColumn,
-    ProgressColumn,
     SpinnerColumn,
     FileSizeColumn
 )
@@ -24,17 +23,12 @@ from rich.layout import Layout
 from terabox1 import TeraboxFile, TeraboxLink
 import concurrent.futures
 import threading
-from urllib.parse import urlparse
-import socket
-import mmap
 import multiprocessing
 from rich.console import Group
 import random
 import logging
-from contextlib import nullcontext
 import subprocess
 import json
-import shutil
 import aria2p
 
 console = Console()
@@ -119,48 +113,133 @@ class TeraboxDownloader:
             self.logger.error(f"Error setting up aria2: {str(e)}")
             return False
 
+    def _get_default_trackers(self) -> str:
+        """Mendapatkan trackers default."""
+        return """http://1337.abcvg.info:80/announce
+
+http://bt.okmp3.ru:2710/announce
+
+http://fleira.no:6969/announce
+
+http://nyaa.tracker.wf:7777/announce
+
+http://t.nyaatracker.com:80/announce
+
+http://taciturn-shadow.spb.ru:6969/announce
+
+http://tk.greedland.net:80/announce
+
+http://torrentsmd.com:8080/announce
+
+http://tracker.ipv6tracker.org:80/announce
+
+http://tracker.mywaifu.best:6969/announce
+
+http://tracker.renfei.net:8080/announce
+
+http://tracker.sbsub.com:2710/announce
+
+http://tracker.skyts.net:6969/announce
+
+http://tracker.tfile.co:80/announce
+
+http://tracker.xiaoduola.xyz:6969/announce
+
+http://tracker810.xyz:11450/announce
+
+http://www.all4nothin.net:80/announce.php
+
+http://www.wareztorrent.com:80/announce
+
+https://1337.abcvg.info:443/announce
+
+https://api.ipv4online.uk:443/announce
+
+https://tr.abir.ga:443/announce
+
+https://tr.burnabyhighstar.com:443/announce
+
+https://tr.nyacat.pw:443/announce
+
+https://tr.zukizuki.org:443/announce
+
+https://tracker.bjut.jp:443/announce
+
+https://tracker.foreverpirates.co:443/announce
+
+https://tracker.gcrenwp.top:443/announce
+
+https://tracker.kuroy.me:443/announce
+
+https://tracker.moeking.me:443/announce
+
+https://tracker.nanoha.org:443/announce
+
+https://tracker.yemekyedim.com:443/announce
+
+https://tracker1.520.jp:443/announce
+
+udp://d40969.acod.regrucolo.ru:6969/announce
+
+udp://discord.heihachi.pw:6969/announce
+
+udp://exodus.desync.com:6969/announce
+
+udp://isk.richardsw.club:6969/announce
+
+udp://ismaarino.com:1234/announce
+
+udp://open.demonii.com:1337/announce
+
+udp://open.dstud.io:6969/announce
+
+udp://open.stealth.si:80/announce
+
+udp://open.tracker.cl:1337/announce
+
+udp://open.tracker.ink:6969/announce
+
+udp://opentor.org:2710/announce
+
+udp://opentracker.io:6969/announce
+
+udp://p2p.publictracker.xyz:6969/announce
+
+udp://p4p.arenabg.com:1337/announce
+
+udp://thetracker.org:80/announce
+
+udp://tracker.0x7c0.com:6969/announce
+
+udp://tracker.doko.moe:6969/announce
+
+udp://tracker.dump.cl:6969/announce
+
+udp://tracker.gmi.gd:6969/announce
+
+udp://tracker.ololosh.space:6969/announce
+
+udp://tracker.opentrackr.org:1337/announce
+
+udp://tracker.skyts.net:6969/announce
+
+udp://tracker.torrent.eu.org:451/announce
+
+udp://tracker.tryhackx.org:6969/announce
+
+udp://ttk2.nbaonlineservice.com:6969/announce
+
+udp://u4.trakx.crim.ist:1337/announce
+
+udp://u6.trakx.crim.ist:1337/announce
+
+udp://wepzone.net:6969/announce
+
+wss://tracker.openwebtorrent.com:443/announce"""
+
     def _create_aria2_config(self) -> str:
         """Membuat konfigurasi aria2"""
-        trackers = """udp://93.158.213.92:1337/announce
-udp://91.216.110.53:451/announce
-udp://185.243.218.213:80/announce
-udp://23.157.120.14:6969/announce
-udp://45.154.96.35:6969/announce
-udp://23.153.248.83:6969/announce
-udp://51.159.54.68:6666/announce
-http://34.94.76.146:6969/announce
-http://34.94.76.146:2710/announce
-http://34.94.76.146:80/announce
-udp://83.6.230.142:6969/announce
-udp://54.39.48.3:6969/announce
-udp://210.61.187.208:80/announce
-udp://135.125.202.143:6969/announce
-udp://144.126.245.19:6969/announce
-udp://209.141.59.25:6969/announce
-udp://108.53.194.223:6969/announce
-udp://52.58.128.163:6969/announce
-udp://47.243.23.189:6969/announce
-udp://211.75.210.220:6969/announce
-udp://tracker.opentrackr.org:1337/announce
-udp://open.demonii.com:1337/announce
-udp://open.tracker.cl:1337/announce
-udp://tracker.torrent.eu.org:451/announce
-udp://open.stealth.si:80/announce
-udp://exodus.desync.com:6969/announce
-udp://explodie.org:6969/announce
-udp://tracker.tiny-vps.com:6969/announce
-udp://tracker.theoks.net:6969/announce
-udp://tracker.qu.ax:6969/announce
-udp://tracker.dump.cl:6969/announce
-udp://tracker.0x7c0.com:6969/announce
-udp://tracker-udp.gbitt.info:80/announce
-udp://opentracker.io:6969/announce
-udp://open.dstud.io:6969/announce
-udp://ns-1.x-fins.com:6969/announce
-udp://bt.ktrackers.com:6666/announce
-http://tracker.xiaoduola.xyz:6969/announce
-http://tracker.lintk.me:2710/announce
-http://bt.poletracker.org:2710/announce"""
+        trackers = self._get_default_trackers()
 
         config = {
             'max-connection-per-server': '16',
