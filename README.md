@@ -2,7 +2,7 @@
 
 A fast and easy-to-use TeraBox file downloader application. Available in both Command Line Interface (CLI) and Graphical User Interface (GUI) versions.
 
-![TeraBox Downloader Screenshot](screenshots/app.png)
+![TeraBox Downloader Screenshot](ss/ss1.png)
 
 ## ✨ Features
 
