@@ -1,0 +1,10 @@
+{
+    "download_dir": "D:/tera/test",
+    "max_connections": 16,
+    "split": 16,
+    "min_split_size": "1M",
+    "disk_cache": "64M",
+    "last_url": "",
+    "theme": "yaru",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36"
+}

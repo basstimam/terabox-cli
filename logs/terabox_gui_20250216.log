@@ -1,0 +1,478 @@
+2025-02-16 11:02:32,102 - INFO - Berhasil memuat konfigurasi
+2025-02-16 11:02:32,610 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt
+2025-02-16 11:02:33,041 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt
+2025-02-16 11:02:33,044 - INFO - Berhasil menyimpan 134 trackers unik
+2025-02-16 11:02:33,065 - INFO - Aria2 berhasil disetup dengan konfigurasi CLI
+2025-02-16 11:04:18,640 - INFO - Berhasil memuat konfigurasi
+2025-02-16 11:04:19,246 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt
+2025-02-16 11:04:19,606 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt
+2025-02-16 11:04:19,609 - INFO - Berhasil menyimpan 134 trackers unik
+2025-02-16 11:04:19,638 - INFO - Aria2 berhasil disetup dengan konfigurasi CLI
+2025-02-16 11:06:06,482 - INFO - Berhasil memuat konfigurasi
+2025-02-16 11:06:06,801 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt
+2025-02-16 11:06:06,953 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt
+2025-02-16 11:06:06,954 - INFO - Berhasil menyimpan 134 trackers unik
+2025-02-16 11:06:06,963 - INFO - Aria2 berhasil disetup dengan konfigurasi CLI
+2025-02-16 11:10:03,036 - INFO - Berhasil memuat konfigurasi
+2025-02-16 11:10:03,482 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt
+2025-02-16 11:10:03,914 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt
+2025-02-16 11:10:03,918 - INFO - Berhasil menyimpan 134 trackers unik
+2025-02-16 11:10:03,940 - INFO - Aria2 berhasil disetup dengan konfigurasi CLI
+2025-02-16 11:11:02,492 - INFO - Berhasil memuat konfigurasi
+2025-02-16 11:11:02,928 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt
+2025-02-16 11:11:03,302 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt
+2025-02-16 11:11:03,304 - INFO - Berhasil menyimpan 134 trackers unik
+2025-02-16 11:11:03,313 - INFO - Aria2 berhasil disetup dengan konfigurasi CLI
+2025-02-16 11:11:18,764 - INFO - Berhasil memuat konfigurasi
+2025-02-16 11:11:19,162 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt
+2025-02-16 11:11:19,463 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt
+2025-02-16 11:11:19,464 - INFO - Berhasil menyimpan 134 trackers unik
+2025-02-16 11:11:19,473 - INFO - Aria2 berhasil disetup dengan konfigurasi CLI
+2025-02-16 11:12:05,093 - INFO - Berhasil memuat konfigurasi
+2025-02-16 11:12:05,460 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt
+2025-02-16 11:12:05,839 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt
+2025-02-16 11:12:05,840 - INFO - Berhasil menyimpan 134 trackers unik
+2025-02-16 11:12:05,850 - INFO - Aria2 berhasil disetup dengan konfigurasi CLI
+2025-02-16 11:12:35,452 - INFO - Berhasil memuat konfigurasi
+2025-02-16 11:12:35,773 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt
+2025-02-16 11:12:36,078 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt
+2025-02-16 11:12:36,079 - INFO - Berhasil menyimpan 134 trackers unik
+2025-02-16 11:12:36,088 - INFO - Aria2 berhasil disetup dengan konfigurasi CLI
+2025-02-16 11:12:51,913 - INFO - Mengambil link download untuk Key Features of TeraBox.mp4...
+2025-02-16 11:12:53,967 - INFO - URL download: https://d.terabox.com/file/2a5c0b291f8be56f1dbfb2bd1cab567f?fid=4400038048091-250528-183703790921645&dstime=1739679175&expires=1739679775&rt=sh&chkv=1&sign=FDtERVA-DCb740ccc5511e5e8fedcff06b081203-EXisyjY2rUvfaCzj2G0KWWaViaA%3D&r=898623588&sharesign=VCLRqBQ9Ul12oaC4hNTT6NBDHkYVum1vcER8yaOPC6b/8/LgwpqyEZJSedsTcL4HV4uWWKKgrBbuL2I82BDSOQE/Ji2mrJNYZBHTfXAfBBw=&sh=1&region=dm
+2025-02-16 11:12:54,727 - INFO - Memulai download Key Features of TeraBox.mp4 (14.06 MB)
+2025-02-16 11:12:54,729 - INFO - Konfigurasi aria2 berhasil dibuat dengan trackers
+2025-02-16 11:12:54,792 - INFO - Download berhasil ditambahkan ke aria2 dengan priority network
+2025-02-16 11:12:55,318 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 14.06 MB
+2025-02-16 11:12:55,885 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 14.06 MB
+2025-02-16 11:12:56,482 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 14.06 MB
+2025-02-16 11:12:56,985 - INFO - Progress: 3.6% Speed: 1.01 MB/s Downloaded: 512.00 KB / 14.06 MB
+2025-02-16 11:12:57,570 - INFO - Progress: 10.7% Speed: 1.39 MB/s Downloaded: 1.50 MB / 14.06 MB
+2025-02-16 11:12:58,155 - INFO - Progress: 44.2% Speed: 3.78 MB/s Downloaded: 6.22 MB / 14.06 MB
+2025-02-16 11:12:58,745 - INFO - Progress: 60.9% Speed: 3.80 MB/s Downloaded: 8.56 MB / 14.06 MB
+2025-02-16 11:12:59,351 - INFO - Progress: 64.4% Speed: 3.17 MB/s Downloaded: 9.06 MB / 14.06 MB
+2025-02-16 11:13:00,036 - INFO - Progress: 76.0% Speed: 3.01 MB/s Downloaded: 10.69 MB / 14.06 MB
+2025-02-16 11:13:00,660 - INFO - Progress: 84.8% Speed: 2.86 MB/s Downloaded: 11.92 MB / 14.06 MB
+2025-02-16 11:13:01,162 - INFO - Progress: 96.4% Speed: 2.90 MB/s Downloaded: 13.56 MB / 14.06 MB
+2025-02-16 11:13:01,729 - INFO - Progress: 96.4% Speed: 2.59 MB/s Downloaded: 13.56 MB / 14.06 MB
+2025-02-16 11:13:02,342 - INFO - Progress: 96.7% Speed: 2.32 MB/s Downloaded: 13.59 MB / 14.06 MB
+2025-02-16 11:13:02,801 - INFO - File Key Features of TeraBox.mp4 berhasil diverifikasi
+2025-02-16 11:13:03,325 - INFO - Berhasil menyimpan riwayat download
+2025-02-16 11:16:40,774 - INFO - Berhasil memuat konfigurasi
+2025-02-16 11:16:40,785 - INFO - Aria2 berhasil disetup dengan konfigurasi CLI
+2025-02-16 11:16:41,152 - INFO - Berhasil memuat riwayat download
+2025-02-16 11:16:41,223 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt
+2025-02-16 11:16:41,782 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt
+2025-02-16 11:16:41,783 - INFO - Berhasil menyimpan 134 trackers unik
+2025-02-16 11:18:48,161 - INFO - Berhasil memuat konfigurasi
+2025-02-16 11:18:48,173 - INFO - Aria2 berhasil disetup dengan konfigurasi CLI
+2025-02-16 11:18:48,276 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt
+2025-02-16 11:18:48,474 - INFO - Berhasil memuat riwayat download
+2025-02-16 11:18:48,678 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt
+2025-02-16 11:18:48,679 - INFO - Berhasil menyimpan 134 trackers unik
+2025-02-16 11:21:59,320 - INFO - Configuration loaded successfully
+2025-02-16 11:21:59,331 - INFO - Aria2 setup successfully with CLI configuration
+2025-02-16 11:21:59,617 - INFO - Download history loaded successfully
+2025-02-16 11:21:59,637 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt
+2025-02-16 11:22:00,027 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt
+2025-02-16 11:22:00,028 - INFO - Berhasil menyimpan 134 trackers unik
+2025-02-16 11:25:05,915 - INFO - Configuration loaded successfully
+2025-02-16 11:25:05,929 - INFO - Aria2 setup successfully with CLI configuration
+2025-02-16 11:25:06,231 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt
+2025-02-16 11:25:06,265 - INFO - Download history loaded successfully
+2025-02-16 11:25:06,623 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt
+2025-02-16 11:25:06,624 - INFO - Berhasil menyimpan 134 trackers unik
+2025-02-16 11:25:29,800 - INFO - Configuration loaded successfully
+2025-02-16 11:25:29,811 - INFO - Aria2 setup successfully with CLI configuration
+2025-02-16 11:25:29,910 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt
+2025-02-16 11:25:30,132 - INFO - Download history loaded successfully
+2025-02-16 11:25:30,259 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt
+2025-02-16 11:25:30,260 - INFO - Berhasil menyimpan 134 trackers unik
+2025-02-16 11:26:00,731 - INFO - Berhasil memuat konfigurasi
+2025-02-16 11:26:00,744 - INFO - Aria2 berhasil disetup dengan konfigurasi CLI
+2025-02-16 11:26:00,914 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt
+2025-02-16 11:26:01,103 - INFO - Berhasil memuat riwayat download
+2025-02-16 11:26:01,311 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt
+2025-02-16 11:26:01,312 - INFO - Berhasil menyimpan 134 trackers unik
+2025-02-16 11:26:39,948 - INFO - Berhasil memuat konfigurasi
+2025-02-16 11:26:40,413 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt
+2025-02-16 11:26:40,546 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt
+2025-02-16 11:26:40,547 - INFO - Berhasil menyimpan 134 trackers unik
+2025-02-16 11:26:40,557 - INFO - Aria2 berhasil disetup dengan konfigurasi CLI
+2025-02-16 11:26:40,860 - INFO - Berhasil memuat riwayat download
+2025-02-16 11:27:15,535 - INFO - Berhasil memuat konfigurasi
+2025-02-16 11:27:15,886 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt
+2025-02-16 11:27:16,344 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt
+2025-02-16 11:27:16,345 - INFO - Berhasil menyimpan 134 trackers unik
+2025-02-16 11:27:16,354 - INFO - Aria2 berhasil disetup dengan konfigurasi CLI
+2025-02-16 11:27:16,652 - INFO - Berhasil memuat riwayat download
+2025-02-16 11:30:44,084 - INFO - Berhasil memuat konfigurasi
+2025-02-16 11:30:44,509 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt
+2025-02-16 11:30:44,925 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt
+2025-02-16 11:30:44,926 - INFO - Berhasil menyimpan 134 trackers unik
+2025-02-16 11:30:44,934 - INFO - Aria2 berhasil disetup dengan konfigurasi CLI
+2025-02-16 11:30:45,228 - INFO - Berhasil memuat riwayat download
+2025-02-16 11:32:58,608 - INFO - Berhasil memuat konfigurasi
+2025-02-16 11:32:59,010 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt
+2025-02-16 11:32:59,532 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt
+2025-02-16 11:32:59,535 - INFO - Berhasil menyimpan 134 trackers unik
+2025-02-16 11:32:59,551 - INFO - Aria2 berhasil disetup dengan konfigurasi CLI
+2025-02-16 11:32:59,838 - INFO - Berhasil memuat riwayat download
+2025-02-16 11:33:30,683 - ERROR - Error downloading Key Features of TeraBox.mp4: 'TeraboxGUI' object has no attribute '_handle_download_error'
+2025-02-16 11:33:57,261 - INFO - Berhasil memuat konfigurasi
+2025-02-16 11:33:57,667 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt
+2025-02-16 11:33:58,054 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt
+2025-02-16 11:33:58,055 - INFO - Berhasil menyimpan 134 trackers unik
+2025-02-16 11:33:58,063 - INFO - Aria2 berhasil disetup dengan konfigurasi CLI
+2025-02-16 11:38:16,088 - INFO - Berhasil memuat konfigurasi
+2025-02-16 11:38:16,197 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt
+2025-02-16 11:38:16,674 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt
+2025-02-16 11:38:16,675 - INFO - Berhasil menyimpan 134 trackers unik
+2025-02-16 11:38:16,684 - INFO - Aria2 berhasil disetup dengan konfigurasi CLI
+2025-02-16 11:38:16,685 - INFO - Successfully loaded download history
+2025-02-16 11:38:42,753 - INFO - Berhasil memuat konfigurasi
+2025-02-16 11:38:43,205 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt
+2025-02-16 11:38:43,768 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt
+2025-02-16 11:38:43,769 - INFO - Berhasil menyimpan 134 trackers unik
+2025-02-16 11:38:43,779 - INFO - Aria2 berhasil disetup dengan konfigurasi CLI
+2025-02-16 11:38:43,780 - INFO - Successfully loaded download history
+2025-02-16 11:40:00,094 - INFO - Berhasil memuat konfigurasi
+2025-02-16 11:40:00,491 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt
+2025-02-16 11:40:00,861 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt
+2025-02-16 11:40:00,862 - INFO - Berhasil menyimpan 134 trackers unik
+2025-02-16 11:40:00,874 - INFO - Aria2 berhasil disetup dengan konfigurasi CLI
+2025-02-16 11:40:00,875 - INFO - Successfully loaded download history
+2025-02-16 11:41:00,175 - INFO - Getting download link for Key Features of TeraBox.mp4...
+2025-02-16 11:41:01,907 - INFO - URL download: https://d.terabox.com/file/2a5c0b291f8be56f1dbfb2bd1cab567f?fid=4400038048091-250528-183703790921645&dstime=1739680863&expires=1739681463&rt=sh&chkv=1&sign=FDtERVA-DCb740ccc5511e5e8fedcff06b081203-Sn2CEvxPbMKCXUlTuohxXuMd7Bg%3D&r=457585466&sharesign=VCLRqBQ9Ul12oaC4hNTT6NBDHkYVum1vcER8yaOPC6b/8/LgwpqyEZJSedsTcL4HV4uWWKKgrBbuL2I82BDSOQE/Ji2mrJNYZBHTfXAfBBw=&sh=1&region=dm
+2025-02-16 11:41:01,908 - INFO - Starting download Key Features of TeraBox.mp4 (14.06 MB)
+2025-02-16 11:41:01,911 - INFO - Konfigurasi aria2 berhasil dibuat dengan trackers
+2025-02-16 11:41:01,946 - INFO - Download berhasil ditambahkan ke aria2 dengan priority network
+2025-02-16 11:41:02,481 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 14.06 MB
+2025-02-16 11:41:02,981 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 14.06 MB
+2025-02-16 11:41:06,698 - INFO - Progress: 100.0% Speed: 0.00 B/s Downloaded: 14.06 MB / 14.06 MB
+2025-02-16 11:41:07,017 - INFO - File Key Features of TeraBox.mp4 berhasil diverifikasi
+2025-02-16 11:41:07,058 - INFO - Successfully saved download history
+2025-02-16 11:41:07,059 - ERROR - Error downloading Key Features of TeraBox.mp4: 'TeraboxGUI' object has no attribute 'update_history_display'
+2025-02-16 11:41:07,060 - INFO - Successfully saved download history
+2025-02-16 11:41:07,060 - ERROR - Error downloading Key Features of TeraBox.mp4: 'TeraboxGUI' object has no attribute 'update_history_display'
+2025-02-16 11:41:31,067 - INFO - Successfully saved download history
+2025-02-16 11:41:46,358 - INFO - Berhasil memuat konfigurasi
+2025-02-16 11:41:46,467 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt
+2025-02-16 11:41:46,836 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt
+2025-02-16 11:41:46,837 - INFO - Berhasil menyimpan 134 trackers unik
+2025-02-16 11:41:46,847 - INFO - Aria2 berhasil disetup dengan konfigurasi CLI
+2025-02-16 11:41:46,848 - INFO - Successfully loaded download history
+2025-02-16 11:42:03,956 - INFO - Getting download link for Key Features of TeraBox.mp4...
+2025-02-16 11:42:05,795 - INFO - URL download: https://d.terabox.com/file/2a5c0b291f8be56f1dbfb2bd1cab567f?fid=4400038048091-250528-183703790921645&dstime=1739680927&expires=1739681527&rt=sh&chkv=1&sign=FDtERVA-DCb740ccc5511e5e8fedcff06b081203-cWzTkXGa%2BdLRQAhWy1C0YC14iz0%3D&r=316992484&sharesign=VCLRqBQ9Ul12oaC4hNTT6NBDHkYVum1vcER8yaOPC6b/8/LgwpqyEZJSedsTcL4HV4uWWKKgrBbuL2I82BDSOQE/Ji2mrJNYZBHTfXAfBBw=&sh=1&region=dm
+2025-02-16 11:42:05,796 - INFO - Starting download Key Features of TeraBox.mp4 (14.06 MB)
+2025-02-16 11:42:05,797 - INFO - Konfigurasi aria2 berhasil dibuat dengan trackers
+2025-02-16 11:42:05,836 - INFO - Download berhasil ditambahkan ke aria2 dengan priority network
+2025-02-16 11:42:06,456 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 14.06 MB
+2025-02-16 11:42:06,961 - INFO - Progress: 100.0% Speed: 0.00 B/s Downloaded: 14.06 MB / 14.06 MB
+2025-02-16 11:42:07,069 - INFO - File Key Features of TeraBox.mp4 berhasil diverifikasi
+2025-02-16 11:42:07,114 - INFO - Successfully saved download history
+2025-02-16 11:42:30,911 - INFO - Getting download link for Key Features of TeraBox.mp4...
+2025-02-16 11:42:32,651 - INFO - URL download: https://d.terabox.com/file/2a5c0b291f8be56f1dbfb2bd1cab567f?fid=4400038048091-250528-183703790921645&dstime=1739680954&expires=1739681554&rt=sh&chkv=1&sign=FDtERVA-DCb740ccc5511e5e8fedcff06b081203-0LWxb2zFYiIE%2FIUgEnWb0oLwByg%3D&r=392008155&sharesign=VCLRqBQ9Ul12oaC4hNTT6NBDHkYVum1vcER8yaOPC6b/8/LgwpqyEZJSedsTcL4HV4uWWKKgrBbuL2I82BDSOQE/Ji2mrJNYZBHTfXAfBBw=&sh=1&region=dm
+2025-02-16 11:42:32,654 - INFO - Starting download Key Features of TeraBox.mp4 (14.06 MB)
+2025-02-16 11:42:32,657 - INFO - Konfigurasi aria2 berhasil dibuat dengan trackers
+2025-02-16 11:42:32,694 - INFO - Download berhasil ditambahkan ke aria2 dengan priority network
+2025-02-16 11:42:33,212 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 14.06 MB
+2025-02-16 11:42:33,856 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 14.06 MB
+2025-02-16 11:42:34,470 - INFO - Progress: 3.6% Speed: 1.12 MB/s Downloaded: 512.00 KB / 14.06 MB
+2025-02-16 11:42:35,002 - INFO - Progress: 17.9% Speed: 2.74 MB/s Downloaded: 2.52 MB / 14.06 MB
+2025-02-16 11:42:35,503 - INFO - Progress: 56.2% Speed: 5.36 MB/s Downloaded: 7.91 MB / 14.06 MB
+2025-02-16 11:42:36,115 - INFO - Progress: 60.9% Speed: 4.10 MB/s Downloaded: 8.56 MB / 14.06 MB
+2025-02-16 11:42:36,618 - INFO - Progress: 64.4% Speed: 3.49 MB/s Downloaded: 9.06 MB / 14.06 MB
+2025-02-16 11:42:37,239 - INFO - Progress: 71.6% Speed: 3.13 MB/s Downloaded: 10.06 MB / 14.06 MB
+2025-02-16 11:42:37,860 - INFO - Progress: 79.0% Speed: 2.90 MB/s Downloaded: 11.11 MB / 14.06 MB
+2025-02-16 11:42:38,480 - INFO - Progress: 88.0% Speed: 2.78 MB/s Downloaded: 12.38 MB / 14.06 MB
+2025-02-16 11:42:38,998 - INFO - Progress: 93.2% Speed: 2.64 MB/s Downloaded: 13.11 MB / 14.06 MB
+2025-02-16 11:42:39,690 - INFO - Progress: 100.0% Speed: 0.00 B/s Downloaded: 14.06 MB / 14.06 MB
+2025-02-16 11:42:39,801 - INFO - File Key Features of TeraBox.mp4 berhasil diverifikasi
+2025-02-16 11:42:39,853 - INFO - Successfully saved download history
+2025-02-16 11:42:50,897 - INFO - Getting download link for Key Features of TeraBox.mp4...
+2025-02-16 11:42:52,588 - INFO - URL download: https://d.terabox.com/file/2a5c0b291f8be56f1dbfb2bd1cab567f?fid=4400038048091-250528-183703790921645&dstime=1739680974&expires=1739681574&rt=sh&chkv=1&sign=FDtERVA-DCb740ccc5511e5e8fedcff06b081203-x9UtyxnrgbGGPiMfxc2dGkU6TRM%3D&r=232218640&sharesign=VCLRqBQ9Ul12oaC4hNTT6NBDHkYVum1vcER8yaOPC6b/8/LgwpqyEZJSedsTcL4HV4uWWKKgrBbuL2I82BDSOQE/Ji2mrJNYZBHTfXAfBBw=&sh=1&region=dm
+2025-02-16 11:42:52,590 - INFO - Starting download Key Features of TeraBox.mp4 (14.06 MB)
+2025-02-16 11:42:52,593 - INFO - Konfigurasi aria2 berhasil dibuat dengan trackers
+2025-02-16 11:42:52,633 - INFO - Download berhasil ditambahkan ke aria2 dengan priority network
+2025-02-16 11:42:53,152 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 14.06 MB
+2025-02-16 11:42:53,872 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 14.06 MB
+2025-02-16 11:42:54,481 - INFO - Progress: 4.9% Speed: 1.30 MB/s Downloaded: 704.00 KB / 14.06 MB
+2025-02-16 11:42:55,017 - INFO - Progress: 17.4% Speed: 2.38 MB/s Downloaded: 2.45 MB / 14.06 MB
+2025-02-16 11:42:55,629 - INFO - Progress: 43.7% Speed: 3.64 MB/s Downloaded: 6.14 MB / 14.06 MB
+2025-02-16 11:42:56,237 - INFO - Progress: 46.7% Speed: 2.85 MB/s Downloaded: 6.56 MB / 14.06 MB
+2025-02-16 11:42:56,741 - INFO - Progress: 50.3% Speed: 2.53 MB/s Downloaded: 7.08 MB / 14.06 MB
+2025-02-16 11:42:57,344 - INFO - Progress: 57.9% Speed: 2.39 MB/s Downloaded: 8.14 MB / 14.06 MB
+2025-02-16 11:42:57,851 - INFO - Progress: 64.4% Speed: 2.32 MB/s Downloaded: 9.06 MB / 14.06 MB
+2025-02-16 11:42:58,470 - INFO - Progress: 73.1% Speed: 2.27 MB/s Downloaded: 10.28 MB / 14.06 MB
+2025-02-16 11:42:58,970 - INFO - Progress: 78.9% Speed: 2.20 MB/s Downloaded: 11.09 MB / 14.06 MB
+2025-02-16 11:42:59,473 - INFO - Progress: 85.8% Speed: 2.18 MB/s Downloaded: 12.06 MB / 14.06 MB
+2025-02-16 11:42:59,977 - INFO - Progress: 89.3% Speed: 2.08 MB/s Downloaded: 12.56 MB / 14.06 MB
+2025-02-16 11:43:00,605 - INFO - Progress: 89.3% Speed: 1.89 MB/s Downloaded: 12.56 MB / 14.06 MB
+2025-02-16 11:43:01,124 - INFO - Progress: 89.3% Speed: 1.75 MB/s Downloaded: 12.56 MB / 14.06 MB
+2025-02-16 11:43:01,711 - INFO - Progress: 92.9% Speed: 1.68 MB/s Downloaded: 13.06 MB / 14.06 MB
+2025-02-16 11:43:02,304 - INFO - Progress: 92.9% Speed: 1.56 MB/s Downloaded: 13.06 MB / 14.06 MB
+2025-02-16 11:43:02,926 - INFO - Progress: 96.4% Speed: 1.51 MB/s Downloaded: 13.56 MB / 14.06 MB
+2025-02-16 11:43:03,427 - INFO - Progress: 96.4% Speed: 1.43 MB/s Downloaded: 13.56 MB / 14.06 MB
+2025-02-16 11:43:04,036 - INFO - Progress: 96.4% Speed: 1.32 MB/s Downloaded: 13.56 MB / 14.06 MB
+2025-02-16 11:43:04,543 - INFO - Progress: 96.4% Speed: 1.25 MB/s Downloaded: 13.56 MB / 14.06 MB
+2025-02-16 11:43:05,130 - INFO - Progress: 96.4% Speed: 813.99 KB/s Downloaded: 13.56 MB / 14.06 MB
+2025-02-16 11:43:05,444 - INFO - File Key Features of TeraBox.mp4 berhasil diverifikasi
+2025-02-16 11:43:05,450 - INFO - Successfully saved download history
+2025-02-16 11:43:11,040 - INFO - Successfully saved download history
+2025-02-16 11:43:16,935 - INFO - Getting download link for Key Features of TeraBox.mp4...
+2025-02-16 11:43:18,688 - INFO - URL download: https://d.terabox.com/file/2a5c0b291f8be56f1dbfb2bd1cab567f?fid=4400038048091-250528-183703790921645&dstime=1739681000&expires=1739681600&rt=sh&chkv=1&sign=FDtERVA-DCb740ccc5511e5e8fedcff06b081203-yaLWQ9v%2F3tNT6aWyeCyXNlwsjLU%3D&r=415509812&sharesign=VCLRqBQ9Ul12oaC4hNTT6NBDHkYVum1vcER8yaOPC6b/8/LgwpqyEZJSedsTcL4HV4uWWKKgrBbuL2I82BDSOQE/Ji2mrJNYZBHTfXAfBBw=&sh=1&region=dm
+2025-02-16 11:43:18,689 - INFO - Starting download Key Features of TeraBox.mp4 (14.06 MB)
+2025-02-16 11:43:18,690 - INFO - Konfigurasi aria2 berhasil dibuat dengan trackers
+2025-02-16 11:43:18,707 - INFO - Download berhasil ditambahkan ke aria2 dengan priority network
+2025-02-16 11:43:19,212 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 14.06 MB
+2025-02-16 11:43:19,751 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 14.06 MB
+2025-02-16 11:43:20,254 - INFO - Progress: 3.6% Speed: 1.02 MB/s Downloaded: 512.00 KB / 14.06 MB
+2025-02-16 11:43:20,774 - INFO - Progress: 16.0% Speed: 2.32 MB/s Downloaded: 2.25 MB / 14.06 MB
+2025-02-16 11:43:21,634 - ERROR - Error downloading Key Features of TeraBox.mp4: Download dibatalkan oleh pengguna
+2025-02-16 11:43:21,640 - INFO - Successfully saved download history
+2025-02-16 11:43:33,824 - INFO - Getting download link for Key Features of TeraBox.mp4...
+2025-02-16 11:43:35,542 - INFO - URL download: https://d.terabox.com/file/2a5c0b291f8be56f1dbfb2bd1cab567f?fid=4400038048091-250528-183703790921645&dstime=1739681017&expires=1739681617&rt=sh&chkv=1&sign=FDtERVA-DCb740ccc5511e5e8fedcff06b081203-kkuz4wnjb456ciSNh%2F%2BZV92QaRo%3D&r=458015811&sharesign=VCLRqBQ9Ul12oaC4hNTT6NBDHkYVum1vcER8yaOPC6b/8/LgwpqyEZJSedsTcL4HV4uWWKKgrBbuL2I82BDSOQE/Ji2mrJNYZBHTfXAfBBw=&sh=1&region=dm
+2025-02-16 11:43:35,543 - INFO - Starting download Key Features of TeraBox.mp4 (14.06 MB)
+2025-02-16 11:43:35,545 - INFO - Konfigurasi aria2 berhasil dibuat dengan trackers
+2025-02-16 11:43:35,578 - INFO - Download berhasil ditambahkan ke aria2 dengan priority network
+2025-02-16 11:43:36,095 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 14.06 MB
+2025-02-16 11:43:36,702 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 14.06 MB
+2025-02-16 11:43:37,204 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 14.06 MB
+2025-02-16 11:43:37,825 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 14.06 MB
+2025-02-16 11:43:38,357 - INFO - Progress: 3.6% Speed: 4.27 MB/s Downloaded: 512.00 KB / 14.06 MB
+2025-02-16 11:43:38,963 - INFO - Progress: 7.1% Speed: 1.39 MB/s Downloaded: 1.00 MB / 14.06 MB
+2025-02-16 11:43:39,573 - INFO - Progress: 40.0% Speed: 4.23 MB/s Downloaded: 5.63 MB / 14.06 MB
+2025-02-16 11:43:40,168 - INFO - Progress: 46.7% Speed: 3.41 MB/s Downloaded: 6.56 MB / 14.06 MB
+2025-02-16 11:43:40,748 - INFO - Progress: 47.9% Speed: 2.69 MB/s Downloaded: 6.73 MB / 14.06 MB
+2025-02-16 11:43:41,251 - INFO - Progress: 50.2% Speed: 2.34 MB/s Downloaded: 7.06 MB / 14.06 MB
+2025-02-16 11:43:41,764 - INFO - Progress: 57.3% Speed: 2.29 MB/s Downloaded: 8.06 MB / 14.06 MB
+2025-02-16 11:43:42,270 - INFO - Progress: 60.9% Speed: 2.12 MB/s Downloaded: 8.56 MB / 14.06 MB
+2025-02-16 11:43:42,774 - INFO - Progress: 68.0% Speed: 2.11 MB/s Downloaded: 9.56 MB / 14.06 MB
+2025-02-16 11:43:43,276 - INFO - Progress: 73.1% Speed: 2.04 MB/s Downloaded: 10.28 MB / 14.06 MB
+2025-02-16 11:43:43,781 - INFO - Progress: 79.2% Speed: 2.01 MB/s Downloaded: 11.14 MB / 14.06 MB
+2025-02-16 11:43:44,378 - INFO - Progress: 85.8% Speed: 1.97 MB/s Downloaded: 12.06 MB / 14.06 MB
+2025-02-16 11:43:44,883 - INFO - Progress: 85.8% Speed: 1.82 MB/s Downloaded: 12.06 MB / 14.06 MB
+2025-02-16 11:43:45,386 - INFO - Progress: 85.8% Speed: 1.69 MB/s Downloaded: 12.06 MB / 14.06 MB
+2025-02-16 11:43:45,887 - INFO - Progress: 85.8% Speed: 1.58 MB/s Downloaded: 12.06 MB / 14.06 MB
+2025-02-16 11:43:46,388 - INFO - Progress: 85.8% Speed: 1.48 MB/s Downloaded: 12.06 MB / 14.06 MB
+2025-02-16 11:43:46,917 - INFO - Progress: 85.8% Speed: 1.39 MB/s Downloaded: 12.06 MB / 14.06 MB
+2025-02-16 11:43:47,421 - INFO - Progress: 89.3% Speed: 1.37 MB/s Downloaded: 12.56 MB / 14.06 MB
+2025-02-16 11:45:19,650 - INFO - Berhasil memuat konfigurasi
+2025-02-16 11:45:20,054 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt
+2025-02-16 11:45:20,766 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt
+2025-02-16 11:45:20,767 - INFO - Berhasil menyimpan 134 trackers unik
+2025-02-16 11:45:20,776 - INFO - Aria2 berhasil disetup dengan konfigurasi CLI
+2025-02-16 11:45:20,777 - INFO - Successfully loaded download history
+2025-02-16 11:46:58,313 - INFO - Berhasil mengatur ikon program
+2025-02-16 11:46:58,368 - INFO - Berhasil memuat konfigurasi
+2025-02-16 11:46:58,775 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt
+2025-02-16 11:46:59,345 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt
+2025-02-16 11:46:59,346 - INFO - Berhasil menyimpan 134 trackers unik
+2025-02-16 11:46:59,355 - INFO - Aria2 berhasil disetup dengan konfigurasi CLI
+2025-02-16 11:46:59,356 - INFO - Successfully loaded download history
+2025-02-16 11:47:22,171 - INFO - Getting download link for Key Features of TeraBox.mp4...
+2025-02-16 11:47:23,929 - INFO - URL download: https://d.terabox.com/file/2a5c0b291f8be56f1dbfb2bd1cab567f?fid=4400038048091-250528-183703790921645&dstime=1739681245&expires=1739681845&rt=sh&chkv=1&sign=FDtERVA-DCb740ccc5511e5e8fedcff06b081203-RyyXGiJqUkZp%2Bc%2BjRMJzgmZrvag%3D&r=167330451&sharesign=VCLRqBQ9Ul12oaC4hNTT6NBDHkYVum1vcER8yaOPC6b/8/LgwpqyEZJSedsTcL4HV4uWWKKgrBbuL2I82BDSOQE/Ji2mrJNYZBHTfXAfBBw=&sh=1&region=dm
+2025-02-16 11:47:23,932 - INFO - Starting download Key Features of TeraBox.mp4 (14.06 MB)
+2025-02-16 11:47:23,937 - INFO - Konfigurasi aria2 berhasil dibuat dengan trackers
+2025-02-16 11:47:23,995 - INFO - Download berhasil ditambahkan ke aria2 dengan priority network
+2025-02-16 11:47:24,529 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 14.06 MB
+2025-02-16 11:47:25,043 - INFO - Progress: 100.0% Speed: 0.00 B/s Downloaded: 14.06 MB / 14.06 MB
+2025-02-16 11:47:25,163 - INFO - File Key Features of TeraBox.mp4 berhasil diverifikasi
+2025-02-16 11:47:25,228 - INFO - Successfully saved download history
+2025-02-16 11:49:24,372 - INFO - Berhasil mengatur ikon program
+2025-02-16 11:49:24,430 - INFO - Berhasil memuat konfigurasi
+2025-02-16 11:49:24,738 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt
+2025-02-16 11:49:24,854 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt
+2025-02-16 11:49:24,855 - INFO - Berhasil menyimpan 134 trackers unik
+2025-02-16 11:49:24,865 - INFO - Aria2 berhasil disetup dengan konfigurasi CLI
+2025-02-16 11:49:24,865 - INFO - Successfully loaded download history
+2025-02-16 11:49:34,322 - INFO - Getting download link for Key Features of TeraBox.mp4...
+2025-02-16 11:49:36,060 - INFO - URL download: https://d.terabox.com/file/2a5c0b291f8be56f1dbfb2bd1cab567f?fid=4400038048091-250528-183703790921645&dstime=1739681377&expires=1739681977&rt=sh&chkv=1&sign=FDtERVA-DCb740ccc5511e5e8fedcff06b081203-qc8H6IUZYnL9wyvpadIuwlwjeYA%3D&r=555003696&sharesign=VCLRqBQ9Ul12oaC4hNTT6NBDHkYVum1vcER8yaOPC6YiT03Hyvut0pJSedsTcL4HV4uWWKKgrBbuL2I82BDSOQE/Ji2mrJNYZBHTfXAfBBw=&sh=1&region=dm
+2025-02-16 11:49:36,061 - INFO - Starting download Key Features of TeraBox.mp4 (14.06 MB)
+2025-02-16 11:49:36,062 - INFO - Konfigurasi aria2 berhasil dibuat dengan trackers
+2025-02-16 11:49:36,086 - INFO - Download berhasil ditambahkan ke aria2 dengan priority network
+2025-02-16 11:49:36,353 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 14.06 MB
+2025-02-16 11:49:36,702 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 14.06 MB
+2025-02-16 11:49:36,956 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 14.06 MB
+2025-02-16 11:49:37,208 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 14.06 MB
+2025-02-16 11:49:37,459 - INFO - Progress: 3.6% Speed: 2.25 MB/s Downloaded: 512.00 KB / 14.06 MB
+2025-02-16 11:49:37,711 - INFO - Progress: 3.6% Speed: 1.05 MB/s Downloaded: 512.00 KB / 14.06 MB
+2025-02-16 11:49:38,065 - INFO - Progress: 11.6% Speed: 2.05 MB/s Downloaded: 1.62 MB / 14.06 MB
+2025-02-16 11:49:38,434 - INFO - Progress: 37.4% Speed: 4.45 MB/s Downloaded: 5.27 MB / 14.06 MB
+2025-02-16 11:49:38,686 - INFO - Progress: 48.2% Speed: 4.70 MB/s Downloaded: 6.78 MB / 14.06 MB
+2025-02-16 11:49:38,939 - INFO - Progress: 54.4% Speed: 4.50 MB/s Downloaded: 7.66 MB / 14.06 MB
+2025-02-16 11:49:39,190 - INFO - Progress: 57.2% Speed: 4.12 MB/s Downloaded: 8.05 MB / 14.06 MB
+2025-02-16 11:49:39,442 - INFO - Progress: 60.4% Speed: 3.85 MB/s Downloaded: 8.50 MB / 14.06 MB
+2025-02-16 11:49:39,789 - INFO - Progress: 65.8% Speed: 3.62 MB/s Downloaded: 9.25 MB / 14.06 MB
+2025-02-16 11:49:40,042 - INFO - Progress: 68.3% Speed: 3.42 MB/s Downloaded: 9.61 MB / 14.06 MB
+2025-02-16 11:49:40,296 - INFO - Progress: 71.3% Speed: 3.28 MB/s Downloaded: 10.03 MB / 14.06 MB
+2025-02-16 11:49:40,550 - INFO - Progress: 74.7% Speed: 3.17 MB/s Downloaded: 10.50 MB / 14.06 MB
+2025-02-16 11:49:40,818 - INFO - Progress: 78.2% Speed: 3.07 MB/s Downloaded: 11.00 MB / 14.06 MB
+2025-02-16 11:49:41,069 - INFO - Progress: 81.8% Speed: 3.00 MB/s Downloaded: 11.50 MB / 14.06 MB
+2025-02-16 11:49:41,444 - INFO - Progress: 85.3% Speed: 2.85 MB/s Downloaded: 12.00 MB / 14.06 MB
+2025-02-16 11:49:41,812 - INFO - Progress: 88.9% Speed: 2.73 MB/s Downloaded: 12.50 MB / 14.06 MB
+2025-02-16 11:49:42,063 - INFO - Progress: 92.4% Speed: 2.69 MB/s Downloaded: 13.00 MB / 14.06 MB
+2025-02-16 11:49:42,314 - INFO - Progress: 92.4% Speed: 2.56 MB/s Downloaded: 13.00 MB / 14.06 MB
+2025-02-16 11:49:42,687 - INFO - Progress: 92.4% Speed: 2.39 MB/s Downloaded: 13.00 MB / 14.06 MB
+2025-02-16 11:49:43,060 - INFO - Progress: 92.9% Speed: 2.24 MB/s Downloaded: 13.06 MB / 14.06 MB
+2025-02-16 11:49:43,315 - INFO - Progress: 92.9% Speed: 2.15 MB/s Downloaded: 13.06 MB / 14.06 MB
+2025-02-16 11:49:43,686 - INFO - Progress: 96.4% Speed: 2.10 MB/s Downloaded: 13.56 MB / 14.06 MB
+2025-02-16 11:49:43,936 - INFO - Progress: 96.4% Speed: 2.03 MB/s Downloaded: 13.56 MB / 14.06 MB
+2025-02-16 11:49:44,297 - INFO - Progress: 96.4% Speed: 1.92 MB/s Downloaded: 13.56 MB / 14.06 MB
+2025-02-16 11:49:44,547 - INFO - Progress: 96.4% Speed: 1.86 MB/s Downloaded: 13.56 MB / 14.06 MB
+2025-02-16 11:49:44,922 - INFO - File Key Features of TeraBox.mp4 berhasil diverifikasi
+2025-02-16 11:49:44,966 - INFO - Successfully saved download history
+2025-02-16 11:49:48,576 - INFO - Getting download link for Key Features of TeraBox.mp4...
+2025-02-16 11:49:50,302 - INFO - URL download: https://d.terabox.com/file/2a5c0b291f8be56f1dbfb2bd1cab567f?fid=4400038048091-250528-183703790921645&dstime=1739681391&expires=1739681991&rt=sh&chkv=1&sign=FDtERVA-DCb740ccc5511e5e8fedcff06b081203-1XL%2BYVrEUJgkSq9kJndihsWkjKg%3D&r=983578110&sharesign=VCLRqBQ9Ul12oaC4hNTT6NBDHkYVum1vcER8yaOPC6b/8/LgwpqyEZJSedsTcL4HV4uWWKKgrBbuL2I82BDSOQE/Ji2mrJNYZBHTfXAfBBw=&sh=1&region=dm
+2025-02-16 11:49:50,303 - INFO - Starting download Key Features of TeraBox.mp4 (14.06 MB)
+2025-02-16 11:49:50,304 - INFO - Konfigurasi aria2 berhasil dibuat dengan trackers
+2025-02-16 11:49:50,334 - INFO - Download berhasil ditambahkan ke aria2 dengan priority network
+2025-02-16 11:49:50,599 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 14.06 MB
+2025-02-16 11:49:50,849 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 14.06 MB
+2025-02-16 11:49:51,209 - INFO - Progress: 3.6% Speed: 2.30 MB/s Downloaded: 512.00 KB / 14.06 MB
+2025-02-16 11:49:51,581 - INFO - Progress: 9.0% Speed: 2.37 MB/s Downloaded: 1.27 MB / 14.06 MB
+2025-02-16 11:49:51,834 - INFO - Progress: 31.0% Speed: 5.25 MB/s Downloaded: 4.36 MB / 14.06 MB
+2025-02-16 11:49:52,206 - INFO - Progress: 52.1% Speed: 6.03 MB/s Downloaded: 7.33 MB / 14.06 MB
+2025-02-16 11:49:52,581 - INFO - Progress: 56.9% Speed: 5.03 MB/s Downloaded: 8.00 MB / 14.06 MB
+2025-02-16 11:49:52,834 - INFO - Progress: 60.4% Speed: 4.61 MB/s Downloaded: 8.50 MB / 14.06 MB
+2025-02-16 11:49:53,206 - INFO - Progress: 66.3% Speed: 4.21 MB/s Downloaded: 9.33 MB / 14.06 MB
+2025-02-16 11:49:53,457 - INFO - Progress: 69.1% Speed: 3.94 MB/s Downloaded: 9.72 MB / 14.06 MB
+2025-02-16 11:49:53,803 - INFO - Progress: 75.1% Speed: 3.75 MB/s Downloaded: 10.56 MB / 14.06 MB
+2025-02-16 11:49:54,186 - INFO - Progress: 78.7% Speed: 3.46 MB/s Downloaded: 11.06 MB / 14.06 MB
+2025-02-16 11:49:54,538 - INFO - Progress: 82.2% Speed: 3.26 MB/s Downloaded: 11.56 MB / 14.06 MB
+2025-02-16 11:49:54,790 - INFO - Progress: 82.2% Speed: 3.04 MB/s Downloaded: 11.56 MB / 14.06 MB
+2025-02-16 11:49:55,044 - INFO - Progress: 85.8% Speed: 2.98 MB/s Downloaded: 12.06 MB / 14.06 MB
+2025-02-16 11:49:55,294 - INFO - Progress: 88.3% Speed: 2.89 MB/s Downloaded: 12.42 MB / 14.06 MB
+2025-02-16 11:49:55,637 - INFO - Progress: 92.9% Speed: 2.81 MB/s Downloaded: 13.06 MB / 14.06 MB
+2025-02-16 11:49:56,011 - INFO - Progress: 92.9% Speed: 2.60 MB/s Downloaded: 13.06 MB / 14.06 MB
+2025-02-16 11:49:56,369 - INFO - Progress: 94.0% Speed: 2.46 MB/s Downloaded: 13.22 MB / 14.06 MB
+2025-02-16 11:49:56,740 - INFO - Progress: 96.4% Speed: 2.36 MB/s Downloaded: 13.56 MB / 14.06 MB
+2025-02-16 11:49:57,116 - INFO - Progress: 96.4% Speed: 2.21 MB/s Downloaded: 13.56 MB / 14.06 MB
+2025-02-16 11:49:57,490 - INFO - Progress: 96.4% Speed: 2.09 MB/s Downloaded: 13.56 MB / 14.06 MB
+2025-02-16 11:49:57,865 - INFO - Progress: 100.0% Speed: 0.00 B/s Downloaded: 14.06 MB / 14.06 MB
+2025-02-16 11:49:57,977 - INFO - File Key Features of TeraBox.mp4 berhasil diverifikasi
+2025-02-16 11:49:58,048 - INFO - Successfully saved download history
+2025-02-16 12:25:34,290 - INFO - Berhasil mengatur ikon program
+2025-02-16 12:25:34,346 - INFO - Berhasil memuat konfigurasi
+2025-02-16 12:25:34,808 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt
+2025-02-16 12:25:35,250 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt
+2025-02-16 12:25:35,256 - INFO - Berhasil menyimpan 134 trackers unik
+2025-02-16 12:25:35,287 - INFO - Aria2 berhasil disetup dengan konfigurasi CLI
+2025-02-16 12:25:35,288 - INFO - Successfully loaded download history
+2025-02-16 12:27:00,083 - INFO - Berhasil mengatur ikon program
+2025-02-16 12:27:00,148 - INFO - Berhasil memuat konfigurasi
+2025-02-16 12:27:00,573 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt
+2025-02-16 12:27:00,975 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt
+2025-02-16 12:27:00,977 - INFO - Berhasil menyimpan 134 trackers unik
+2025-02-16 12:27:00,994 - INFO - Aria2 berhasil disetup dengan konfigurasi CLI
+2025-02-16 12:27:00,995 - INFO - Successfully loaded download history
+2025-02-16 12:28:16,950 - INFO - Berhasil mengatur ikon program
+2025-02-16 12:28:17,006 - INFO - Berhasil memuat konfigurasi
+2025-02-16 12:28:17,319 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt
+2025-02-16 12:28:17,435 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt
+2025-02-16 12:28:17,439 - INFO - Berhasil menyimpan 134 trackers unik
+2025-02-16 12:28:17,472 - INFO - Aria2 berhasil disetup dengan konfigurasi CLI
+2025-02-16 12:28:17,473 - INFO - Successfully loaded download history
+2025-02-16 12:28:22,753 - ERROR - Error checking for updates: 404 Client Error: Not Found for url: https://api.github.com/repos/arumam1/terabox-downloader-cli/releases/latest
+2025-02-16 12:29:57,512 - INFO - Berhasil mengatur ikon program
+2025-02-16 12:29:57,568 - INFO - Berhasil memuat konfigurasi
+2025-02-16 12:29:57,970 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt
+2025-02-16 12:29:58,081 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt
+2025-02-16 12:29:58,085 - INFO - Berhasil menyimpan 134 trackers unik
+2025-02-16 12:29:58,113 - INFO - Aria2 berhasil disetup dengan konfigurasi CLI
+2025-02-16 12:29:58,114 - INFO - Successfully loaded download history
+2025-02-16 12:30:14,444 - INFO - Getting download link for Key Features of TeraBox.mp4...
+2025-02-16 12:30:16,164 - INFO - URL download: https://d.terabox.com/file/2a5c0b291f8be56f1dbfb2bd1cab567f?fid=4400038048091-250528-183703790921645&dstime=1739683817&expires=1739684417&rt=sh&chkv=1&sign=FDtERVA-DCb740ccc5511e5e8fedcff06b081203-rIEONQUXIg4YPt%2Bgb%2B8DRm%2FSaow%3D&r=773295456&sharesign=VCLRqBQ9Ul12oaC4hNTT6NBDHkYVum1vcER8yaOPC6b/8/LgwpqyEZJSedsTcL4HV4uWWKKgrBbuL2I82BDSOQE/Ji2mrJNYZBHTfXAfBBw=&sh=1&region=dm
+2025-02-16 12:30:16,165 - INFO - Starting download Key Features of TeraBox.mp4 (14.06 MB)
+2025-02-16 12:30:16,166 - INFO - Konfigurasi aria2 berhasil dibuat dengan trackers
+2025-02-16 12:30:16,205 - INFO - Download berhasil ditambahkan ke aria2 dengan priority network
+2025-02-16 12:30:16,456 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 14.06 MB
+2025-02-16 12:30:16,815 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 14.06 MB
+2025-02-16 12:30:17,186 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 14.06 MB
+2025-02-16 12:30:17,447 - INFO - Progress: 100.0% Speed: 0.00 B/s Downloaded: 14.06 MB / 14.06 MB
+2025-02-16 12:30:17,669 - INFO - File Key Features of TeraBox.mp4 berhasil diverifikasi
+2025-02-16 12:30:17,711 - INFO - Successfully saved download history
+2025-02-16 12:30:44,453 - INFO - Getting download link for Salsa (Part 1).zip...
+2025-02-16 12:30:48,012 - INFO - URL download: https://d.terabox.com/file/c572f0658bdb6170b976f2f4ddbc1136?fid=4398813023808-250528-1086906557738118&dstime=1739683847&expires=1739684727&rt=sh&chkv=1&sign=FDtERVA-DCb740ccc5511e5e8fedcff06b081203-aWPalVOHMpz8TxTzcpWDJSTpcrE%3D&r=361086451&sharesign=bPOmkIeoaAhZn9ilmWBDV7YQHP2eqIrVkVPQOnJuq8Yvn4Fnymc4VLQcZ5sOrZ4oggyWB5KfAH+MkX/iyROkAkdk2bTfizmG95lp5C/rhAY=&sh=1&region=dm
+2025-02-16 12:30:48,013 - INFO - Starting download Salsa (Part 1).zip (42.99 MB)
+2025-02-16 12:30:48,014 - INFO - Konfigurasi aria2 berhasil dibuat dengan trackers
+2025-02-16 12:30:48,052 - INFO - Download berhasil ditambahkan ke aria2 dengan priority network
+2025-02-16 12:30:48,319 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 42.99 MB
+2025-02-16 12:30:48,693 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 42.99 MB
+2025-02-16 12:30:49,037 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 42.99 MB
+2025-02-16 12:30:49,379 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 42.99 MB
+2025-02-16 12:30:49,757 - INFO - Progress: 1.2% Speed: 1.51 MB/s Downloaded: 512.00 KB / 42.99 MB
+2025-02-16 12:30:50,130 - INFO - Progress: 3.5% Speed: 2.13 MB/s Downloaded: 1.50 MB / 42.99 MB
+2025-02-16 12:30:50,503 - INFO - Progress: 8.9% Speed: 3.68 MB/s Downloaded: 3.81 MB / 42.99 MB
+2025-02-16 12:30:50,852 - INFO - Progress: 17.0% Speed: 5.16 MB/s Downloaded: 7.33 MB / 42.99 MB
+2025-02-16 12:30:51,215 - INFO - Progress: 20.3% Speed: 4.89 MB/s Downloaded: 8.72 MB / 42.99 MB
+2025-02-16 12:30:51,582 - INFO - Progress: 25.6% Speed: 5.10 MB/s Downloaded: 11.00 MB / 42.99 MB
+2025-02-16 12:30:51,833 - INFO - Progress: 26.7% Speed: 4.78 MB/s Downloaded: 11.50 MB / 42.99 MB
+2025-02-16 12:30:52,208 - INFO - Progress: 29.3% Speed: 4.53 MB/s Downloaded: 12.59 MB / 42.99 MB
+2025-02-16 12:30:52,558 - INFO - Progress: 32.1% Speed: 4.40 MB/s Downloaded: 13.78 MB / 42.99 MB
+2025-02-16 12:30:52,928 - INFO - Progress: 33.7% Speed: 4.14 MB/s Downloaded: 14.50 MB / 42.99 MB
+2025-02-16 12:30:53,300 - INFO - Progress: 36.1% Speed: 4.00 MB/s Downloaded: 15.50 MB / 42.99 MB
+2025-02-16 12:30:53,672 - INFO - Progress: 39.4% Speed: 3.98 MB/s Downloaded: 16.92 MB / 42.99 MB
+2025-02-16 12:30:54,048 - INFO - Progress: 40.7% Speed: 3.79 MB/s Downloaded: 17.52 MB / 42.99 MB
+2025-02-16 12:30:54,423 - INFO - Progress: 43.0% Speed: 3.70 MB/s Downloaded: 18.50 MB / 42.99 MB
+2025-02-16 12:30:54,794 - INFO - Progress: 45.4% Speed: 3.63 MB/s Downloaded: 19.50 MB / 42.99 MB
+2025-02-16 12:30:55,046 - INFO - Progress: 46.2% Speed: 3.53 MB/s Downloaded: 19.84 MB / 42.99 MB
+2025-02-16 12:30:55,445 - INFO - Progress: 48.8% Speed: 3.49 MB/s Downloaded: 21.00 MB / 42.99 MB
+2025-02-16 12:30:55,779 - INFO - Progress: 51.2% Speed: 3.46 MB/s Downloaded: 22.00 MB / 42.99 MB
+2025-02-16 12:30:56,030 - INFO - Progress: 51.2% Speed: 3.33 MB/s Downloaded: 22.00 MB / 42.99 MB
+2025-02-16 12:30:56,380 - INFO - Progress: 53.5% Speed: 3.31 MB/s Downloaded: 23.00 MB / 42.99 MB
+2025-02-16 12:30:56,735 - INFO - Progress: 53.5% Speed: 3.15 MB/s Downloaded: 23.00 MB / 42.99 MB
+2025-02-16 12:30:57,088 - INFO - Progress: 56.7% Speed: 3.18 MB/s Downloaded: 24.38 MB / 42.99 MB
+2025-02-16 12:30:57,442 - INFO - Progress: 58.1% Speed: 3.12 MB/s Downloaded: 25.00 MB / 42.99 MB
+2025-02-16 12:30:57,796 - INFO - Progress: 59.4% Speed: 3.05 MB/s Downloaded: 25.53 MB / 42.99 MB
+2025-02-16 12:30:58,160 - INFO - Progress: 61.1% Speed: 3.01 MB/s Downloaded: 26.25 MB / 42.99 MB
+2025-02-16 12:30:58,417 - INFO - Progress: 62.8% Speed: 3.00 MB/s Downloaded: 27.00 MB / 42.99 MB
+2025-02-16 12:30:58,792 - INFO - Progress: 64.0% Speed: 2.94 MB/s Downloaded: 27.50 MB / 42.99 MB
+2025-02-16 12:30:59,166 - INFO - Progress: 65.1% Speed: 2.87 MB/s Downloaded: 28.00 MB / 42.99 MB
+2025-02-16 12:30:59,417 - INFO - Progress: 66.4% Speed: 2.86 MB/s Downloaded: 28.53 MB / 42.99 MB
+2025-02-16 12:30:59,794 - INFO - Progress: 68.1% Speed: 2.78 MB/s Downloaded: 29.27 MB / 42.99 MB
+2025-02-16 12:31:00,169 - INFO - Progress: 69.8% Speed: 2.74 MB/s Downloaded: 30.00 MB / 42.99 MB
+2025-02-16 12:31:00,419 - INFO - Progress: 69.8% Speed: 2.68 MB/s Downloaded: 30.00 MB / 42.99 MB
+2025-02-16 12:31:00,669 - INFO - Progress: 72.1% Speed: 2.20 MB/s Downloaded: 31.00 MB / 42.99 MB
+2025-02-16 12:31:00,923 - INFO - Progress: 72.1% Speed: 2.15 MB/s Downloaded: 31.00 MB / 42.99 MB
+2025-02-16 12:31:01,295 - INFO - Progress: 74.4% Speed: 2.17 MB/s Downloaded: 32.00 MB / 42.99 MB
+2025-02-16 12:31:01,640 - INFO - Progress: 77.9% Speed: 2.23 MB/s Downloaded: 33.50 MB / 42.99 MB
+2025-02-16 12:31:01,895 - INFO - Progress: 78.4% Speed: 2.19 MB/s Downloaded: 33.70 MB / 42.99 MB
+2025-02-16 12:31:02,250 - INFO - Progress: 82.4% Speed: 2.29 MB/s Downloaded: 35.44 MB / 42.99 MB
+2025-02-16 12:31:02,591 - INFO - Progress: 84.9% Speed: 2.26 MB/s Downloaded: 36.50 MB / 42.99 MB
+2025-02-16 12:31:02,965 - INFO - Progress: 87.4% Speed: 2.28 MB/s Downloaded: 37.59 MB / 42.99 MB
+2025-02-16 12:31:03,309 - INFO - Progress: 88.4% Speed: 2.24 MB/s Downloaded: 38.00 MB / 42.99 MB
+2025-02-16 12:31:03,683 - INFO - Progress: 89.5% Speed: 2.20 MB/s Downloaded: 38.50 MB / 42.99 MB
+2025-02-16 12:31:03,936 - INFO - Progress: 90.7% Speed: 2.19 MB/s Downloaded: 39.00 MB / 42.99 MB
+2025-02-16 12:31:04,308 - INFO - Progress: 90.7% Speed: 2.11 MB/s Downloaded: 39.00 MB / 42.99 MB
+2025-02-16 12:31:04,679 - INFO - Progress: 91.9% Speed: 2.00 MB/s Downloaded: 39.50 MB / 42.99 MB
+2025-02-16 12:31:05,037 - INFO - Progress: 91.9% Speed: 1.93 MB/s Downloaded: 39.50 MB / 42.99 MB
+2025-02-16 12:31:05,288 - INFO - Progress: 91.9% Speed: 1.88 MB/s Downloaded: 39.50 MB / 42.99 MB
+2025-02-16 12:31:05,659 - INFO - Progress: 91.9% Speed: 1.85 MB/s Downloaded: 39.50 MB / 42.99 MB
+2025-02-16 12:31:06,034 - INFO - Progress: 93.0% Speed: 1.83 MB/s Downloaded: 40.00 MB / 42.99 MB
+2025-02-16 12:31:06,405 - INFO - Progress: 94.3% Speed: 1.81 MB/s Downloaded: 40.53 MB / 42.99 MB
+2025-02-16 12:31:06,762 - INFO - Progress: 96.5% Speed: 1.78 MB/s Downloaded: 41.47 MB / 42.99 MB
+2025-02-16 12:31:07,136 - INFO - Progress: 97.7% Speed: 1.76 MB/s Downloaded: 42.00 MB / 42.99 MB
+2025-02-16 12:31:07,387 - INFO - Progress: 98.9% Speed: 1.77 MB/s Downloaded: 42.50 MB / 42.99 MB
+2025-02-16 12:31:07,638 - INFO - Progress: 98.9% Speed: 1.72 MB/s Downloaded: 42.50 MB / 42.99 MB
+2025-02-16 12:31:08,009 - INFO - Progress: 98.9% Speed: 1.64 MB/s Downloaded: 42.50 MB / 42.99 MB
+2025-02-16 12:31:08,395 - INFO - File Salsa (Part 1).zip berhasil diverifikasi
+2025-02-16 12:31:08,438 - INFO - Successfully saved download history
+2025-02-16 12:32:51,605 - INFO - Berhasil mengatur ikon program
+2025-02-16 12:32:51,660 - INFO - Berhasil memuat konfigurasi
+2025-02-16 12:32:51,977 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt
+2025-02-16 12:32:52,401 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt
+2025-02-16 12:32:52,402 - INFO - Berhasil menyimpan 134 trackers unik
+2025-02-16 12:32:52,411 - INFO - Aria2 berhasil disetup dengan konfigurasi CLI
+2025-02-16 12:32:52,411 - INFO - Successfully loaded download history
+2025-02-16 12:32:54,074 - ERROR - Error checking for updates on startup: 404 Client Error: Not Found for url: https://api.github.com/repos/arumam1/terabox-downloader-cli/releases/latest
+2025-02-16 12:33:20,460 - INFO - Successfully saved download history
+2025-02-16 12:35:40,467 - INFO - Berhasil mengatur ikon program
+2025-02-16 12:35:40,521 - INFO - Berhasil memuat konfigurasi
+2025-02-16 12:35:41,015 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt
+2025-02-16 12:35:41,320 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt
+2025-02-16 12:35:41,323 - INFO - Berhasil menyimpan 134 trackers unik
+2025-02-16 12:35:41,340 - INFO - Aria2 berhasil disetup dengan konfigurasi CLI
+2025-02-16 12:35:41,340 - INFO - Successfully loaded download history
+2025-02-16 12:35:42,756 - ERROR - Error checking for updates on startup: 403 Client Error: rate limit exceeded for url: https://api.github.com/repos/arumam1/terabox-downloader-cli/releases/latest

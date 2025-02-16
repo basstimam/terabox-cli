@@ -201,6 +201,8 @@ class TeraboxGUI:
         try:
             # Cek di folder lokal dulu
             local_aria2 = Path("aria2/aria2c.exe")
+            if not local_aria2.exists():
+                local_aria2 = Path("_internal/aria2/aria2c.exe")
             if local_aria2.exists():
                 # Start aria2c daemon dengan konfigurasi yang sama dengan CLI
                 cmd = [
@@ -1102,6 +1104,8 @@ class TeraboxGUI:
     def on_closing(self):
         """Handle application closing."""
         if messagebox.askokcancel("Exit", "Are you sure you want to exit?"):
+            # Kill proses aria2c.exe sebelum menutup aplikasi
+            self.kill_aria2_process()
             self.root.quit()
             
     def run(self):
@@ -1405,7 +1409,7 @@ class TeraboxGUI:
         """Cek pembaruan dari GitHub repository."""
         try:
             # URL API GitHub untuk mengecek rilis terbaru
-            api_url = "https://api.github.com/repos/arumam1/terabox-downloader-cli/releases/latest"
+            api_url = "https://api.github.com/repos/basstimam/terabox-cli/releases/latest"
             
             response = requests.get(api_url)
             response.raise_for_status()
@@ -1448,6 +1452,17 @@ class TeraboxGUI:
         except Exception as e:
             self.logger.error(f"Error checking for updates on startup: {str(e)}")
             # Tidak perlu menampilkan pesan error ke user saat startup
+
+    def kill_aria2_process(self):
+        """Kill proses aria2c.exe saat program ditutup."""
+        try:
+            # Gunakan taskkill untuk mematikan proses aria2c.exe
+            subprocess.run(['taskkill', '/F', '/IM', 'aria2c.exe'], 
+                         stdout=subprocess.DEVNULL, 
+                         stderr=subprocess.DEVNULL)
+            self.logger.info("Berhasil mematikan proses aria2c.exe")
+        except Exception as e:
+            self.logger.error(f"Error saat mematikan proses aria2c.exe: {str(e)}")
 
 def main():
     """Main entry point for the TeraBox GUI application."""

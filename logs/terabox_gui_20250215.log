@@ -1,0 +1,874 @@
+2025-02-15 08:34:08,244 - INFO - Berhasil memuat konfigurasi
+2025-02-15 08:34:08,603 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt
+2025-02-15 08:34:09,051 - INFO - Berhasil mengambil trackers dari https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt
+2025-02-15 08:34:09,051 - INFO - Berhasil menyimpan 126 trackers unik
+2025-02-15 08:34:09,051 - INFO - Aria2 berhasil disetup dengan konfigurasi CLI
+2025-02-15 08:34:31,005 - INFO - Mengambil link download untuk yoonicpl010225.mp4...
+2025-02-15 08:34:32,688 - INFO - URL download: https://d.terabox.com/file/01a28552a5c6dc9c306272ff9b55ffdc?fid=81365211444949-250528-1095539620997388&dstime=1739583273&expires=1739585596&rt=sh&chkv=1&sign=FDtERVA-DCb740ccc5511e5e8fedcff06b081203-YDM682e6sqGp50LBm5vOSuYCQik%3D&r=495420941&sharesign=+WyOw/utdqaZRSZ8hxN88bcHkzQAo78jYbkjCShnXOrJix2TUI+m8ZyTFwIoespbDVF3zff5kT1StVnJfwI2YW0biS3BJtKRjcfsO1cW98C0Axp0dMCyLg==&sh=1&region=dm
+2025-02-15 08:34:32,689 - INFO - Memulai download yoonicpl010225.mp4 (113.41 MB)
+2025-02-15 08:34:32,690 - INFO - Konfigurasi aria2 berhasil dibuat dengan trackers
+2025-02-15 08:34:32,730 - INFO - Download berhasil ditambahkan ke aria2 dengan priority network
+2025-02-15 08:34:33,320 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 113.41 MB
+2025-02-15 08:34:34,151 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 113.41 MB
+2025-02-15 08:34:34,713 - INFO - Progress: 0.4% Speed: 1.22 MB/s Downloaded: 512.00 KB / 113.41 MB
+2025-02-15 08:34:35,307 - INFO - Progress: 3.0% Speed: 3.48 MB/s Downloaded: 3.36 MB / 113.41 MB
+2025-02-15 08:34:35,896 - INFO - Progress: 5.3% Speed: 3.76 MB/s Downloaded: 5.97 MB / 113.41 MB
+2025-02-15 08:34:36,467 - INFO - Progress: 5.6% Speed: 2.93 MB/s Downloaded: 6.31 MB / 113.41 MB
+2025-02-15 08:34:37,064 - INFO - Progress: 6.1% Speed: 2.54 MB/s Downloaded: 6.95 MB / 113.41 MB
+2025-02-15 08:34:37,647 - INFO - Progress: 6.1% Speed: 2.10 MB/s Downloaded: 6.95 MB / 113.41 MB
+2025-02-15 08:34:38,249 - INFO - Progress: 6.6% Speed: 1.90 MB/s Downloaded: 7.45 MB / 113.41 MB
+2025-02-15 08:34:38,850 - INFO - Progress: 6.6% Speed: 1.65 MB/s Downloaded: 7.45 MB / 113.41 MB
+2025-02-15 08:34:39,351 - INFO - Progress: 7.0% Speed: 1.59 MB/s Downloaded: 7.95 MB / 113.41 MB
+2025-02-15 08:34:39,944 - INFO - Progress: 7.9% Speed: 1.61 MB/s Downloaded: 9.00 MB / 113.41 MB
+2025-02-15 08:34:40,534 - INFO - Progress: 9.2% Speed: 1.68 MB/s Downloaded: 10.42 MB / 113.41 MB
+2025-02-15 08:34:41,115 - INFO - Progress: 10.3% Speed: 1.71 MB/s Downloaded: 11.62 MB / 113.41 MB
+2025-02-15 08:34:41,621 - INFO - Progress: 11.0% Speed: 1.71 MB/s Downloaded: 12.50 MB / 113.41 MB
+2025-02-15 08:34:42,208 - INFO - Progress: 12.2% Speed: 1.75 MB/s Downloaded: 13.81 MB / 113.41 MB
+2025-02-15 08:34:42,795 - INFO - Progress: 12.6% Speed: 1.69 MB/s Downloaded: 14.30 MB / 113.41 MB
+2025-02-15 08:34:43,379 - INFO - Progress: 12.9% Speed: 1.62 MB/s Downloaded: 14.62 MB / 113.41 MB
+2025-02-15 08:34:43,954 - INFO - Progress: 13.5% Speed: 1.59 MB/s Downloaded: 15.30 MB / 113.41 MB
+2025-02-15 08:34:44,546 - INFO - Progress: 13.8% Speed: 1.32 MB/s Downloaded: 15.62 MB / 113.41 MB
+2025-02-15 08:34:45,155 - INFO - Progress: 14.6% Speed: 1.34 MB/s Downloaded: 16.59 MB / 113.41 MB
+2025-02-15 08:34:45,759 - INFO - Progress: 15.1% Speed: 1.23 MB/s Downloaded: 17.09 MB / 113.41 MB
+2025-02-15 08:34:46,362 - INFO - Progress: 15.6% Speed: 1.21 MB/s Downloaded: 17.70 MB / 113.41 MB
+2025-02-15 08:34:46,931 - INFO - Progress: 16.1% Speed: 1.27 MB/s Downloaded: 18.20 MB / 113.41 MB
+2025-02-15 08:34:47,545 - INFO - Progress: 16.6% Speed: 1.25 MB/s Downloaded: 18.81 MB / 113.41 MB
+2025-02-15 08:34:48,119 - INFO - Progress: 17.1% Speed: 1.32 MB/s Downloaded: 19.44 MB / 113.41 MB
+2025-02-15 08:34:48,729 - INFO - Progress: 17.6% Speed: 1.28 MB/s Downloaded: 19.92 MB / 113.41 MB
+2025-02-15 08:34:49,330 - INFO - Progress: 17.7% Speed: 1.22 MB/s Downloaded: 20.11 MB / 113.41 MB
+2025-02-15 08:34:49,844 - INFO - Progress: 18.6% Speed: 1.18 MB/s Downloaded: 21.09 MB / 113.41 MB
+2025-02-15 08:34:50,427 - INFO - Progress: 19.0% Speed: 1.01 MB/s Downloaded: 21.52 MB / 113.41 MB
+2025-02-15 08:34:51,006 - INFO - Progress: 19.8% Speed: 1.04 MB/s Downloaded: 22.45 MB / 113.41 MB
+2025-02-15 08:34:51,579 - INFO - Progress: 20.2% Speed: 1017.46 KB/s Downloaded: 22.95 MB / 113.41 MB
+2025-02-15 08:34:52,167 - INFO - Progress: 20.7% Speed: 1008.58 KB/s Downloaded: 23.45 MB / 113.41 MB
+2025-02-15 08:34:52,755 - INFO - Progress: 21.4% Speed: 1.01 MB/s Downloaded: 24.28 MB / 113.41 MB
+2025-02-15 08:34:53,331 - INFO - Progress: 22.1% Speed: 1.03 MB/s Downloaded: 25.11 MB / 113.41 MB
+2025-02-15 08:34:53,925 - INFO - Progress: 22.6% Speed: 1.07 MB/s Downloaded: 25.61 MB / 113.41 MB
+2025-02-15 08:34:54,519 - INFO - Progress: 22.9% Speed: 1.04 MB/s Downloaded: 25.94 MB / 113.41 MB
+2025-02-15 08:34:55,134 - INFO - Progress: 23.8% Speed: 1.06 MB/s Downloaded: 26.94 MB / 113.41 MB
+2025-02-15 08:34:55,720 - INFO - Progress: 24.2% Speed: 1.06 MB/s Downloaded: 27.44 MB / 113.41 MB
+2025-02-15 08:34:56,300 - INFO - Progress: 24.6% Speed: 1.05 MB/s Downloaded: 27.94 MB / 113.41 MB
+2025-02-15 08:34:56,873 - INFO - Progress: 24.8% Speed: 1.02 MB/s Downloaded: 28.11 MB / 113.41 MB
+2025-02-15 08:34:57,477 - INFO - Progress: 25.6% Speed: 1.05 MB/s Downloaded: 29.08 MB / 113.41 MB
+2025-02-15 08:34:58,067 - INFO - Progress: 26.0% Speed: 1.08 MB/s Downloaded: 29.53 MB / 113.41 MB
+2025-02-15 08:34:58,632 - INFO - Progress: 27.1% Speed: 1.13 MB/s Downloaded: 30.70 MB / 113.41 MB
+2025-02-15 08:34:59,239 - INFO - Progress: 27.6% Speed: 1.13 MB/s Downloaded: 31.31 MB / 113.41 MB
+2025-02-15 08:34:59,846 - INFO - Progress: 28.2% Speed: 1.11 MB/s Downloaded: 31.94 MB / 113.41 MB
+2025-02-15 08:35:00,435 - INFO - Progress: 29.1% Speed: 1.14 MB/s Downloaded: 33.05 MB / 113.41 MB
+2025-02-15 08:35:00,942 - INFO - Progress: 30.6% Speed: 1.25 MB/s Downloaded: 34.72 MB / 113.41 MB
+2025-02-15 08:35:01,521 - INFO - Progress: 31.2% Speed: 1.27 MB/s Downloaded: 35.39 MB / 113.41 MB
+2025-02-15 08:35:02,105 - INFO - Progress: 32.0% Speed: 1.29 MB/s Downloaded: 36.33 MB / 113.41 MB
+2025-02-15 08:35:02,696 - INFO - Progress: 32.7% Speed: 1.28 MB/s Downloaded: 37.05 MB / 113.41 MB
+2025-02-15 08:35:03,309 - INFO - Progress: 33.0% Speed: 1.25 MB/s Downloaded: 37.45 MB / 113.41 MB
+2025-02-15 08:35:03,873 - INFO - Progress: 33.5% Speed: 1.29 MB/s Downloaded: 38.03 MB / 113.41 MB
+2025-02-15 08:35:04,467 - INFO - Progress: 34.3% Speed: 1.30 MB/s Downloaded: 38.92 MB / 113.41 MB
+2025-02-15 08:35:05,074 - INFO - Progress: 35.2% Speed: 1.35 MB/s Downloaded: 39.88 MB / 113.41 MB
+2025-02-15 08:35:05,669 - INFO - Progress: 36.9% Speed: 1.57 MB/s Downloaded: 41.81 MB / 113.41 MB
+2025-02-15 08:35:06,273 - INFO - Progress: 38.0% Speed: 1.60 MB/s Downloaded: 43.12 MB / 113.41 MB
+2025-02-15 08:35:06,880 - INFO - Progress: 38.0% Speed: 1.51 MB/s Downloaded: 43.14 MB / 113.41 MB
+2025-02-15 08:35:07,498 - INFO - Progress: 38.5% Speed: 1.50 MB/s Downloaded: 43.67 MB / 113.41 MB
+2025-02-15 08:35:08,104 - INFO - Progress: 39.0% Speed: 1.45 MB/s Downloaded: 44.19 MB / 113.41 MB
+2025-02-15 08:35:08,644 - INFO - Progress: 39.4% Speed: 1.42 MB/s Downloaded: 44.72 MB / 113.41 MB
+2025-02-15 08:35:09,232 - INFO - Progress: 39.5% Speed: 1.36 MB/s Downloaded: 44.80 MB / 113.41 MB
+2025-02-15 08:35:09,823 - INFO - Progress: 40.0% Speed: 1.34 MB/s Downloaded: 45.41 MB / 113.41 MB
+2025-02-15 08:35:10,414 - INFO - Progress: 41.2% Speed: 1.28 MB/s Downloaded: 46.72 MB / 113.41 MB
+2025-02-15 08:35:11,007 - INFO - Progress: 43.5% Speed: 1.46 MB/s Downloaded: 49.28 MB / 113.41 MB
+2025-02-15 08:35:11,606 - INFO - Progress: 43.8% Speed: 1.40 MB/s Downloaded: 49.66 MB / 113.41 MB
+2025-02-15 08:35:12,206 - INFO - Progress: 44.5% Speed: 1.47 MB/s Downloaded: 50.48 MB / 113.41 MB
+2025-02-15 08:35:12,795 - INFO - Progress: 44.9% Speed: 1.42 MB/s Downloaded: 50.91 MB / 113.41 MB
+2025-02-15 08:35:13,403 - INFO - Progress: 45.3% Speed: 1.39 MB/s Downloaded: 51.34 MB / 113.41 MB
+2025-02-15 08:35:13,984 - INFO - Progress: 45.3% Speed: 1.31 MB/s Downloaded: 51.34 MB / 113.41 MB
+2025-02-15 08:35:14,563 - INFO - Progress: 45.7% Speed: 1.25 MB/s Downloaded: 51.81 MB / 113.41 MB
+2025-02-15 08:35:15,157 - INFO - Progress: 45.8% Speed: 1.18 MB/s Downloaded: 51.92 MB / 113.41 MB
+2025-02-15 08:35:15,714 - INFO - Progress: 46.1% Speed: 1.03 MB/s Downloaded: 52.33 MB / 113.41 MB
+2025-02-15 08:35:16,313 - INFO - Progress: 47.0% Speed: 1.06 MB/s Downloaded: 53.31 MB / 113.41 MB
+2025-02-15 08:35:16,887 - INFO - Progress: 47.4% Speed: 1.09 MB/s Downloaded: 53.77 MB / 113.41 MB
+2025-02-15 08:35:17,491 - INFO - Progress: 50.0% Speed: 1.33 MB/s Downloaded: 56.66 MB / 113.41 MB
+2025-02-15 08:35:17,998 - INFO - Progress: 50.6% Speed: 1.34 MB/s Downloaded: 57.44 MB / 113.41 MB
+2025-02-15 08:35:18,603 - INFO - Progress: 51.4% Speed: 1.45 MB/s Downloaded: 58.31 MB / 113.41 MB
+2025-02-15 08:35:19,182 - INFO - Progress: 51.6% Speed: 1.39 MB/s Downloaded: 58.50 MB / 113.41 MB
+2025-02-15 08:35:19,786 - INFO - Progress: 51.9% Speed: 1.31 MB/s Downloaded: 58.81 MB / 113.41 MB
+2025-02-15 08:35:20,384 - INFO - Progress: 52.2% Speed: 1.12 MB/s Downloaded: 59.19 MB / 113.41 MB
+2025-02-15 08:35:20,972 - INFO - Progress: 52.5% Speed: 1.09 MB/s Downloaded: 59.52 MB / 113.41 MB
+2025-02-15 08:35:21,558 - INFO - Progress: 52.6% Speed: 1.04 MB/s Downloaded: 59.69 MB / 113.41 MB
+2025-02-15 08:35:22,148 - INFO - Progress: 52.8% Speed: 1019.02 KB/s Downloaded: 59.92 MB / 113.41 MB
+2025-02-15 08:35:22,684 - INFO - Progress: 53.8% Speed: 1.06 MB/s Downloaded: 61.03 MB / 113.41 MB
+2025-02-15 08:35:23,276 - INFO - Progress: 54.3% Speed: 1.12 MB/s Downloaded: 61.62 MB / 113.41 MB
+2025-02-15 08:35:23,879 - INFO - Progress: 55.0% Speed: 1.13 MB/s Downloaded: 62.39 MB / 113.41 MB
+2025-02-15 08:35:24,459 - INFO - Progress: 57.1% Speed: 1.42 MB/s Downloaded: 64.70 MB / 113.41 MB
+2025-02-15 08:35:25,040 - INFO - Progress: 57.7% Speed: 1.40 MB/s Downloaded: 65.41 MB / 113.41 MB
+2025-02-15 08:35:25,657 - INFO - Progress: 58.4% Speed: 1.42 MB/s Downloaded: 66.28 MB / 113.41 MB
+2025-02-15 08:35:26,271 - INFO - Progress: 58.9% Speed: 1.38 MB/s Downloaded: 66.78 MB / 113.41 MB
+2025-02-15 08:35:26,854 - INFO - Progress: 58.9% Speed: 1.08 MB/s Downloaded: 66.78 MB / 113.41 MB
+2025-02-15 08:35:27,455 - INFO - Progress: 59.2% Speed: 1.06 MB/s Downloaded: 67.16 MB / 113.41 MB
+2025-02-15 08:35:28,059 - INFO - Progress: 59.7% Speed: 1.04 MB/s Downloaded: 67.66 MB / 113.41 MB
+2025-02-15 08:35:28,661 - INFO - Progress: 59.8% Speed: 1015.42 KB/s Downloaded: 67.78 MB / 113.41 MB
+2025-02-15 08:35:29,264 - INFO - Progress: 60.3% Speed: 1.03 MB/s Downloaded: 68.39 MB / 113.41 MB
+2025-02-15 08:35:29,873 - INFO - Progress: 61.1% Speed: 1.05 MB/s Downloaded: 69.25 MB / 113.41 MB
+2025-02-15 08:35:30,491 - INFO - Progress: 61.6% Speed: 1.15 MB/s Downloaded: 69.88 MB / 113.41 MB
+2025-02-15 08:35:31,090 - INFO - Progress: 63.6% Speed: 1.32 MB/s Downloaded: 72.16 MB / 113.41 MB
+2025-02-15 08:35:31,655 - INFO - Progress: 64.7% Speed: 1.41 MB/s Downloaded: 73.41 MB / 113.41 MB
+2025-02-15 08:35:32,244 - INFO - Progress: 65.5% Speed: 1.42 MB/s Downloaded: 74.28 MB / 113.41 MB
+2025-02-15 08:35:32,802 - INFO - Progress: 65.5% Speed: 1.37 MB/s Downloaded: 74.28 MB / 113.41 MB
+2025-02-15 08:35:33,373 - INFO - Progress: 65.9% Speed: 1.34 MB/s Downloaded: 74.78 MB / 113.41 MB
+2025-02-15 08:35:33,920 - INFO - Progress: 66.3% Speed: 1.11 MB/s Downloaded: 75.16 MB / 113.41 MB
+2025-02-15 08:35:34,462 - INFO - Progress: 66.3% Speed: 1.05 MB/s Downloaded: 75.16 MB / 113.41 MB
+2025-02-15 08:35:35,037 - INFO - Progress: 66.7% Speed: 1.04 MB/s Downloaded: 75.66 MB / 113.41 MB
+2025-02-15 08:35:35,632 - INFO - Progress: 66.9% Speed: 1.04 MB/s Downloaded: 75.86 MB / 113.41 MB
+2025-02-15 08:35:36,196 - INFO - Progress: 67.5% Speed: 1.05 MB/s Downloaded: 76.52 MB / 113.41 MB
+2025-02-15 08:35:36,799 - INFO - Progress: 68.1% Speed: 1.06 MB/s Downloaded: 77.25 MB / 113.41 MB
+2025-02-15 08:35:37,384 - INFO - Progress: 69.0% Speed: 1.17 MB/s Downloaded: 78.27 MB / 113.41 MB
+2025-02-15 08:35:37,961 - INFO - Progress: 71.1% Speed: 1.34 MB/s Downloaded: 80.58 MB / 113.41 MB
+2025-02-15 08:35:38,555 - INFO - Progress: 71.8% Speed: 1.41 MB/s Downloaded: 81.47 MB / 113.41 MB
+2025-02-15 08:35:39,131 - INFO - Progress: 72.6% Speed: 1.42 MB/s Downloaded: 82.34 MB / 113.41 MB
+2025-02-15 08:35:39,748 - INFO - Progress: 72.6% Speed: 1.34 MB/s Downloaded: 82.34 MB / 113.41 MB
+2025-02-15 08:35:40,313 - INFO - Progress: 73.0% Speed: 1.31 MB/s Downloaded: 82.80 MB / 113.41 MB
+2025-02-15 08:35:40,917 - INFO - Progress: 73.3% Speed: 1.07 MB/s Downloaded: 83.12 MB / 113.41 MB
+2025-02-15 08:35:41,511 - INFO - Progress: 73.4% Speed: 1.04 MB/s Downloaded: 83.22 MB / 113.41 MB
+2025-02-15 08:35:42,099 - INFO - Progress: 73.7% Speed: 1.01 MB/s Downloaded: 83.58 MB / 113.41 MB
+2025-02-15 08:35:42,672 - INFO - Progress: 73.9% Speed: 1000.25 KB/s Downloaded: 83.81 MB / 113.41 MB
+2025-02-15 08:35:43,259 - INFO - Progress: 74.9% Speed: 1.14 MB/s Downloaded: 84.95 MB / 113.41 MB
+2025-02-15 08:35:43,864 - INFO - Progress: 75.3% Speed: 1.12 MB/s Downloaded: 85.44 MB / 113.41 MB
+2025-02-15 08:35:44,463 - INFO - Progress: 77.0% Speed: 1.25 MB/s Downloaded: 87.36 MB / 113.41 MB
+2025-02-15 08:35:45,053 - INFO - Progress: 78.7% Speed: 1.43 MB/s Downloaded: 89.27 MB / 113.41 MB
+2025-02-15 08:35:45,627 - INFO - Progress: 78.7% Speed: 1.35 MB/s Downloaded: 89.27 MB / 113.41 MB
+2025-02-15 08:35:46,201 - INFO - Progress: 79.5% Speed: 1.41 MB/s Downloaded: 90.12 MB / 113.41 MB
+2025-02-15 08:35:46,768 - INFO - Progress: 79.6% Speed: 1.35 MB/s Downloaded: 90.30 MB / 113.41 MB
+2025-02-15 08:35:47,323 - INFO - Progress: 79.6% Speed: 1.02 MB/s Downloaded: 90.30 MB / 113.41 MB
+2025-02-15 08:35:47,913 - INFO - Progress: 79.9% Speed: 1020.63 KB/s Downloaded: 90.62 MB / 113.41 MB
+2025-02-15 08:35:48,510 - INFO - Progress: 80.4% Speed: 976.19 KB/s Downloaded: 91.12 MB / 113.41 MB
+2025-02-15 08:35:49,097 - INFO - Progress: 80.4% Speed: 1.00 MB/s Downloaded: 91.23 MB / 113.41 MB
+2025-02-15 08:35:49,673 - INFO - Progress: 81.2% Speed: 1.04 MB/s Downloaded: 92.14 MB / 113.41 MB
+2025-02-15 08:35:50,226 - INFO - Progress: 81.7% Speed: 1.03 MB/s Downloaded: 92.67 MB / 113.41 MB
+2025-02-15 08:35:50,819 - INFO - Progress: 82.3% Speed: 1.14 MB/s Downloaded: 93.36 MB / 113.41 MB
+2025-02-15 08:35:51,385 - INFO - Progress: 83.8% Speed: 1.26 MB/s Downloaded: 95.05 MB / 113.41 MB
+2025-02-15 08:35:51,960 - INFO - Progress: 85.0% Speed: 1.33 MB/s Downloaded: 96.42 MB / 113.41 MB
+2025-02-15 08:35:52,525 - INFO - Progress: 85.3% Speed: 1.29 MB/s Downloaded: 96.77 MB / 113.41 MB
+2025-02-15 08:35:53,101 - INFO - Progress: 85.5% Speed: 1.23 MB/s Downloaded: 96.94 MB / 113.41 MB
+2025-02-15 08:35:53,660 - INFO - Progress: 86.2% Speed: 1.21 MB/s Downloaded: 97.80 MB / 113.41 MB
+2025-02-15 08:35:54,272 - INFO - Progress: 86.2% Speed: 1.14 MB/s Downloaded: 97.80 MB / 113.41 MB
+2025-02-15 08:35:54,878 - INFO - Progress: 86.4% Speed: 982.15 KB/s Downloaded: 97.97 MB / 113.41 MB
+2025-02-15 08:35:55,436 - INFO - Progress: 86.7% Speed: 962.39 KB/s Downloaded: 98.31 MB / 113.41 MB
+2025-02-15 08:35:56,020 - INFO - Progress: 87.1% Speed: 1014.82 KB/s Downloaded: 98.75 MB / 113.41 MB
+2025-02-15 08:35:56,614 - INFO - Progress: 87.8% Speed: 1.02 MB/s Downloaded: 99.59 MB / 113.41 MB
+2025-02-15 08:35:57,195 - INFO - Progress: 88.7% Speed: 1.05 MB/s Downloaded: 100.56 MB / 113.41 MB
+2025-02-15 08:35:57,760 - INFO - Progress: 88.8% Speed: 1.07 MB/s Downloaded: 100.72 MB / 113.41 MB
+2025-02-15 08:35:58,343 - INFO - Progress: 90.0% Speed: 1.15 MB/s Downloaded: 102.08 MB / 113.41 MB
+2025-02-15 08:35:58,925 - INFO - Progress: 91.0% Speed: 1.21 MB/s Downloaded: 103.17 MB / 113.41 MB
+2025-02-15 08:35:59,496 - INFO - Progress: 92.3% Speed: 1.29 MB/s Downloaded: 104.69 MB / 113.41 MB
+2025-02-15 08:36:00,078 - INFO - Progress: 92.7% Speed: 1.27 MB/s Downloaded: 105.09 MB / 113.41 MB
+2025-02-15 08:36:00,643 - INFO - Progress: 93.0% Speed: 1.23 MB/s Downloaded: 105.42 MB / 113.41 MB
+2025-02-15 08:36:01,225 - INFO - Progress: 93.6% Speed: 1.07 MB/s Downloaded: 106.19 MB / 113.41 MB
+2025-02-15 08:36:01,807 - INFO - Progress: 93.7% Speed: 1.02 MB/s Downloaded: 106.27 MB / 113.41 MB
+2025-02-15 08:36:02,372 - INFO - Progress: 94.0% Speed: 1.05 MB/s Downloaded: 106.59 MB / 113.41 MB
+2025-02-15 08:36:02,978 - INFO - Progress: 94.5% Speed: 1.04 MB/s Downloaded: 107.14 MB / 113.41 MB
+2025-02-15 08:36:03,560 - INFO - Progress: 95.1% Speed: 1.08 MB/s Downloaded: 107.86 MB / 113.41 MB
+2025-02-15 08:36:04,131 - INFO - Progress: 95.7% Speed: 1.09 MB/s Downloaded: 108.56 MB / 113.41 MB
+2025-02-15 08:36:04,725 - INFO - Progress: 96.2% Speed: 1.16 MB/s Downloaded: 109.05 MB / 113.41 MB
+2025-02-15 08:36:05,308 - INFO - Progress: 96.6% Speed: 1.14 MB/s Downloaded: 109.50 MB / 113.41 MB
+2025-02-15 08:36:05,898 - INFO - Progress: 97.4% Speed: 1.17 MB/s Downloaded: 110.41 MB / 113.41 MB
+2025-02-15 08:36:06,492 - INFO - Progress: 98.1% Speed: 1.18 MB/s Downloaded: 111.20 MB / 113.41 MB
+2025-02-15 08:36:07,070 - INFO - Progress: 98.8% Speed: 1.22 MB/s Downloaded: 112.06 MB / 113.41 MB
+2025-02-15 08:36:07,643 - INFO - Progress: 98.9% Speed: 1.16 MB/s Downloaded: 112.16 MB / 113.41 MB
+2025-02-15 08:36:08,213 - INFO - Progress: 99.0% Speed: 996.02 KB/s Downloaded: 112.22 MB / 113.41 MB
+2025-02-15 08:36:08,811 - INFO - Progress: 99.0% Speed: 935.86 KB/s Downloaded: 112.22 MB / 113.41 MB
+2025-02-15 08:36:09,382 - INFO - Progress: 99.0% Speed: 809.29 KB/s Downloaded: 112.28 MB / 113.41 MB
+2025-02-15 08:36:09,938 - INFO - Progress: 99.0% Speed: 762.53 KB/s Downloaded: 112.28 MB / 113.41 MB
+2025-02-15 08:36:10,490 - INFO - Progress: 99.1% Speed: 740.96 KB/s Downloaded: 112.42 MB / 113.41 MB
+2025-02-15 08:36:11,078 - INFO - Progress: 99.4% Speed: 721.07 KB/s Downloaded: 112.67 MB / 113.41 MB
+2025-02-15 08:36:11,684 - INFO - Progress: 99.5% Speed: 691.68 KB/s Downloaded: 112.83 MB / 113.41 MB
+2025-02-15 08:36:12,273 - INFO - Progress: 99.6% Speed: 636.30 KB/s Downloaded: 112.91 MB / 113.41 MB
+2025-02-15 08:36:12,855 - INFO - Progress: 99.9% Speed: 636.37 KB/s Downloaded: 113.27 MB / 113.41 MB
+2025-02-15 08:36:13,455 - INFO - Progress: 99.9% Speed: 514.09 KB/s Downloaded: 113.27 MB / 113.41 MB
+2025-02-15 08:36:14,014 - INFO - Progress: 99.9% Speed: 485.06 KB/s Downloaded: 113.27 MB / 113.41 MB
+2025-02-15 08:36:14,601 - INFO - Progress: 99.9% Speed: 436.04 KB/s Downloaded: 113.27 MB / 113.41 MB
+2025-02-15 08:36:15,174 - INFO - Progress: 99.9% Speed: 257.14 KB/s Downloaded: 113.27 MB / 113.41 MB
+2025-02-15 08:36:15,754 - INFO - Progress: 99.9% Speed: 241.59 KB/s Downloaded: 113.27 MB / 113.41 MB
+2025-02-15 08:36:16,344 - INFO - Progress: 99.9% Speed: 135.61 KB/s Downloaded: 113.27 MB / 113.41 MB
+2025-02-15 08:36:16,926 - INFO - Progress: 99.9% Speed: 127.28 KB/s Downloaded: 113.27 MB / 113.41 MB
+2025-02-15 08:36:17,512 - INFO - Progress: 100.0% Speed: 0.00 B/s Downloaded: 113.41 MB / 113.41 MB
+2025-02-15 08:36:17,678 - INFO - File yoonicpl010225.mp4 berhasil diverifikasi
+2025-02-15 08:36:27,325 - INFO - Mengambil link download untuk BU GURU SALSA (6).mp4...
+2025-02-15 08:36:28,779 - INFO - URL download: https://d.terabox.com/file/cdcd2123bb7affc092a3e138a1814434?fid=4398209640420-250528-666691053651649&dstime=1739583389&expires=1739583989&rt=sh&chkv=1&sign=FDtERVA-DCb740ccc5511e5e8fedcff06b081203-H%2Bydquf8X5zsCnpmFOkCHy3q4Vw%3D&r=833976666&sharesign=Vrry80fAy8AqG7GNL/ULz26vmhJBhAqgdiudNr2vTYcvn4Fnymc4VLQcZ5sOrZ4oggyWB5KfAH+MkX/iyROkAkdk2bTfizmG95lp5C/rhAY=&sh=1&region=jp
+2025-02-15 08:36:28,779 - INFO - Memulai download BU GURU SALSA (6).mp4 (5.28 MB)
+2025-02-15 08:36:28,780 - INFO - Konfigurasi aria2 berhasil dibuat dengan trackers
+2025-02-15 08:36:28,814 - INFO - Download berhasil ditambahkan ke aria2 dengan priority network
+2025-02-15 08:36:29,417 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:30,025 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:30,601 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:31,179 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:31,759 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:32,332 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:32,913 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:33,493 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:34,066 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:34,650 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:35,232 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:35,815 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:36,418 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:37,015 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:37,596 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:38,183 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:38,773 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:39,351 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:39,952 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:40,537 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:41,134 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:41,707 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:42,307 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:42,916 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:43,511 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:44,100 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:44,605 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:45,216 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:45,812 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:46,414 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:47,029 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:47,612 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:48,213 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:48,815 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:49,409 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:49,978 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:50,559 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:51,142 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:51,731 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:52,299 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:52,889 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:53,490 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:54,078 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:54,682 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:55,182 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:55,787 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:56,291 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:56,899 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:57,496 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:58,072 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:58,647 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:59,236 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:59,237 - WARNING - Download stuck selama 30.4 detik
+2025-02-15 08:36:59,832 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:36:59,832 - WARNING - Download stuck selama 31.0 detik
+2025-02-15 08:37:00,413 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:37:00,413 - WARNING - Download stuck selama 31.6 detik
+2025-02-15 08:37:00,413 - INFO - Download stuck, mencoba restart dengan parameter berbeda...
+2025-02-15 08:37:00,934 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:37:00,934 - WARNING - Download stuck selama 32.1 detik
+2025-02-15 08:37:01,513 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:37:01,513 - WARNING - Download stuck selama 32.7 detik
+2025-02-15 08:37:02,087 - INFO - Progress: 1.5% Speed: 196.31 KB/s Downloaded: 80.00 KB / 5.28 MB
+2025-02-15 08:37:02,697 - INFO - Progress: 12.1% Speed: 629.34 KB/s Downloaded: 656.00 KB / 5.28 MB
+2025-02-15 08:37:03,236 - INFO - Progress: 20.4% Speed: 679.58 KB/s Downloaded: 1.08 MB / 5.28 MB
+2025-02-15 08:37:03,842 - INFO - Progress: 20.4% Speed: 495.81 KB/s Downloaded: 1.08 MB / 5.28 MB
+2025-02-15 08:37:04,445 - INFO - Progress: 20.4% Speed: 390.82 KB/s Downloaded: 1.08 MB / 5.28 MB
+2025-02-15 08:37:05,065 - INFO - Progress: 20.4% Speed: 320.85 KB/s Downloaded: 1.08 MB / 5.28 MB
+2025-02-15 08:37:05,641 - INFO - Progress: 20.4% Speed: 275.03 KB/s Downloaded: 1.08 MB / 5.28 MB
+2025-02-15 08:37:06,234 - INFO - Progress: 20.4% Speed: 239.88 KB/s Downloaded: 1.08 MB / 5.28 MB
+2025-02-15 08:37:06,743 - INFO - Progress: 20.4% Speed: 216.13 KB/s Downloaded: 1.08 MB / 5.28 MB
+2025-02-15 08:37:07,332 - INFO - Progress: 23.1% Speed: 218.59 KB/s Downloaded: 1.22 MB / 5.28 MB
+2025-02-15 08:37:07,923 - INFO - Progress: 27.2% Speed: 233.25 KB/s Downloaded: 1.44 MB / 5.28 MB
+2025-02-15 08:37:08,530 - INFO - Progress: 28.4% Speed: 221.68 KB/s Downloaded: 1.50 MB / 5.28 MB
+2025-02-15 08:37:09,120 - INFO - Progress: 30.8% Speed: 221.33 KB/s Downloaded: 1.62 MB / 5.28 MB
+2025-02-15 08:37:09,707 - INFO - Progress: 41.2% Speed: 274.66 KB/s Downloaded: 2.17 MB / 5.28 MB
+2025-02-15 08:37:10,328 - INFO - Progress: 48.9% Speed: 303.32 KB/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:10,912 - INFO - Progress: 48.9% Speed: 284.30 KB/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:11,490 - INFO - Progress: 48.9% Speed: 267.71 KB/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:12,050 - INFO - Progress: 48.9% Speed: 217.13 KB/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:12,609 - INFO - Progress: 48.9% Speed: 204.92 KB/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:13,143 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:13,766 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:14,273 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:14,853 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:15,439 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:16,032 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:16,592 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:17,210 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:17,828 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:18,430 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:18,937 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:19,536 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:20,044 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:20,553 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:21,169 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:21,670 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:22,289 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:22,797 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:23,303 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:23,891 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:24,482 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:24,991 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:25,598 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:26,106 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:26,694 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:27,284 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:27,875 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:28,382 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:28,941 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:29,547 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:30,122 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:30,697 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:31,271 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:31,857 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:32,460 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:33,063 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:33,637 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:34,212 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:34,796 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:35,386 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:35,991 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:36,581 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:37,157 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:37,733 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:38,309 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:38,885 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:39,474 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:40,078 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:40,651 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:40,651 - WARNING - Download stuck selama 30.3 detik
+2025-02-15 08:37:41,236 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:41,236 - WARNING - Download stuck selama 30.9 detik
+2025-02-15 08:37:41,826 - INFO - Progress: 48.9% Speed: 0.00 B/s Downloaded: 2.58 MB / 5.28 MB
+2025-02-15 08:37:41,826 - WARNING - Download stuck selama 31.5 detik
+2025-02-15 08:37:41,826 - INFO - Download stuck, mencoba restart dengan parameter berbeda...
+2025-02-15 08:37:42,346 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:37:42,986 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:37:43,606 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:37:44,203 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:37:44,778 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:37:45,388 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:37:45,976 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:37:46,560 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:37:47,166 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:37:47,773 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:37:48,348 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:37:48,939 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:37:49,518 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:37:50,093 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:37:50,684 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:37:51,275 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:37:51,865 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:37:52,441 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:37:53,040 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:37:53,616 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:37:54,206 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:37:54,781 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:37:55,370 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:37:55,959 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:37:56,482 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:37:57,057 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:37:57,646 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:37:58,221 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:37:58,779 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:37:59,355 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:37:59,922 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:00,497 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:01,056 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:01,630 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:02,203 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:02,762 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:03,336 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:03,912 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:04,524 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:05,109 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:05,699 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:06,299 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:06,888 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:07,462 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:08,020 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:08,611 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:09,201 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:09,805 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:10,379 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:10,982 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:11,572 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:12,147 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:12,737 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:13,344 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:13,344 - WARNING - Download stuck selama 30.4 detik
+2025-02-15 08:38:13,917 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:13,917 - WARNING - Download stuck selama 30.9 detik
+2025-02-15 08:38:14,509 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:14,510 - WARNING - Download stuck selama 31.5 detik
+2025-02-15 08:38:14,510 - INFO - Download stuck, mencoba restart dengan parameter berbeda...
+2025-02-15 08:38:15,035 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:38:15,610 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:16,209 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:16,797 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:17,402 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:17,977 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:18,536 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:19,111 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:19,670 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:20,242 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:20,832 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:21,406 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:21,981 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:22,556 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:23,115 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:23,689 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:24,278 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:24,898 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:25,473 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:26,032 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:26,618 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:27,209 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:27,769 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:28,344 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:28,964 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:29,522 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:30,110 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:30,699 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:31,274 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:31,848 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:32,437 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:33,011 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:33,601 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:34,160 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:34,766 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:35,334 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:35,923 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:36,498 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:37,058 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:37,633 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:38,237 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:38,811 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:39,385 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:39,988 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:40,494 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:41,077 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:41,636 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:42,211 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:42,802 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:43,422 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:43,930 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:44,519 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:45,108 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:45,698 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:45,698 - WARNING - Download stuck selama 30.1 detik
+2025-02-15 08:38:46,277 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:46,277 - WARNING - Download stuck selama 30.7 detik
+2025-02-15 08:38:46,875 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:46,875 - WARNING - Download stuck selama 31.3 detik
+2025-02-15 08:38:46,875 - INFO - Download stuck, mencoba restart dengan parameter berbeda...
+2025-02-15 08:38:47,400 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.28 MB
+2025-02-15 08:38:47,991 - INFO - Progress: 92.1% Speed: 0.00 B/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:48,566 - INFO - Progress: 92.1% Speed: 319.82 KB/s Downloaded: 4.86 MB / 5.28 MB
+2025-02-15 08:38:49,141 - INFO - Progress: 93.9% Speed: 178.73 KB/s Downloaded: 4.95 MB / 5.28 MB
+2025-02-15 08:38:49,716 - INFO - Progress: 96.2% Speed: 199.79 KB/s Downloaded: 5.08 MB / 5.28 MB
+2025-02-15 08:38:50,291 - INFO - Progress: 98.0% Speed: 188.11 KB/s Downloaded: 5.17 MB / 5.28 MB
+2025-02-15 08:38:50,891 - INFO - Progress: 98.0% Speed: 140.53 KB/s Downloaded: 5.17 MB / 5.28 MB
+2025-02-15 08:38:51,484 - INFO - Progress: 98.0% Speed: 112.42 KB/s Downloaded: 5.17 MB / 5.28 MB
+2025-02-15 08:38:52,089 - INFO - Progress: 98.0% Speed: 93.37 KB/s Downloaded: 5.17 MB / 5.28 MB
+2025-02-15 08:38:52,648 - INFO - Progress: 98.0% Speed: 80.73 KB/s Downloaded: 5.17 MB / 5.28 MB
+2025-02-15 08:38:53,208 - INFO - Progress: 98.0% Speed: 71.07 KB/s Downloaded: 5.17 MB / 5.28 MB
+2025-02-15 08:38:53,783 - INFO - Progress: 98.6% Speed: 69.40 KB/s Downloaded: 5.20 MB / 5.28 MB
+2025-02-15 08:38:54,151 - INFO - File BU GURU SALSA (6).mp4 berhasil diverifikasi
+2025-02-15 08:38:54,211 - INFO - Mengambil link download untuk BU GURU SALSA (5).mp4...
+2025-02-15 08:38:55,739 - INFO - URL download: https://d.terabox.com/file/be9236cd8651c012a04fe21393b358ef?fid=4398209640420-250528-259025634799413&dstime=1739583536&expires=1739584136&rt=sh&chkv=1&sign=FDtERVA-DCb740ccc5511e5e8fedcff06b081203-cKLy7SHLEVfXZG7Mb2dR5p9d65s%3D&r=414260064&sharesign=Vrry80fAy8AqG7GNL/ULz26vmhJBhAqgdiudNr2vTYcvn4Fnymc4VLQcZ5sOrZ4oggyWB5KfAH+MkX/iyROkAkdk2bTfizmG95lp5C/rhAY=&sh=1&region=jp
+2025-02-15 08:38:55,739 - INFO - Memulai download BU GURU SALSA (5).mp4 (7.56 MB)
+2025-02-15 08:38:55,739 - INFO - Konfigurasi aria2 berhasil dibuat dengan trackers
+2025-02-15 08:38:55,785 - INFO - Download berhasil ditambahkan ke aria2 dengan priority network
+2025-02-15 08:38:56,308 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.56 MB
+2025-02-15 08:38:56,828 - INFO - Progress: 0.2% Speed: 522.67 KB/s Downloaded: 16.00 KB / 7.56 MB
+2025-02-15 08:38:57,433 - INFO - Progress: 4.1% Speed: 500.50 KB/s Downloaded: 320.00 KB / 7.56 MB
+2025-02-15 08:38:58,023 - INFO - Progress: 4.1% Speed: 265.60 KB/s Downloaded: 320.00 KB / 7.56 MB
+2025-02-15 08:38:58,528 - INFO - Progress: 4.1% Speed: 189.29 KB/s Downloaded: 320.00 KB / 7.56 MB
+2025-02-15 08:38:59,118 - INFO - Progress: 4.1% Speed: 141.84 KB/s Downloaded: 320.00 KB / 7.56 MB
+2025-02-15 08:38:59,625 - INFO - Progress: 4.1% Speed: 116.67 KB/s Downloaded: 320.00 KB / 7.56 MB
+2025-02-15 08:39:00,246 - INFO - Progress: 4.1% Speed: 95.87 KB/s Downloaded: 320.00 KB / 7.56 MB
+2025-02-15 08:39:00,865 - INFO - Progress: 4.1% Speed: 81.34 KB/s Downloaded: 320.00 KB / 7.56 MB
+2025-02-15 08:39:01,467 - INFO - Progress: 4.1% Speed: 70.94 KB/s Downloaded: 320.00 KB / 7.56 MB
+2025-02-15 08:39:02,084 - INFO - Progress: 5.2% Speed: 77.77 KB/s Downloaded: 400.00 KB / 7.56 MB
+2025-02-15 08:39:02,688 - INFO - Progress: 6.6% Speed: 86.47 KB/s Downloaded: 512.00 KB / 7.56 MB
+2025-02-15 08:39:03,308 - INFO - Progress: 6.6% Speed: 78.29 KB/s Downloaded: 512.00 KB / 7.56 MB
+2025-02-15 08:39:03,814 - INFO - Progress: 6.6% Speed: 72.67 KB/s Downloaded: 512.00 KB / 7.56 MB
+2025-02-15 08:39:04,318 - INFO - Progress: 6.6% Speed: 67.81 KB/s Downloaded: 512.00 KB / 7.56 MB
+2025-02-15 08:39:04,931 - INFO - Progress: 8.5% Speed: 80.36 KB/s Downloaded: 656.00 KB / 7.56 MB
+2025-02-15 08:39:05,538 - INFO - Progress: 10.9% Speed: 97.70 KB/s Downloaded: 848.00 KB / 7.56 MB
+2025-02-15 08:39:06,150 - INFO - Progress: 10.9% Speed: 91.33 KB/s Downloaded: 848.00 KB / 7.56 MB
+2025-02-15 08:39:06,768 - INFO - Progress: 10.9% Speed: 107.10 KB/s Downloaded: 848.00 KB / 7.56 MB
+2025-02-15 08:39:07,274 - INFO - Progress: 10.9% Speed: 97.05 KB/s Downloaded: 848.00 KB / 7.56 MB
+2025-02-15 08:39:07,878 - INFO - Progress: 10.9% Speed: 87.28 KB/s Downloaded: 848.00 KB / 7.56 MB
+2025-02-15 08:39:08,455 - INFO - Progress: 10.9% Speed: 79.62 KB/s Downloaded: 848.00 KB / 7.56 MB
+2025-02-15 08:39:08,997 - INFO - Progress: 10.9% Speed: 73.55 KB/s Downloaded: 848.00 KB / 7.56 MB
+2025-02-15 08:39:09,618 - INFO - Progress: 10.9% Speed: 67.65 KB/s Downloaded: 848.00 KB / 7.56 MB
+2025-02-15 08:39:10,223 - INFO - Progress: 13.2% Speed: 82.78 KB/s Downloaded: 1.00 MB / 7.56 MB
+2025-02-15 08:39:10,798 - INFO - Progress: 13.2% Speed: 77.45 KB/s Downloaded: 1.00 MB / 7.56 MB
+2025-02-15 08:39:11,386 - INFO - Progress: 13.2% Speed: 72.66 KB/s Downloaded: 1.00 MB / 7.56 MB
+2025-02-15 08:39:11,970 - INFO - Progress: 13.2% Speed: 69.76 KB/s Downloaded: 1.00 MB / 7.56 MB
+2025-02-15 08:39:12,545 - INFO - Progress: 13.2% Speed: 64.69 KB/s Downloaded: 1.00 MB / 7.56 MB
+2025-02-15 08:39:13,136 - INFO - Progress: 13.2% Speed: 60.19 KB/s Downloaded: 1.00 MB / 7.56 MB
+2025-02-15 08:39:13,726 - INFO - Progress: 13.2% Speed: 56.29 KB/s Downloaded: 1.00 MB / 7.56 MB
+2025-02-15 08:39:14,301 - INFO - Progress: 13.2% Speed: 52.94 KB/s Downloaded: 1.00 MB / 7.56 MB
+2025-02-15 08:39:14,876 - INFO - Progress: 13.2% Speed: 32.59 KB/s Downloaded: 1.00 MB / 7.56 MB
+2025-02-15 08:39:15,497 - INFO - Progress: 13.2% Speed: 29.07 KB/s Downloaded: 1.00 MB / 7.56 MB
+2025-02-15 08:39:16,055 - INFO - Progress: 13.2% Speed: 26.50 KB/s Downloaded: 1.00 MB / 7.56 MB
+2025-02-15 08:39:16,638 - INFO - Progress: 13.2% Speed: 24.26 KB/s Downloaded: 1.00 MB / 7.56 MB
+2025-02-15 08:39:17,211 - INFO - Progress: 13.2% Speed: 22.39 KB/s Downloaded: 1.00 MB / 7.56 MB
+2025-02-15 08:39:17,802 - INFO - Progress: 13.2% Speed: 20.75 KB/s Downloaded: 1.00 MB / 7.56 MB
+2025-02-15 08:39:18,378 - INFO - Progress: 13.2% Speed: 19.37 KB/s Downloaded: 1.00 MB / 7.56 MB
+2025-02-15 08:39:18,937 - INFO - Progress: 13.2% Speed: 18.19 KB/s Downloaded: 1.00 MB / 7.56 MB
+2025-02-15 08:39:19,512 - INFO - Progress: 13.2% Speed: 17.12 KB/s Downloaded: 1.00 MB / 7.56 MB
+2025-02-15 08:39:20,087 - INFO - Progress: 13.2% Speed: 0.00 B/s Downloaded: 1.00 MB / 7.56 MB
+2025-02-15 08:39:20,661 - INFO - Progress: 13.2% Speed: 0.00 B/s Downloaded: 1.00 MB / 7.56 MB
+2025-02-15 08:39:21,233 - INFO - Progress: 13.2% Speed: 0.00 B/s Downloaded: 1.00 MB / 7.56 MB
+2025-02-15 08:39:21,818 - INFO - Progress: 13.2% Speed: 0.00 B/s Downloaded: 1.00 MB / 7.56 MB
+2025-02-15 08:39:22,393 - INFO - Progress: 13.2% Speed: 0.00 B/s Downloaded: 1.00 MB / 7.56 MB
+2025-02-15 08:39:22,982 - INFO - Progress: 13.2% Speed: 0.00 B/s Downloaded: 1.00 MB / 7.56 MB
+2025-02-15 08:39:23,543 - INFO - Progress: 13.2% Speed: 0.00 B/s Downloaded: 1.00 MB / 7.56 MB
+2025-02-15 08:39:24,148 - INFO - Progress: 13.2% Speed: 0.00 B/s Downloaded: 1.00 MB / 7.56 MB
+2025-02-15 08:39:24,745 - INFO - Progress: 13.2% Speed: 0.00 B/s Downloaded: 1.00 MB / 7.56 MB
+2025-02-15 08:39:25,321 - INFO - Progress: 13.2% Speed: 0.00 B/s Downloaded: 1.00 MB / 7.56 MB
+2025-02-15 08:39:25,911 - INFO - Progress: 13.2% Speed: 0.00 B/s Downloaded: 1.00 MB / 7.56 MB
+2025-02-15 08:39:26,486 - INFO - Progress: 13.2% Speed: 0.00 B/s Downloaded: 1.00 MB / 7.56 MB
+2025-02-15 08:39:26,993 - INFO - Progress: 13.2% Speed: 0.00 B/s Downloaded: 1.00 MB / 7.56 MB
+2025-02-15 08:39:27,502 - INFO - Progress: 15.1% Speed: 672.37 KB/s Downloaded: 1.14 MB / 7.56 MB
+2025-02-15 08:39:28,106 - INFO - Progress: 17.4% Speed: 395.88 KB/s Downloaded: 1.31 MB / 7.56 MB
+2025-02-15 08:39:28,710 - INFO - Progress: 17.4% Speed: 230.68 KB/s Downloaded: 1.31 MB / 7.56 MB
+2025-02-15 08:39:29,299 - INFO - Progress: 17.4% Speed: 163.88 KB/s Downloaded: 1.31 MB / 7.56 MB
+2025-02-15 08:39:29,880 - INFO - Progress: 17.4% Speed: 127.42 KB/s Downloaded: 1.31 MB / 7.56 MB
+2025-02-15 08:39:30,471 - INFO - Progress: 17.4% Speed: 103.97 KB/s Downloaded: 1.31 MB / 7.56 MB
+2025-02-15 08:39:31,034 - INFO - Progress: 17.4% Speed: 88.42 KB/s Downloaded: 1.31 MB / 7.56 MB
+2025-02-15 08:39:31,646 - INFO - Progress: 17.4% Speed: 76.07 KB/s Downloaded: 1.31 MB / 7.56 MB
+2025-02-15 08:39:32,235 - INFO - Progress: 17.4% Speed: 67.07 KB/s Downloaded: 1.31 MB / 7.56 MB
+2025-02-15 08:39:32,824 - INFO - Progress: 19.8% Speed: 92.09 KB/s Downloaded: 1.50 MB / 7.56 MB
+2025-02-15 08:39:33,414 - INFO - Progress: 19.8% Speed: 83.25 KB/s Downloaded: 1.50 MB / 7.56 MB
+2025-02-15 08:39:33,988 - INFO - Progress: 19.8% Speed: 76.14 KB/s Downloaded: 1.50 MB / 7.56 MB
+2025-02-15 08:39:34,592 - INFO - Progress: 19.8% Speed: 69.87 KB/s Downloaded: 1.50 MB / 7.56 MB
+2025-02-15 08:39:35,093 - INFO - Progress: 19.8% Speed: 65.41 KB/s Downloaded: 1.50 MB / 7.56 MB
+2025-02-15 08:39:35,681 - INFO - Progress: 24.0% Speed: 100.43 KB/s Downloaded: 1.81 MB / 7.56 MB
+2025-02-15 08:39:36,269 - INFO - Progress: 24.0% Speed: 93.87 KB/s Downloaded: 1.81 MB / 7.56 MB
+2025-02-15 08:39:36,857 - INFO - Progress: 24.0% Speed: 88.13 KB/s Downloaded: 1.81 MB / 7.56 MB
+2025-02-15 08:39:37,460 - INFO - Progress: 24.0% Speed: 100.75 KB/s Downloaded: 1.81 MB / 7.56 MB
+2025-02-15 08:39:37,665 - ERROR - Error downloading BU GURU SALSA (5).mp4: Download dibatalkan oleh pengguna
+2025-02-15 08:39:37,697 - INFO - Mengambil link download untuk BU GURU SALSA (4).mp4...
+2025-02-15 08:39:39,176 - INFO - URL download: https://d.terabox.com/file/0891443c2b077627e9eaa9d07ef078c0?fid=4398209640420-250528-888997980635777&dstime=1739583580&expires=1739584180&rt=sh&chkv=1&sign=FDtERVA-DCb740ccc5511e5e8fedcff06b081203-%2BaP97hyKLgqjFBuQyY4c%2Fwe%2FEFQ%3D&r=630962812&sharesign=Vrry80fAy8AqG7GNL/ULz26vmhJBhAqgdiudNr2vTYcvn4Fnymc4VLQcZ5sOrZ4oggyWB5KfAH+MkX/iyROkAkdk2bTfizmG95lp5C/rhAY=&sh=1&region=jp
+2025-02-15 08:39:39,619 - INFO - Memulai download BU GURU SALSA (4).mp4 (7.65 MB)
+2025-02-15 08:39:39,619 - INFO - Konfigurasi aria2 berhasil dibuat dengan trackers
+2025-02-15 08:39:39,651 - INFO - Download berhasil ditambahkan ke aria2 dengan priority network
+2025-02-15 08:39:40,204 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:39:40,748 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:39:41,322 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:39:41,899 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:39:42,471 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:39:43,074 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:39:43,686 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:39:44,284 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:39:44,851 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:39:45,475 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:39:46,080 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:39:46,700 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:39:47,291 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:39:47,881 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:39:48,390 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:39:48,894 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:39:49,505 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:39:50,094 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:39:50,711 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:39:51,305 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:39:51,917 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:39:52,531 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:39:53,124 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:39:53,704 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:39:54,298 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:39:54,804 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:39:55,408 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:39:55,994 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:39:56,611 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:39:57,221 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:39:57,787 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:39:58,392 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:39:58,963 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:39:59,579 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:00,192 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:00,798 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:01,307 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:01,904 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:02,412 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:02,991 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:03,570 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:04,156 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:04,731 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:05,315 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:05,850 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:06,393 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:06,958 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:07,540 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:08,122 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:08,743 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:09,363 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:09,940 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:09,940 - WARNING - Download stuck selama 30.3 detik
+2025-02-15 08:40:10,530 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:10,530 - WARNING - Download stuck selama 30.9 detik
+2025-02-15 08:40:11,038 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:11,038 - WARNING - Download stuck selama 31.4 detik
+2025-02-15 08:40:11,038 - INFO - Download stuck, mencoba restart dengan parameter berbeda...
+2025-02-15 08:40:11,591 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:11,591 - WARNING - Download stuck selama 31.9 detik
+2025-02-15 08:40:12,176 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:12,176 - WARNING - Download stuck selama 32.5 detik
+2025-02-15 08:40:12,796 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:12,796 - WARNING - Download stuck selama 33.1 detik
+2025-02-15 08:40:12,796 - INFO - Download stuck, mencoba restart dengan parameter berbeda...
+2025-02-15 08:40:13,346 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:13,346 - WARNING - Download stuck selama 33.7 detik
+2025-02-15 08:40:13,970 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:13,972 - WARNING - Download stuck selama 34.3 detik
+2025-02-15 08:40:14,537 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:14,537 - WARNING - Download stuck selama 34.9 detik
+2025-02-15 08:40:14,539 - INFO - Download stuck, mencoba restart dengan parameter berbeda...
+2025-02-15 08:40:15,082 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:15,082 - WARNING - Download stuck selama 35.4 detik
+2025-02-15 08:40:15,675 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:15,675 - WARNING - Download stuck selama 36.0 detik
+2025-02-15 08:40:16,263 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:16,263 - WARNING - Download stuck selama 36.6 detik
+2025-02-15 08:40:16,263 - INFO - Download stuck, mencoba restart dengan parameter berbeda...
+2025-02-15 08:40:16,861 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:16,861 - WARNING - Download stuck selama 37.2 detik
+2025-02-15 08:40:17,411 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:17,412 - WARNING - Download stuck selama 37.8 detik
+2025-02-15 08:40:17,992 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:17,992 - WARNING - Download stuck selama 38.3 detik
+2025-02-15 08:40:17,992 - INFO - Download stuck, mencoba restart dengan parameter berbeda...
+2025-02-15 08:40:18,510 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:18,510 - WARNING - Download stuck selama 38.9 detik
+2025-02-15 08:40:19,117 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:19,117 - WARNING - Download stuck selama 39.5 detik
+2025-02-15 08:40:19,713 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:19,713 - WARNING - Download stuck selama 40.1 detik
+2025-02-15 08:40:19,713 - INFO - Download stuck, mencoba restart dengan parameter berbeda...
+2025-02-15 08:40:20,264 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:20,266 - WARNING - Download stuck selama 40.6 detik
+2025-02-15 08:40:20,771 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:20,771 - WARNING - Download stuck selama 41.1 detik
+2025-02-15 08:40:21,372 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:21,372 - WARNING - Download stuck selama 41.7 detik
+2025-02-15 08:40:21,372 - INFO - Download stuck, mencoba restart dengan parameter berbeda...
+2025-02-15 08:40:21,926 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:21,926 - WARNING - Download stuck selama 42.3 detik
+2025-02-15 08:40:22,525 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:22,526 - WARNING - Download stuck selama 42.9 detik
+2025-02-15 08:40:23,099 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:23,099 - WARNING - Download stuck selama 43.4 detik
+2025-02-15 08:40:23,099 - INFO - Download stuck, mencoba restart dengan parameter berbeda...
+2025-02-15 08:40:23,643 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:23,657 - WARNING - Download stuck selama 44.0 detik
+2025-02-15 08:40:24,259 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:24,321 - WARNING - Download stuck selama 44.6 detik
+2025-02-15 08:40:24,797 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:24,797 - WARNING - Download stuck selama 45.1 detik
+2025-02-15 08:40:24,797 - INFO - Download stuck, mencoba restart dengan parameter berbeda...
+2025-02-15 08:40:25,370 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:25,370 - WARNING - Download stuck selama 45.7 detik
+2025-02-15 08:40:25,988 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:26,042 - WARNING - Download stuck selama 46.3 detik
+2025-02-15 08:40:26,512 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:26,512 - WARNING - Download stuck selama 46.9 detik
+2025-02-15 08:40:26,512 - INFO - Download stuck, mencoba restart dengan parameter berbeda...
+2025-02-15 08:40:27,070 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:27,628 - WARNING - Download stuck selama 47.4 detik
+2025-02-15 08:40:27,755 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:27,885 - WARNING - Download stuck selama 48.1 detik
+2025-02-15 08:40:28,370 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:28,370 - WARNING - Download stuck selama 48.7 detik
+2025-02-15 08:40:28,370 - INFO - Download stuck, mencoba restart dengan parameter berbeda...
+2025-02-15 08:40:28,916 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.65 MB
+2025-02-15 08:40:28,942 - WARNING - Download stuck selama 49.3 detik
+2025-02-15 08:40:29,425 - INFO - Progress: 3.9% Speed: 1.02 MB/s Downloaded: 304.00 KB / 7.65 MB
+2025-02-15 08:40:30,014 - INFO - Progress: 4.1% Speed: 372.44 KB/s Downloaded: 320.00 KB / 7.65 MB
+2025-02-15 08:40:30,602 - INFO - Progress: 4.1% Speed: 224.62 KB/s Downloaded: 320.00 KB / 7.65 MB
+2025-02-15 08:40:31,192 - INFO - Progress: 4.1% Speed: 160.80 KB/s Downloaded: 320.00 KB / 7.65 MB
+2025-02-15 08:40:31,779 - INFO - Progress: 4.1% Speed: 125.27 KB/s Downloaded: 320.00 KB / 7.65 MB
+2025-02-15 08:40:32,367 - INFO - Progress: 4.1% Speed: 102.59 KB/s Downloaded: 320.00 KB / 7.65 MB
+2025-02-15 08:40:32,941 - INFO - Progress: 4.1% Speed: 87.21 KB/s Downloaded: 320.00 KB / 7.65 MB
+2025-02-15 08:40:33,545 - INFO - Progress: 4.1% Speed: 75.31 KB/s Downloaded: 320.00 KB / 7.65 MB
+2025-02-15 08:40:33,994 - ERROR - Error downloading BU GURU SALSA (4).mp4: Download dibatalkan oleh pengguna
+2025-02-15 08:40:33,994 - INFO - Mengambil link download untuk BU GURU SALSA (3).mp4...
+2025-02-15 08:40:34,690 - ERROR - Gagal mendapatkan link download: Unknown error
+2025-02-15 08:40:34,690 - ERROR - Error downloading BU GURU SALSA (3).mp4: Gagal mendapatkan link download: Unknown error
+2025-02-15 08:40:34,705 - INFO - Mengambil link download untuk BU GURU SALSA (2).mp4...
+2025-02-15 08:40:35,373 - ERROR - Gagal mendapatkan link download: Unknown error
+2025-02-15 08:40:35,373 - ERROR - Error downloading BU GURU SALSA (2).mp4: Gagal mendapatkan link download: Unknown error
+2025-02-15 08:40:35,394 - INFO - Mengambil link download untuk BU GURU SALSA (1).mp4...
+2025-02-15 08:40:36,086 - ERROR - Gagal mendapatkan link download: Unknown error
+2025-02-15 08:40:36,086 - ERROR - Error downloading BU GURU SALSA (1).mp4: Gagal mendapatkan link download: Unknown error
+2025-02-15 08:40:39,117 - INFO - Mengambil link download untuk nahaeyoon04.mp4...
+2025-02-15 08:40:40,824 - INFO - URL download: https://d.terabox.com/file/0d4060b5c283a4d469e73ba2f9ffc4a8?fid=81365211444949-250528-956999253894122&dstime=1739583641&expires=1739584241&rt=sh&chkv=1&sign=FDtERVA-DCb740ccc5511e5e8fedcff06b081203-5ECk5IJjqJ4D9a9vVCMKT4%2FIhNg%3D&r=310792885&sharesign=+WyOw/utdqbcCab1GSsDqbvytLKYwzG/1nKdA64A+NUvn4Fnymc4VLQcZ5sOrZ4oggyWB5KfAH+MkX/iyROkAkdk2bTfizmG95lp5C/rhAY=&sh=1&region=dm
+2025-02-15 08:40:40,824 - INFO - Memulai download nahaeyoon04.mp4 (8.56 MB)
+2025-02-15 08:40:40,824 - INFO - Konfigurasi aria2 berhasil dibuat dengan trackers
+2025-02-15 08:40:40,853 - INFO - Download berhasil ditambahkan ke aria2 dengan priority network
+2025-02-15 08:40:41,458 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 8.56 MB
+2025-02-15 08:40:42,063 - INFO - Progress: 4.4% Speed: 1022.91 KB/s Downloaded: 384.00 KB / 8.56 MB
+2025-02-15 08:40:42,638 - INFO - Progress: 20.1% Speed: 1.84 MB/s Downloaded: 1.72 MB / 8.56 MB
+2025-02-15 08:40:43,228 - INFO - Progress: 20.1% Speed: 1.13 MB/s Downloaded: 1.72 MB / 8.56 MB
+2025-02-15 08:40:43,797 - INFO - Progress: 20.1% Speed: 849.28 KB/s Downloaded: 1.72 MB / 8.56 MB
+2025-02-15 08:40:44,358 - INFO - Progress: 20.1% Speed: 670.27 KB/s Downloaded: 1.72 MB / 8.56 MB
+2025-02-15 08:40:44,890 - INFO - Progress: 20.1% Speed: 559.12 KB/s Downloaded: 1.72 MB / 8.56 MB
+2025-02-15 08:40:45,460 - INFO - Progress: 20.1% Speed: 474.62 KB/s Downloaded: 1.72 MB / 8.56 MB
+2025-02-15 08:40:46,057 - INFO - Progress: 20.1% Speed: 409.77 KB/s Downloaded: 1.72 MB / 8.56 MB
+2025-02-15 08:40:46,634 - INFO - Progress: 20.1% Speed: 361.97 KB/s Downloaded: 1.72 MB / 8.56 MB
+2025-02-15 08:40:47,215 - INFO - Progress: 21.5% Speed: 346.90 KB/s Downloaded: 1.84 MB / 8.56 MB
+2025-02-15 08:40:47,813 - INFO - Progress: 29.2% Speed: 417.89 KB/s Downloaded: 2.50 MB / 8.56 MB
+2025-02-15 08:40:48,398 - INFO - Progress: 29.2% Speed: 381.52 KB/s Downloaded: 2.50 MB / 8.56 MB
+2025-02-15 08:40:48,981 - INFO - Progress: 33.6% Speed: 403.70 KB/s Downloaded: 2.88 MB / 8.56 MB
+2025-02-15 08:40:49,568 - INFO - Progress: 37.8% Speed: 420.63 KB/s Downloaded: 3.23 MB / 8.56 MB
+2025-02-15 08:40:50,160 - INFO - Progress: 45.6% Speed: 474.14 KB/s Downloaded: 3.91 MB / 8.56 MB
+2025-02-15 08:40:50,745 - INFO - Progress: 49.3% Speed: 480.32 KB/s Downloaded: 4.22 MB / 8.56 MB
+2025-02-15 08:40:51,315 - INFO - Progress: 49.3% Speed: 451.84 KB/s Downloaded: 4.22 MB / 8.56 MB
+2025-02-15 08:40:51,891 - INFO - Progress: 49.3% Speed: 511.28 KB/s Downloaded: 4.22 MB / 8.56 MB
+2025-02-15 08:40:52,480 - INFO - Progress: 49.3% Speed: 457.63 KB/s Downloaded: 4.22 MB / 8.56 MB
+2025-02-15 08:40:53,074 - INFO - Progress: 49.3% Speed: 413.64 KB/s Downloaded: 4.22 MB / 8.56 MB
+2025-02-15 08:40:53,661 - INFO - Progress: 49.3% Speed: 377.86 KB/s Downloaded: 4.22 MB / 8.56 MB
+2025-02-15 08:40:54,248 - INFO - Progress: 50.7% Speed: 364.93 KB/s Downloaded: 4.34 MB / 8.56 MB
+2025-02-15 08:40:54,831 - INFO - Progress: 54.2% Speed: 375.52 KB/s Downloaded: 4.64 MB / 8.56 MB
+2025-02-15 08:40:55,409 - INFO - Progress: 56.2% Speed: 369.67 KB/s Downloaded: 4.81 MB / 8.56 MB
+2025-02-15 08:40:55,998 - INFO - Progress: 58.4% Speed: 365.34 KB/s Downloaded: 5.00 MB / 8.56 MB
+2025-02-15 08:40:56,590 - INFO - Progress: 58.4% Speed: 343.06 KB/s Downloaded: 5.00 MB / 8.56 MB
+2025-02-15 08:40:57,179 - INFO - Progress: 58.4% Speed: 298.05 KB/s Downloaded: 5.00 MB / 8.56 MB
+2025-02-15 08:40:57,735 - INFO - Progress: 58.4% Speed: 279.93 KB/s Downloaded: 5.00 MB / 8.56 MB
+2025-02-15 08:40:58,321 - INFO - Progress: 58.4% Speed: 263.08 KB/s Downloaded: 5.00 MB / 8.56 MB
+2025-02-15 08:40:58,915 - INFO - Progress: 58.4% Speed: 193.84 KB/s Downloaded: 5.00 MB / 8.56 MB
+2025-02-15 08:40:59,508 - INFO - Progress: 58.4% Speed: 182.27 KB/s Downloaded: 5.00 MB / 8.56 MB
+2025-02-15 08:41:00,097 - INFO - Progress: 58.4% Speed: 120.51 KB/s Downloaded: 5.00 MB / 8.56 MB
+2025-02-15 08:41:00,691 - INFO - Progress: 58.4% Speed: 110.26 KB/s Downloaded: 5.00 MB / 8.56 MB
+2025-02-15 08:41:01,279 - INFO - Progress: 58.4% Speed: 101.69 KB/s Downloaded: 5.00 MB / 8.56 MB
+2025-02-15 08:41:01,856 - INFO - Progress: 58.4% Speed: 94.50 KB/s Downloaded: 5.00 MB / 8.56 MB
+2025-02-15 08:41:02,438 - INFO - Progress: 58.4% Speed: 88.19 KB/s Downloaded: 5.00 MB / 8.56 MB
+2025-02-15 08:41:03,009 - INFO - Progress: 58.4% Speed: 82.77 KB/s Downloaded: 5.00 MB / 8.56 MB
+2025-02-15 08:41:03,609 - INFO - Progress: 58.4% Speed: 77.76 KB/s Downloaded: 5.00 MB / 8.56 MB
+2025-02-15 08:41:04,203 - INFO - Progress: 58.4% Speed: 52.78 KB/s Downloaded: 5.00 MB / 8.56 MB
+2025-02-15 08:41:04,786 - INFO - Progress: 58.4% Speed: 0.00 B/s Downloaded: 5.00 MB / 8.56 MB
+2025-02-15 08:41:05,391 - INFO - Progress: 58.4% Speed: 0.00 B/s Downloaded: 5.00 MB / 8.56 MB
+2025-02-15 08:41:05,986 - INFO - Progress: 58.4% Speed: 0.00 B/s Downloaded: 5.00 MB / 8.56 MB
+2025-02-15 08:41:06,579 - INFO - Progress: 58.4% Speed: 0.00 B/s Downloaded: 5.00 MB / 8.56 MB
+2025-02-15 08:41:07,169 - INFO - Progress: 58.4% Speed: 0.00 B/s Downloaded: 5.00 MB / 8.56 MB
+2025-02-15 08:41:07,763 - INFO - Progress: 58.4% Speed: 0.00 B/s Downloaded: 5.00 MB / 8.56 MB
+2025-02-15 08:41:08,353 - INFO - Progress: 58.4% Speed: 0.00 B/s Downloaded: 5.00 MB / 8.56 MB
+2025-02-15 08:41:08,962 - INFO - Progress: 58.4% Speed: 0.00 B/s Downloaded: 5.00 MB / 8.56 MB
+2025-02-15 08:41:09,546 - INFO - Progress: 58.4% Speed: 0.00 B/s Downloaded: 5.00 MB / 8.56 MB
+2025-02-15 08:41:10,145 - INFO - Progress: 58.4% Speed: 0.00 B/s Downloaded: 5.00 MB / 8.56 MB
+2025-02-15 08:41:10,714 - INFO - Progress: 58.4% Speed: 0.00 B/s Downloaded: 5.00 MB / 8.56 MB
+2025-02-15 08:41:11,290 - INFO - Progress: 58.4% Speed: 0.00 B/s Downloaded: 5.00 MB / 8.56 MB
+2025-02-15 08:41:11,852 - INFO - Progress: 58.4% Speed: 0.00 B/s Downloaded: 5.00 MB / 8.56 MB
+2025-02-15 08:41:12,444 - INFO - Progress: 58.4% Speed: 0.00 B/s Downloaded: 5.00 MB / 8.56 MB
+2025-02-15 08:41:13,027 - INFO - Progress: 76.3% Speed: 3.92 MB/s Downloaded: 6.53 MB / 8.56 MB
+2025-02-15 08:41:13,601 - INFO - Progress: 76.3% Speed: 1.59 MB/s Downloaded: 6.53 MB / 8.56 MB
+2025-02-15 08:41:14,192 - INFO - Progress: 76.3% Speed: 1009.41 KB/s Downloaded: 6.53 MB / 8.56 MB
+2025-02-15 08:41:14,773 - INFO - Progress: 76.3% Speed: 734.76 KB/s Downloaded: 6.53 MB / 8.56 MB
+2025-02-15 08:41:15,350 - INFO - Progress: 76.3% Speed: 578.66 KB/s Downloaded: 6.53 MB / 8.56 MB
+2025-02-15 08:41:15,926 - INFO - Progress: 76.3% Speed: 477.42 KB/s Downloaded: 6.53 MB / 8.56 MB
+2025-02-15 08:41:16,509 - INFO - Progress: 76.3% Speed: 405.59 KB/s Downloaded: 6.53 MB / 8.56 MB
+2025-02-15 08:41:17,117 - INFO - Progress: 76.3% Speed: 350.50 KB/s Downloaded: 6.53 MB / 8.56 MB
+2025-02-15 08:41:17,686 - INFO - Progress: 76.3% Speed: 311.09 KB/s Downloaded: 6.53 MB / 8.56 MB
+2025-02-15 08:41:18,276 - INFO - Progress: 81.8% Speed: 362.99 KB/s Downloaded: 7.00 MB / 8.56 MB
+2025-02-15 08:41:18,844 - INFO - Progress: 81.8% Speed: 329.74 KB/s Downloaded: 7.00 MB / 8.56 MB
+2025-02-15 08:41:19,428 - INFO - Progress: 91.1% Speed: 421.65 KB/s Downloaded: 7.80 MB / 8.56 MB
+2025-02-15 08:41:20,031 - INFO - Progress: 96.0% Speed: 445.94 KB/s Downloaded: 8.22 MB / 8.56 MB
+2025-02-15 08:41:20,608 - INFO - Progress: 96.0% Speed: 413.73 KB/s Downloaded: 8.22 MB / 8.56 MB
+2025-02-15 08:41:21,203 - INFO - Progress: 96.0% Speed: 385.00 KB/s Downloaded: 8.22 MB / 8.56 MB
+2025-02-15 08:41:21,783 - INFO - Progress: 96.0% Speed: 360.56 KB/s Downloaded: 8.22 MB / 8.56 MB
+2025-02-15 08:41:22,351 - INFO - Progress: 96.0% Speed: 339.48 KB/s Downloaded: 8.22 MB / 8.56 MB
+2025-02-15 08:41:22,930 - INFO - Progress: 96.0% Speed: 338.58 KB/s Downloaded: 8.22 MB / 8.56 MB
+2025-02-15 08:41:23,521 - INFO - Progress: 96.0% Speed: 303.43 KB/s Downloaded: 8.22 MB / 8.56 MB
+2025-02-15 08:41:24,091 - INFO - Progress: 96.0% Speed: 275.82 KB/s Downloaded: 8.22 MB / 8.56 MB
+2025-02-15 08:41:24,697 - INFO - Progress: 98.4% Speed: 281.71 KB/s Downloaded: 8.42 MB / 8.56 MB
+2025-02-15 08:41:25,204 - INFO - File nahaeyoon04.mp4 berhasil diverifikasi
+2025-02-15 08:41:25,210 - INFO - Mengambil link download untuk nahaeyoon03.mp4...
+2025-02-15 08:41:27,019 - INFO - URL download: https://d.terabox.com/file/4839b689f24816b57012045aa3432795?fid=81365211444949-250528-375353251439401&dstime=1739583687&expires=1739584287&rt=sh&chkv=1&sign=FDtERVA-DCb740ccc5511e5e8fedcff06b081203-xR%2Fg9oB8En8h%2Bi4Y1H30rRH%2FsOs%3D&r=789771046&sharesign=+WyOw/utdqbcCab1GSsDqbvytLKYwzG/1nKdA64A+NUvn4Fnymc4VLQcZ5sOrZ4oggyWB5KfAH+MkX/iyROkAkdk2bTfizmG95lp5C/rhAY=&sh=1&region=dm
+2025-02-15 08:41:27,020 - INFO - Memulai download nahaeyoon03.mp4 (4.94 MB)
+2025-02-15 08:41:27,020 - INFO - Konfigurasi aria2 berhasil dibuat dengan trackers
+2025-02-15 08:41:27,051 - INFO - Download berhasil ditambahkan ke aria2 dengan priority network
+2025-02-15 08:41:27,643 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 4.94 MB
+2025-02-15 08:41:28,252 - INFO - Progress: 8.5% Speed: 2.31 MB/s Downloaded: 432.00 KB / 4.94 MB
+2025-02-15 08:41:28,842 - INFO - Progress: 16.7% Speed: 1.07 MB/s Downloaded: 848.00 KB / 4.94 MB
+2025-02-15 08:41:29,459 - INFO - Progress: 39.5% Speed: 1.41 MB/s Downloaded: 1.95 MB / 4.94 MB
+2025-02-15 08:41:30,064 - INFO - Progress: 39.5% Speed: 1005.23 KB/s Downloaded: 1.95 MB / 4.94 MB
+2025-02-15 08:41:30,639 - INFO - Progress: 39.5% Speed: 780.11 KB/s Downloaded: 1.95 MB / 4.94 MB
+2025-02-15 08:41:31,203 - INFO - Progress: 39.5% Speed: 640.01 KB/s Downloaded: 1.95 MB / 4.94 MB
+2025-02-15 08:41:31,797 - INFO - Progress: 39.5% Speed: 538.06 KB/s Downloaded: 1.95 MB / 4.94 MB
+2025-02-15 08:41:32,402 - INFO - Progress: 39.5% Speed: 462.95 KB/s Downloaded: 1.95 MB / 4.94 MB
+2025-02-15 08:41:32,984 - INFO - Progress: 39.5% Speed: 408.06 KB/s Downloaded: 1.95 MB / 4.94 MB
+2025-02-15 08:41:33,552 - INFO - Progress: 41.1% Speed: 379.95 KB/s Downloaded: 2.03 MB / 4.94 MB
+2025-02-15 08:41:34,128 - INFO - Progress: 45.2% Speed: 378.05 KB/s Downloaded: 2.23 MB / 4.94 MB
+2025-02-15 08:41:34,721 - INFO - Progress: 59.1% Speed: 450.21 KB/s Downloaded: 2.92 MB / 4.94 MB
+2025-02-15 08:41:35,312 - INFO - Progress: 67.3% Speed: 471.00 KB/s Downloaded: 3.33 MB / 4.94 MB
+2025-02-15 08:41:35,920 - INFO - Progress: 76.8% Speed: 495.54 KB/s Downloaded: 3.80 MB / 4.94 MB
+2025-02-15 08:41:36,524 - INFO - Progress: 90.1% Speed: 540.02 KB/s Downloaded: 4.45 MB / 4.94 MB
+2025-02-15 08:41:37,120 - INFO - Progress: 90.1% Speed: 504.47 KB/s Downloaded: 4.45 MB / 4.94 MB
+2025-02-15 08:41:37,709 - INFO - Progress: 90.1% Speed: 473.65 KB/s Downloaded: 4.45 MB / 4.94 MB
+2025-02-15 08:41:38,309 - INFO - Progress: 90.1% Speed: 298.29 KB/s Downloaded: 4.45 MB / 4.94 MB
+2025-02-15 08:41:38,895 - INFO - Progress: 90.1% Speed: 280.52 KB/s Downloaded: 4.45 MB / 4.94 MB
+2025-02-15 08:41:39,467 - INFO - Progress: 91.7% Speed: 424.95 KB/s Downloaded: 4.53 MB / 4.94 MB
+2025-02-15 08:41:40,058 - INFO - Progress: 92.3% Speed: 392.76 KB/s Downloaded: 4.56 MB / 4.94 MB
+2025-02-15 08:41:40,630 - INFO - Progress: 93.5% Speed: 370.82 KB/s Downloaded: 4.62 MB / 4.94 MB
+2025-02-15 08:41:41,207 - INFO - Progress: 98.3% Speed: 374.02 KB/s Downloaded: 4.86 MB / 4.94 MB
+2025-02-15 08:41:41,595 - INFO - File nahaeyoon03.mp4 berhasil diverifikasi
+2025-02-15 08:41:41,646 - INFO - Mengambil link download untuk nahaeyoon02.mp4...
+2025-02-15 08:41:43,358 - INFO - URL download: https://d.terabox.com/file/bd0809693f2b2a0a10e5516b5c9db92d?fid=81365211444949-250528-612764606929550&dstime=1739583704&expires=1739584304&rt=sh&chkv=1&sign=FDtERVA-DCb740ccc5511e5e8fedcff06b081203-66CrQXYboIgx4%2B3Wx0V%2FNP9rLSE%3D&r=212914049&sharesign=+WyOw/utdqbcCab1GSsDqbvytLKYwzG/1nKdA64A+NUvn4Fnymc4VLQcZ5sOrZ4oggyWB5KfAH+MkX/iyROkAkdk2bTfizmG95lp5C/rhAY=&sh=1&region=dm
+2025-02-15 08:41:43,358 - INFO - Memulai download nahaeyoon02.mp4 (5.34 MB)
+2025-02-15 08:41:43,374 - INFO - Konfigurasi aria2 berhasil dibuat dengan trackers
+2025-02-15 08:41:43,406 - INFO - Download berhasil ditambahkan ke aria2 dengan priority network
+2025-02-15 08:41:44,026 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 5.34 MB
+2025-02-15 08:41:44,593 - INFO - Progress: 9.9% Speed: 1.12 MB/s Downloaded: 544.00 KB / 5.34 MB
+2025-02-15 08:41:45,165 - INFO - Progress: 37.1% Speed: 1.87 MB/s Downloaded: 1.98 MB / 5.34 MB
+2025-02-15 08:41:45,749 - INFO - Progress: 37.1% Speed: 1.21 MB/s Downloaded: 1.98 MB / 5.34 MB
+2025-02-15 08:41:46,337 - INFO - Progress: 37.1% Speed: 912.87 KB/s Downloaded: 1.98 MB / 5.34 MB
+2025-02-15 08:41:46,914 - INFO - Progress: 37.1% Speed: 725.75 KB/s Downloaded: 1.98 MB / 5.34 MB
+2025-02-15 08:41:47,501 - INFO - Progress: 37.1% Speed: 600.71 KB/s Downloaded: 1.98 MB / 5.34 MB
+2025-02-15 08:41:48,074 - INFO - Progress: 37.1% Speed: 514.22 KB/s Downloaded: 1.98 MB / 5.34 MB
+2025-02-15 08:41:48,655 - INFO - Progress: 37.1% Speed: 448.42 KB/s Downloaded: 1.98 MB / 5.34 MB
+2025-02-15 08:41:49,225 - INFO - Progress: 37.1% Speed: 398.56 KB/s Downloaded: 1.98 MB / 5.34 MB
+2025-02-15 08:41:49,814 - INFO - Progress: 47.1% Speed: 451.04 KB/s Downloaded: 2.52 MB / 5.34 MB
+2025-02-15 08:41:50,427 - INFO - Progress: 59.4% Speed: 514.37 KB/s Downloaded: 3.17 MB / 5.34 MB
+2025-02-15 08:41:51,017 - INFO - Progress: 67.3% Speed: 533.35 KB/s Downloaded: 3.59 MB / 5.34 MB
+2025-02-15 08:41:51,606 - INFO - Progress: 74.9% Speed: 547.01 KB/s Downloaded: 4.00 MB / 5.34 MB
+2025-02-15 08:41:52,109 - INFO - Progress: 81.9% Speed: 560.74 KB/s Downloaded: 4.38 MB / 5.34 MB
+2025-02-15 08:41:52,732 - INFO - Progress: 81.9% Speed: 520.27 KB/s Downloaded: 4.38 MB / 5.34 MB
+2025-02-15 08:41:53,308 - INFO - Progress: 81.9% Speed: 487.67 KB/s Downloaded: 4.38 MB / 5.34 MB
+2025-02-15 08:41:53,886 - INFO - Progress: 81.9% Speed: 458.87 KB/s Downloaded: 4.38 MB / 5.34 MB
+2025-02-15 08:41:54,486 - INFO - Progress: 81.9% Speed: 471.04 KB/s Downloaded: 4.38 MB / 5.34 MB
+2025-02-15 08:41:55,049 - INFO - Progress: 83.9% Speed: 444.44 KB/s Downloaded: 4.48 MB / 5.34 MB
+2025-02-15 08:41:55,656 - INFO - Progress: 85.1% Speed: 411.23 KB/s Downloaded: 4.55 MB / 5.34 MB
+2025-02-15 08:41:56,238 - INFO - Progress: 86.6% Speed: 387.78 KB/s Downloaded: 4.63 MB / 5.34 MB
+2025-02-15 08:41:56,826 - INFO - Progress: 95.6% Speed: 423.30 KB/s Downloaded: 5.11 MB / 5.34 MB
+2025-02-15 08:41:57,414 - INFO - Progress: 98.0% Speed: 408.34 KB/s Downloaded: 5.23 MB / 5.34 MB
+2025-02-15 08:41:58,002 - INFO - Progress: 98.0% Speed: 380.74 KB/s Downloaded: 5.23 MB / 5.34 MB
+2025-02-15 08:41:58,591 - INFO - Progress: 98.0% Speed: 356.67 KB/s Downloaded: 5.23 MB / 5.34 MB
+2025-02-15 08:41:59,179 - INFO - Progress: 98.0% Speed: 335.46 KB/s Downloaded: 5.23 MB / 5.34 MB
+2025-02-15 08:41:59,773 - INFO - Progress: 98.0% Speed: 230.96 KB/s Downloaded: 5.23 MB / 5.34 MB
+2025-02-15 08:42:00,356 - INFO - Progress: 98.0% Speed: 217.06 KB/s Downloaded: 5.23 MB / 5.34 MB
+2025-02-15 08:42:00,920 - INFO - Progress: 98.0% Speed: 139.27 KB/s Downloaded: 5.23 MB / 5.34 MB
+2025-02-15 08:42:01,524 - INFO - Progress: 100.0% Speed: 0.00 B/s Downloaded: 5.34 MB / 5.34 MB
+2025-02-15 08:42:01,626 - INFO - File nahaeyoon02.mp4 berhasil diverifikasi
+2025-02-15 08:42:01,725 - INFO - Mengambil link download untuk nahaeyoon01.mp4...
+2025-02-15 08:42:03,430 - INFO - URL download: https://d.terabox.com/file/c6a119c034bc5ea732aad7e13173e3f1?fid=81365211444949-250528-254089685705015&dstime=1739583724&expires=1739584324&rt=sh&chkv=1&sign=FDtERVA-DCb740ccc5511e5e8fedcff06b081203-jkzEmeCba9ZCvwK9hrVhb%2FkzyWk%3D&r=831206372&sharesign=+WyOw/utdqbcCab1GSsDqbvytLKYwzG/1nKdA64A+NUeiKByxcm31bQcZ5sOrZ4oggyWB5KfAH+MkX/iyROkAkdk2bTfizmG95lp5C/rhAY=&sh=1&region=dm
+2025-02-15 08:42:03,430 - INFO - Memulai download nahaeyoon01.mp4 (7.50 MB)
+2025-02-15 08:42:03,446 - INFO - Konfigurasi aria2 berhasil dibuat dengan trackers
+2025-02-15 08:42:03,477 - INFO - Download berhasil ditambahkan ke aria2 dengan priority network
+2025-02-15 08:42:04,091 - INFO - Progress: 0.0% Speed: 0.00 B/s Downloaded: 0.00 B / 7.50 MB
+2025-02-15 08:42:04,600 - INFO - Progress: 3.3% Speed: 4.21 MB/s Downloaded: 256.00 KB / 7.50 MB
+2025-02-15 08:42:05,208 - INFO - Progress: 11.5% Speed: 1.29 MB/s Downloaded: 880.00 KB / 7.50 MB
+2025-02-15 08:42:05,811 - INFO - Progress: 40.8% Speed: 2.42 MB/s Downloaded: 3.06 MB / 7.50 MB
+2025-02-15 08:42:06,401 - INFO - Progress: 40.8% Speed: 1.66 MB/s Downloaded: 3.06 MB / 7.50 MB
+2025-02-15 08:42:06,996 - INFO - Progress: 40.8% Speed: 1.26 MB/s Downloaded: 3.06 MB / 7.50 MB
+2025-02-15 08:42:07,574 - INFO - Progress: 40.8% Speed: 1.02 MB/s Downloaded: 3.06 MB / 7.50 MB
+2025-02-15 08:42:08,179 - INFO - Progress: 40.8% Speed: 868.70 KB/s Downloaded: 3.06 MB / 7.50 MB
+2025-02-15 08:42:08,790 - INFO - Progress: 40.8% Speed: 744.75 KB/s Downloaded: 3.06 MB / 7.50 MB
+2025-02-15 08:42:09,356 - INFO - Progress: 40.8% Speed: 656.49 KB/s Downloaded: 3.06 MB / 7.50 MB
+2025-02-15 08:42:09,955 - INFO - Progress: 41.7% Speed: 594.39 KB/s Downloaded: 3.12 MB / 7.50 MB
+2025-02-15 08:42:10,543 - INFO - Progress: 48.5% Speed: 624.74 KB/s Downloaded: 3.64 MB / 7.50 MB
+2025-02-15 08:42:11,125 - INFO - Progress: 59.2% Speed: 690.73 KB/s Downloaded: 4.44 MB / 7.50 MB
+2025-02-15 08:42:11,702 - INFO - Progress: 64.8% Speed: 695.79 KB/s Downloaded: 4.86 MB / 7.50 MB
+2025-02-15 08:42:12,278 - INFO - Progress: 75.4% Speed: 749.51 KB/s Downloaded: 5.66 MB / 7.50 MB
+2025-02-15 08:42:12,877 - INFO - Progress: 85.2% Speed: 786.21 KB/s Downloaded: 6.39 MB / 7.50 MB
+2025-02-15 08:42:13,496 - INFO - Progress: 89.6% Speed: 770.47 KB/s Downloaded: 6.72 MB / 7.50 MB
+2025-02-15 08:42:14,083 - INFO - Progress: 89.6% Speed: 723.02 KB/s Downloaded: 6.72 MB / 7.50 MB
+2025-02-15 08:42:14,672 - INFO - Progress: 89.6% Speed: 501.12 KB/s Downloaded: 6.72 MB / 7.50 MB
+2025-02-15 08:42:15,271 - INFO - Progress: 89.6% Speed: 470.27 KB/s Downloaded: 6.72 MB / 7.50 MB
+2025-02-15 08:42:15,877 - INFO - Progress: 90.4% Speed: 617.83 KB/s Downloaded: 6.78 MB / 7.50 MB
+2025-02-15 08:42:16,467 - INFO - Progress: 91.5% Speed: 575.26 KB/s Downloaded: 6.86 MB / 7.50 MB
+2025-02-15 08:42:17,039 - INFO - Progress: 92.7% Speed: 543.35 KB/s Downloaded: 6.95 MB / 7.50 MB
+2025-02-15 08:42:17,631 - INFO - Progress: 95.8% Speed: 532.80 KB/s Downloaded: 7.19 MB / 7.50 MB
+2025-02-15 08:42:18,208 - INFO - Progress: 97.7% Speed: 513.30 KB/s Downloaded: 7.33 MB / 7.50 MB
+2025-02-15 08:42:18,563 - INFO - File nahaeyoon01.mp4 berhasil diverifikasi

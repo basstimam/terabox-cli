@@ -1,0 +1,375 @@
+2025-02-14 05:38:43,008 - INFO - Aria2 berhasil disetup dengan konfigurasi CLI
+2025-02-14 05:38:56,401 - INFO - Mengambil link download untuk Abang & Adek Fujian (PART 1).zip...
+2025-02-14 05:38:57,856 - INFO - URL download: https://d.terabox.com/file/cc892c0e0ba43e8420236155a701d163?fid=4398562320602-250528-510394384258503&dstime=1739486337&expires=1739490156&rt=sh&chkv=1&sign=FDtERVA-DCb740ccc5511e5e8fedcff06b081203-xIRb5UCisH6FNAGuak6N3f84Z5M%3D&r=831003352&sharesign=yKXI5EW4KDJTF5Vj/wCTdP58F7jnhNZu99jWzBX61FwkkKGc120cBbQcZ5sOrZ4oggyWB5KfAH+MkX/iyROkAkdk2bTfizmG95lp5C/rhAY=&sh=1&region=jp
+2025-02-14 05:38:57,856 - INFO - Memulai download Abang & Adek Fujian (PART 1).zip (186.50 MB)
+2025-02-14 05:38:57,858 - INFO - Konfigurasi aria2 berhasil dibuat dengan trackers
+2025-02-14 05:38:57,907 - INFO - Download berhasil ditambahkan ke aria2 dengan priority network
+2025-02-14 05:38:58,503 - INFO - Progress: 0.0% Speed: 0.00 B/s
+2025-02-14 05:38:59,067 - INFO - Progress: 0.0% Speed: 0.00 B/s
+2025-02-14 05:38:59,608 - INFO - Progress: 0.1% Speed: 582.31 KB/s
+2025-02-14 05:39:00,169 - INFO - Progress: 1.2% Speed: 3.09 MB/s
+2025-02-14 05:39:00,730 - INFO - Progress: 3.3% Speed: 4.62 MB/s
+2025-02-14 05:39:01,309 - INFO - Progress: 5.1% Speed: 4.88 MB/s
+2025-02-14 05:39:01,837 - INFO - Progress: 5.9% Speed: 4.44 MB/s
+2025-02-14 05:39:02,382 - INFO - Progress: 6.4% Speed: 3.98 MB/s
+2025-02-14 05:39:02,905 - INFO - Progress: 7.6% Speed: 4.02 MB/s
+2025-02-14 05:39:03,456 - INFO - Progress: 9.0% Speed: 4.12 MB/s
+2025-02-14 05:39:04,077 - INFO - Progress: 9.9% Speed: 3.92 MB/s
+2025-02-14 05:39:04,678 - INFO - Progress: 10.1% Speed: 3.54 MB/s
+2025-02-14 05:39:05,273 - INFO - Progress: 10.6% Speed: 3.34 MB/s
+2025-02-14 05:39:05,894 - INFO - Progress: 12.2% Speed: 3.50 MB/s
+2025-02-14 05:39:06,496 - INFO - Progress: 12.8% Speed: 3.35 MB/s
+2025-02-14 05:39:07,118 - INFO - Progress: 13.3% Speed: 3.19 MB/s
+2025-02-14 05:39:07,723 - INFO - Progress: 13.7% Speed: 3.07 MB/s
+2025-02-14 05:39:08,272 - INFO - Progress: 14.1% Speed: 2.95 MB/s
+2025-02-14 05:39:08,817 - INFO - Progress: 14.5% Speed: 2.86 MB/s
+2025-02-14 05:39:09,375 - INFO - Progress: 15.8% Speed: 2.79 MB/s
+2025-02-14 05:39:09,876 - INFO - Progress: 16.4% Speed: 2.78 MB/s
+2025-02-14 05:39:10,448 - INFO - Progress: 17.0% Speed: 2.42 MB/s
+2025-02-14 05:39:10,979 - INFO - Progress: 17.4% Speed: 2.36 MB/s
+2025-02-14 05:39:11,554 - INFO - Progress: 17.7% Speed: 2.29 MB/s
+2025-02-14 05:39:12,143 - INFO - Progress: 18.4% Speed: 2.28 MB/s
+2025-02-14 05:39:12,735 - INFO - Progress: 19.3% Speed: 2.08 MB/s
+2025-02-14 05:39:13,347 - INFO - Progress: 19.8% Speed: 2.05 MB/s
+2025-02-14 05:39:13,917 - INFO - Progress: 20.6% Speed: 2.09 MB/s
+2025-02-14 05:39:14,531 - INFO - Progress: 21.2% Speed: 2.11 MB/s
+2025-02-14 05:39:15,154 - INFO - Progress: 21.5% Speed: 2.03 MB/s
+2025-02-14 05:39:15,732 - INFO - Progress: 22.0% Speed: 1.85 MB/s
+2025-02-14 05:39:16,351 - INFO - Progress: 22.8% Speed: 1.89 MB/s
+2025-02-14 05:39:16,972 - INFO - Progress: 23.6% Speed: 1.97 MB/s
+2025-02-14 05:39:17,574 - INFO - Progress: 24.1% Speed: 2.03 MB/s
+2025-02-14 05:39:18,191 - INFO - Progress: 25.0% Speed: 2.06 MB/s
+2025-02-14 05:39:18,692 - INFO - Progress: 25.5% Speed: 1.94 MB/s
+2025-02-14 05:39:19,314 - INFO - Progress: 25.7% Speed: 1.87 MB/s
+2025-02-14 05:39:19,905 - INFO - Progress: 26.2% Speed: 1.83 MB/s
+2025-02-14 05:39:20,491 - INFO - Progress: 27.2% Speed: 1.98 MB/s
+2025-02-14 05:39:20,897 - ERROR - Error downloading Abang & Adek Fujian (PART 1).zip: Download dibatalkan oleh pengguna
+2025-02-14 07:32:53,642 - INFO - Aria2 berhasil disetup dengan konfigurasi CLI
+2025-02-14 07:33:07,192 - INFO - Mengambil link download untuk Abang & Adek Fujian (PART 1).zip...
+2025-02-14 07:33:08,685 - INFO - URL download: https://d.terabox.com/file/cc892c0e0ba43e8420236155a701d163?fid=4398562320602-250528-510394384258503&dstime=1739493187&expires=1739497006&rt=sh&chkv=1&sign=FDtERVA-DCb740ccc5511e5e8fedcff06b081203-tPCcILmEKoeOjX8wQMLpYRKW8fo%3D&r=800615900&sharesign=yKXI5EW4KDJTF5Vj/wCTdP58F7jnhNZu99jWzBX61FzSoF0SV7JGGbQcZ5sOrZ4oggyWB5KfAH+MkX/iyROkAkdk2bTfizmG95lp5C/rhAY=&sh=1&region=jp
+2025-02-14 07:33:08,686 - INFO - Memulai download Abang & Adek Fujian (PART 1).zip (186.50 MB)
+2025-02-14 07:33:08,690 - INFO - Konfigurasi aria2 berhasil dibuat dengan trackers
+2025-02-14 07:33:08,724 - INFO - Download berhasil ditambahkan ke aria2 dengan priority network
+2025-02-14 07:33:09,255 - INFO - Progress: 0.0% Speed: 0.00 B/s
+2025-02-14 07:33:09,763 - INFO - Progress: 0.0% Speed: 0.00 B/s
+2025-02-14 07:33:10,336 - INFO - Progress: 0.0% Speed: 3.41 KB/s
+2025-02-14 07:33:10,337 - INFO - Download stuck, mencoba restart...
+2025-02-14 07:33:10,940 - INFO - Progress: 0.0% Speed: 0.00 B/s
+2025-02-14 07:33:11,474 - INFO - Mengambil link download untuk Abang & Adek Fujian (PART 1).zip...
+2025-02-14 07:33:13,034 - INFO - URL download: https://d.terabox.com/file/cc892c0e0ba43e8420236155a701d163?fid=4398562320602-250528-510394384258503&dstime=1739493192&expires=1739497011&rt=sh&chkv=1&sign=FDtERVA-DCb740ccc5511e5e8fedcff06b081203-ArmdibulIOQUi4wSmf7qJNr3ZsM%3D&r=139913250&sharesign=yKXI5EW4KDJTF5Vj/wCTdP58F7jnhNZu99jWzBX61FzSoF0SV7JGGbQcZ5sOrZ4oggyWB5KfAH+MkX/iyROkAkdk2bTfizmG95lp5C/rhAY=&sh=1&region=jp
+2025-02-14 07:33:13,036 - INFO - Memulai download Abang & Adek Fujian (PART 1).zip (186.50 MB)
+2025-02-14 07:33:13,039 - INFO - Konfigurasi aria2 berhasil dibuat dengan trackers
+2025-02-14 07:33:13,069 - INFO - Download berhasil ditambahkan ke aria2 dengan priority network
+2025-02-14 07:33:13,587 - INFO - Progress: 0.0% Speed: 0.00 B/s
+2025-02-14 07:34:22,567 - INFO - Mengambil link download untuk Abang & Adek Fujian (PART 1).zip...
+2025-02-14 07:34:24,026 - INFO - URL download: https://d.terabox.com/file/cc892c0e0ba43e8420236155a701d163?fid=4398562320602-250528-510394384258503&dstime=1739493263&expires=1739497082&rt=sh&chkv=1&sign=FDtERVA-DCb740ccc5511e5e8fedcff06b081203-G4IwPsWa%2Bmzd1D5Ib4Ao%2BsRV3H0%3D&r=471840524&sharesign=yKXI5EW4KDJTF5Vj/wCTdP58F7jnhNZu99jWzBX61FzSoF0SV7JGGbQcZ5sOrZ4oggyWB5KfAH+MkX/iyROkAkdk2bTfizmG95lp5C/rhAY=&sh=1&region=jp
+2025-02-14 07:34:24,085 - INFO - Memulai download Abang & Adek Fujian (PART 1).zip (186.50 MB)
+2025-02-14 07:34:24,086 - INFO - Konfigurasi aria2 berhasil dibuat dengan trackers
+2025-02-14 07:34:24,128 - INFO - Download berhasil ditambahkan ke aria2 dengan priority network
+2025-02-14 07:34:24,736 - INFO - Progress: 0.0% Speed: 0.00 B/s
+2025-02-14 07:34:49,621 - INFO - Aria2 berhasil disetup dengan konfigurasi CLI
+2025-02-14 07:38:33,270 - INFO - Aria2 berhasil disetup dengan konfigurasi CLI
+2025-02-14 07:38:52,457 - INFO - Berhasil menyimpan konfigurasi
+2025-02-14 07:39:07,198 - INFO - Mengambil link download untuk Abang & Adek Fujian (PART 1).zip...
+2025-02-14 07:39:08,735 - INFO - URL download: https://d.terabox.com/file/cc892c0e0ba43e8420236155a701d163?fid=4398562320602-250528-510394384258503&dstime=1739493547&expires=1739497366&rt=sh&chkv=1&sign=FDtERVA-DCb740ccc5511e5e8fedcff06b081203-Rd%2BcX1G0Zm8E8L0MlbVpLl%2B7ywM%3D&r=247949210&sharesign=yKXI5EW4KDJTF5Vj/wCTdP58F7jnhNZu99jWzBX61FyHB6P1858dNLQcZ5sOrZ4oggyWB5KfAH+MkX/iyROkAkdk2bTfizmG95lp5C/rhAY=&sh=1&region=jp
+2025-02-14 07:39:08,738 - INFO - Memulai download Abang & Adek Fujian (PART 1).zip (186.50 MB)
+2025-02-14 07:39:08,750 - INFO - Konfigurasi aria2 berhasil dibuat dengan trackers
+2025-02-14 07:39:08,848 - INFO - Download berhasil ditambahkan ke aria2 dengan priority network
+2025-02-14 07:39:09,354 - INFO - Progress: 0.0% Speed: 0.00 B/s
+2025-02-14 07:39:09,860 - INFO - Progress: 0.0% Speed: 0.00 B/s
+2025-02-14 07:39:10,433 - INFO - Progress: 0.0% Speed: 745.22 KB/s
+2025-02-14 07:39:11,001 - INFO - Progress: 0.2% Speed: 640.00 KB/s
+2025-02-14 07:39:11,597 - INFO - Progress: 1.4% Speed: 2.17 MB/s
+2025-02-14 07:39:12,170 - INFO - Progress: 2.7% Speed: 2.76 MB/s
+2025-02-14 07:39:12,751 - INFO - Progress: 3.1% Speed: 2.41 MB/s
+2025-02-14 07:39:13,313 - INFO - Progress: 3.2% Speed: 2.00 MB/s
+2025-02-14 07:39:13,921 - INFO - Progress: 3.2% Speed: 1.66 MB/s
+2025-02-14 07:39:14,526 - INFO - Progress: 3.2% Speed: 1.43 MB/s
+2025-02-14 07:39:15,157 - INFO - Progress: 3.2% Speed: 1.26 MB/s
+2025-02-14 07:39:15,777 - INFO - Progress: 3.4% Speed: 1.19 MB/s
+2025-02-14 07:39:16,277 - INFO - Progress: 3.5% Speed: 1.11 MB/s
+2025-02-14 07:39:16,789 - INFO - Progress: 4.3% Speed: 1.24 MB/s
+2025-02-14 07:39:17,794 - INFO - Progress: 4.7% Speed: 1.18 MB/s
+2025-02-14 07:39:18,391 - INFO - Progress: 6.0% Speed: 1.38 MB/s
+2025-02-14 07:39:19,013 - INFO - Progress: 6.3% Speed: 1.34 MB/s
+2025-02-14 07:39:19,604 - INFO - Progress: 6.9% Speed: 1.38 MB/s
+2025-02-14 07:39:20,194 - INFO - Progress: 7.4% Speed: 1.40 MB/s
+2025-02-14 07:39:20,771 - INFO - Progress: 7.5% Speed: 1.41 MB/s
+2025-02-14 07:39:21,372 - INFO - Progress: 7.6% Speed: 996.54 KB/s
+2025-02-14 07:39:21,891 - INFO - Progress: 7.8% Speed: 983.90 KB/s
+2025-02-14 07:39:22,415 - INFO - Progress: 8.0% Speed: 1.21 MB/s
+2025-02-14 07:39:23,038 - INFO - Progress: 8.5% Speed: 1.22 MB/s
+2025-02-14 07:39:23,658 - INFO - Progress: 8.9% Speed: 1.23 MB/s
+2025-02-14 07:39:24,266 - INFO - Progress: 9.3% Speed: 1.22 MB/s
+2025-02-14 07:39:24,794 - INFO - Progress: 9.9% Speed: 1.26 MB/s
+2025-02-14 07:39:25,368 - INFO - Progress: 10.3% Speed: 1.35 MB/s
+2025-02-14 07:39:25,941 - INFO - Progress: 10.5% Speed: 1.31 MB/s
+2025-02-14 07:39:26,539 - INFO - Progress: 11.0% Speed: 1.24 MB/s
+2025-02-14 07:39:27,105 - INFO - Progress: 11.3% Speed: 1.16 MB/s
+2025-02-14 07:39:27,699 - INFO - Progress: 11.9% Speed: 1.20 MB/s
+2025-02-14 07:39:28,257 - INFO - Progress: 12.3% Speed: 1.23 MB/s
+2025-02-14 07:39:28,834 - INFO - Progress: 12.5% Speed: 1.19 MB/s
+2025-02-14 07:39:29,424 - INFO - Progress: 12.7% Speed: 1.10 MB/s
+2025-02-14 07:39:30,016 - INFO - Progress: 13.2% Speed: 1.18 MB/s
+2025-02-14 07:39:30,517 - INFO - Progress: 13.4% Speed: 1.15 MB/s
+2025-02-14 07:39:31,116 - INFO - Progress: 13.6% Speed: 1.19 MB/s
+2025-02-14 07:39:31,720 - INFO - Progress: 14.1% Speed: 1.21 MB/s
+2025-02-14 07:39:32,333 - INFO - Progress: 14.4% Speed: 1.19 MB/s
+2025-02-14 07:39:32,889 - INFO - Progress: 15.0% Speed: 1.24 MB/s
+2025-02-14 07:39:33,441 - INFO - Progress: 15.2% Speed: 1.22 MB/s
+2025-02-14 07:39:34,059 - INFO - Progress: 15.7% Speed: 1.15 MB/s
+2025-02-14 07:39:34,638 - INFO - Progress: 16.2% Speed: 1.17 MB/s
+2025-02-14 07:39:35,238 - INFO - Progress: 16.5% Speed: 1.20 MB/s
+2025-02-14 07:39:35,833 - INFO - Progress: 17.2% Speed: 1.27 MB/s
+2025-02-14 07:39:36,437 - INFO - Progress: 17.5% Speed: 1.25 MB/s
+2025-02-14 07:39:36,944 - INFO - Progress: 17.7% Speed: 1.22 MB/s
+2025-02-14 07:39:37,446 - INFO - Progress: 17.8% Speed: 1.11 MB/s
+2025-02-14 07:39:38,068 - INFO - Progress: 18.3% Speed: 1.14 MB/s
+2025-02-14 07:39:38,693 - INFO - Progress: 18.4% Speed: 1.13 MB/s
+2025-02-14 07:39:39,268 - INFO - Progress: 19.2% Speed: 1.21 MB/s
+2025-02-14 07:39:39,888 - INFO - Progress: 19.3% Speed: 1.16 MB/s
+2025-02-14 07:39:40,513 - INFO - Progress: 19.9% Speed: 1.24 MB/s
+2025-02-14 07:39:41,014 - INFO - Progress: 20.1% Speed: 1.22 MB/s
+2025-02-14 07:39:41,608 - INFO - Progress: 20.5% Speed: 1.23 MB/s
+2025-02-14 07:39:42,231 - INFO - Progress: 20.9% Speed: 1.19 MB/s
+2025-02-14 07:39:42,733 - INFO - Progress: 21.0% Speed: 1.14 MB/s
+2025-02-14 07:39:43,322 - INFO - Progress: 21.8% Speed: 1.23 MB/s
+2025-02-14 07:39:43,931 - INFO - Progress: 22.3% Speed: 1.25 MB/s
+2025-02-14 07:39:44,524 - INFO - Progress: 22.7% Speed: 1.25 MB/s
+2025-02-14 07:39:45,133 - INFO - Progress: 22.9% Speed: 1.22 MB/s
+2025-02-14 07:39:45,756 - INFO - Progress: 23.0% Speed: 1.11 MB/s
+2025-02-14 07:39:46,375 - INFO - Progress: 23.7% Speed: 1.23 MB/s
+2025-02-14 07:39:46,950 - INFO - Progress: 23.8% Speed: 1.16 MB/s
+2025-02-14 07:39:47,531 - INFO - Progress: 24.1% Speed: 1.17 MB/s
+2025-02-14 07:39:48,122 - INFO - Progress: 24.4% Speed: 1.17 MB/s
+2025-02-14 07:39:48,662 - INFO - Progress: 25.3% Speed: 1.24 MB/s
+2025-02-14 07:39:49,272 - INFO - Progress: 25.4% Speed: 1.17 MB/s
+2025-02-14 07:39:49,876 - INFO - Progress: 25.8% Speed: 1.18 MB/s
+2025-02-14 07:39:50,432 - INFO - Progress: 26.1% Speed: 1.17 MB/s
+2025-02-14 07:39:50,934 - INFO - Progress: 26.2% Speed: 1.13 MB/s
+2025-02-14 07:39:51,558 - INFO - Progress: 27.1% Speed: 1.29 MB/s
+2025-02-14 07:39:52,248 - INFO - Progress: 27.3% Speed: 1.24 MB/s
+2025-02-14 07:39:52,868 - INFO - Progress: 27.7% Speed: 1.14 MB/s
+2025-02-14 07:39:53,440 - INFO - Progress: 28.1% Speed: 1.14 MB/s
+2025-02-14 07:39:54,016 - INFO - Progress: 28.6% Speed: 1.16 MB/s
+2025-02-14 07:39:54,638 - INFO - Progress: 28.8% Speed: 1.13 MB/s
+2025-02-14 07:39:55,261 - INFO - Progress: 28.9% Speed: 1.15 MB/s
+2025-02-14 07:39:55,882 - INFO - Progress: 29.5% Speed: 1.17 MB/s
+2025-02-14 07:39:56,493 - INFO - Progress: 30.2% Speed: 1.22 MB/s
+2025-02-14 07:39:57,116 - INFO - Progress: 30.2% Speed: 1.20 MB/s
+2025-02-14 07:39:57,701 - INFO - Progress: 30.9% Speed: 1.21 MB/s
+2025-02-14 07:39:58,287 - INFO - Progress: 31.2% Speed: 1.19 MB/s
+2025-02-14 07:39:58,882 - INFO - Progress: 31.6% Speed: 1.20 MB/s
+2025-02-14 07:39:59,382 - INFO - Progress: 32.1% Speed: 1.24 MB/s
+2025-02-14 07:39:59,936 - INFO - Progress: 32.5% Speed: 1.24 MB/s
+2025-02-14 07:40:00,520 - INFO - Progress: 32.5% Speed: 1.13 MB/s
+2025-02-14 07:40:01,120 - INFO - Progress: 32.8% Speed: 1.12 MB/s
+2025-02-14 07:40:01,719 - INFO - Progress: 33.1% Speed: 1.15 MB/s
+2025-02-14 07:40:02,338 - INFO - Progress: 33.3% Speed: 1.10 MB/s
+2025-02-14 07:40:02,840 - INFO - Progress: 33.7% Speed: 1.11 MB/s
+2025-02-14 07:40:03,447 - INFO - Progress: 33.8% Speed: 1.05 MB/s
+2025-02-14 07:40:03,999 - INFO - Progress: 34.2% Speed: 1.06 MB/s
+2025-02-14 07:40:04,584 - INFO - Progress: 34.8% Speed: 1.19 MB/s
+2025-02-14 07:40:05,180 - INFO - Progress: 35.0% Speed: 1.16 MB/s
+2025-02-14 07:40:05,800 - INFO - Progress: 35.0% Speed: 988.41 KB/s
+2025-02-14 07:40:06,422 - INFO - Progress: 35.4% Speed: 1.05 MB/s
+2025-02-14 07:40:06,984 - INFO - Progress: 36.1% Speed: 1.12 MB/s
+2025-02-14 07:40:07,566 - INFO - Progress: 36.3% Speed: 1.06 MB/s
+2025-02-14 07:40:08,167 - INFO - Progress: 36.4% Speed: 1.00 MB/s
+2025-02-14 07:40:08,672 - INFO - Progress: 36.5% Speed: 893.30 KB/s
+2025-02-14 07:40:09,264 - INFO - Progress: 37.0% Speed: 950.17 KB/s
+2025-02-14 07:40:09,816 - INFO - Progress: 37.2% Speed: 974.48 KB/s
+2025-02-14 07:40:10,431 - INFO - Progress: 37.7% Speed: 999.63 KB/s
+2025-02-14 07:40:11,005 - INFO - Progress: 37.7% Speed: 966.51 KB/s
+2025-02-14 07:40:11,627 - INFO - Progress: 38.4% Speed: 1.03 MB/s
+2025-02-14 07:40:12,237 - INFO - Progress: 38.8% Speed: 1.04 MB/s
+2025-02-14 07:40:12,843 - INFO - Progress: 39.0% Speed: 1.01 MB/s
+2025-02-14 07:40:13,433 - INFO - Progress: 39.2% Speed: 998.98 KB/s
+2025-02-14 07:40:13,994 - INFO - Progress: 39.5% Speed: 1009.11 KB/s
+2025-02-14 07:40:14,584 - INFO - Progress: 40.4% Speed: 1.16 MB/s
+2025-02-14 07:40:15,207 - INFO - Progress: 40.5% Speed: 1.11 MB/s
+2025-02-14 07:40:15,819 - INFO - Progress: 40.6% Speed: 1.05 MB/s
+2025-02-14 07:40:16,381 - INFO - Progress: 40.7% Speed: 940.17 KB/s
+2025-02-14 07:40:17,000 - INFO - Progress: 41.1% Speed: 1023.52 KB/s
+2025-02-14 07:40:17,606 - INFO - Progress: 41.5% Speed: 1.02 MB/s
+2025-02-14 07:40:18,236 - INFO - Progress: 41.9% Speed: 1.03 MB/s
+2025-02-14 07:40:18,834 - INFO - Progress: 42.2% Speed: 1.03 MB/s
+2025-02-14 07:40:19,430 - INFO - Progress: 42.9% Speed: 1.08 MB/s
+2025-02-14 07:40:20,034 - INFO - Progress: 43.1% Speed: 1.06 MB/s
+2025-02-14 07:40:20,657 - INFO - Progress: 43.3% Speed: 1.08 MB/s
+2025-02-14 07:40:21,264 - INFO - Progress: 43.6% Speed: 1021.32 KB/s
+2025-02-14 07:40:21,863 - INFO - Progress: 44.2% Speed: 1.06 MB/s
+2025-02-14 07:40:22,445 - INFO - Progress: 44.7% Speed: 1.15 MB/s
+2025-02-14 07:40:23,050 - INFO - Progress: 44.8% Speed: 1.09 MB/s
+2025-02-14 07:40:23,673 - INFO - Progress: 44.8% Speed: 946.75 KB/s
+2025-02-14 07:40:24,276 - INFO - Progress: 45.1% Speed: 939.72 KB/s
+2025-02-14 07:40:24,879 - INFO - Progress: 45.5% Speed: 1.03 MB/s
+2025-02-14 07:40:25,499 - INFO - Progress: 46.0% Speed: 1.07 MB/s
+2025-02-14 07:40:26,120 - INFO - Progress: 46.3% Speed: 1.05 MB/s
+2025-02-14 07:40:26,738 - INFO - Progress: 46.9% Speed: 1.11 MB/s
+2025-02-14 07:40:27,361 - INFO - Progress: 47.4% Speed: 1.14 MB/s
+2025-02-14 07:40:27,960 - INFO - Progress: 47.6% Speed: 1.10 MB/s
+2025-02-14 07:40:28,556 - INFO - Progress: 47.8% Speed: 1.02 MB/s
+2025-02-14 07:40:29,173 - INFO - Progress: 48.4% Speed: 1.08 MB/s
+2025-02-14 07:40:29,675 - INFO - Progress: 48.5% Speed: 1.05 MB/s
+2025-02-14 07:40:30,270 - INFO - Progress: 49.0% Speed: 1.15 MB/s
+2025-02-14 07:40:30,892 - INFO - Progress: 49.1% Speed: 1.09 MB/s
+2025-02-14 07:40:31,404 - INFO - Progress: 49.2% Speed: 961.39 KB/s
+2025-02-14 07:40:31,906 - INFO - Progress: 49.3% Speed: 932.65 KB/s
+2025-02-14 07:40:32,529 - INFO - Progress: 49.5% Speed: 960.15 KB/s
+2025-02-14 07:40:33,120 - INFO - Progress: 50.3% Speed: 1.02 MB/s
+2025-02-14 07:40:33,742 - INFO - Progress: 50.7% Speed: 1.09 MB/s
+2025-02-14 07:40:34,364 - INFO - Progress: 51.2% Speed: 1.10 MB/s
+2025-02-14 07:40:34,949 - INFO - Progress: 51.7% Speed: 1.12 MB/s
+2025-02-14 07:40:35,579 - INFO - Progress: 51.9% Speed: 1.10 MB/s
+2025-02-14 07:40:36,200 - INFO - Progress: 52.4% Speed: 1.07 MB/s
+2025-02-14 07:40:36,822 - INFO - Progress: 52.6% Speed: 1.04 MB/s
+2025-02-14 07:40:37,397 - INFO - Progress: 52.8% Speed: 1.06 MB/s
+2025-02-14 07:40:37,997 - INFO - Progress: 53.3% Speed: 1.10 MB/s
+2025-02-14 07:40:38,613 - INFO - Progress: 53.4% Speed: 1.01 MB/s
+2025-02-14 07:40:39,238 - INFO - Progress: 53.6% Speed: 995.46 KB/s
+2025-02-14 07:40:39,859 - INFO - Progress: 53.7% Speed: 973.46 KB/s
+2025-02-14 07:40:40,482 - INFO - Progress: 54.0% Speed: 978.67 KB/s
+2025-02-14 07:40:41,073 - INFO - Progress: 54.9% Speed: 1.12 MB/s
+2025-02-14 07:40:41,665 - INFO - Progress: 55.2% Speed: 1.11 MB/s
+2025-02-14 07:40:42,272 - INFO - Progress: 55.5% Speed: 1.12 MB/s
+2025-02-14 07:40:42,774 - INFO - Progress: 56.0% Speed: 1.14 MB/s
+2025-02-14 07:40:43,335 - INFO - Progress: 56.4% Speed: 1.11 MB/s
+2025-02-14 07:40:43,946 - INFO - Progress: 56.9% Speed: 1.11 MB/s
+2025-02-14 07:40:44,497 - INFO - Progress: 56.9% Speed: 1.05 MB/s
+2025-02-14 07:40:45,090 - INFO - Progress: 57.1% Speed: 1.03 MB/s
+2025-02-14 07:40:45,673 - INFO - Progress: 57.5% Speed: 1.05 MB/s
+2025-02-14 07:40:46,288 - INFO - Progress: 57.7% Speed: 1.00 MB/s
+2025-02-14 07:40:46,788 - INFO - Progress: 57.8% Speed: 1001.85 KB/s
+2025-02-14 07:40:47,334 - INFO - Progress: 57.9% Speed: 955.40 KB/s
+2025-02-14 07:40:47,937 - INFO - Progress: 58.1% Speed: 980.57 KB/s
+2025-02-14 07:40:48,498 - INFO - Progress: 59.1% Speed: 1.09 MB/s
+2025-02-14 07:40:49,099 - INFO - Progress: 59.4% Speed: 1.15 MB/s
+2025-02-14 07:40:49,681 - INFO - Progress: 59.7% Speed: 1.15 MB/s
+2025-02-14 07:40:50,301 - INFO - Progress: 60.0% Speed: 1.03 MB/s
+2025-02-14 07:40:50,899 - INFO - Progress: 61.0% Speed: 1.16 MB/s
+2025-02-14 07:40:51,485 - INFO - Progress: 61.2% Speed: 1.12 MB/s
+2025-02-14 07:40:52,256 - INFO - Progress: 61.2% Speed: 1.03 MB/s
+2025-02-14 07:40:52,825 - INFO - Progress: 61.3% Speed: 1.00 MB/s
+2025-02-14 07:40:53,421 - INFO - Progress: 61.7% Speed: 1.03 MB/s
+2025-02-14 07:40:53,998 - INFO - Progress: 62.0% Speed: 1.01 MB/s
+2025-02-14 07:40:54,620 - INFO - Progress: 62.2% Speed: 1008.88 KB/s
+2025-02-14 07:40:55,209 - INFO - Progress: 62.3% Speed: 955.37 KB/s
+2025-02-14 07:40:55,793 - INFO - Progress: 63.0% Speed: 1.07 MB/s
+2025-02-14 07:40:56,403 - INFO - Progress: 63.5% Speed: 1.10 MB/s
+2025-02-14 07:40:56,905 - INFO - Progress: 63.7% Speed: 1.15 MB/s
+2025-02-14 07:40:57,427 - INFO - Progress: 64.0% Speed: 1.14 MB/s
+2025-02-14 07:40:57,982 - INFO - Progress: 64.5% Speed: 1.05 MB/s
+2025-02-14 07:40:58,604 - INFO - Progress: 65.5% Speed: 1.16 MB/s
+2025-02-14 07:40:59,199 - INFO - Progress: 65.5% Speed: 1.13 MB/s
+2025-02-14 07:40:59,822 - INFO - Progress: 65.5% Speed: 978.99 KB/s
+2025-02-14 07:41:00,443 - INFO - Progress: 65.5% Speed: 919.56 KB/s
+2025-02-14 07:41:01,035 - INFO - Progress: 66.9% Speed: 1.25 MB/s
+2025-02-14 07:41:01,610 - INFO - Progress: 68.2% Speed: 1.43 MB/s
+2025-02-14 07:41:02,212 - INFO - Progress: 68.6% Speed: 1.41 MB/s
+2025-02-14 07:41:02,814 - INFO - Progress: 68.9% Speed: 1.40 MB/s
+2025-02-14 07:41:03,436 - INFO - Progress: 69.5% Speed: 1.44 MB/s
+2025-02-14 07:41:04,058 - INFO - Progress: 69.9% Speed: 1.51 MB/s
+2025-02-14 07:41:04,663 - INFO - Progress: 70.3% Speed: 1.60 MB/s
+2025-02-14 07:41:05,267 - INFO - Progress: 70.9% Speed: 1.61 MB/s
+2025-02-14 07:41:05,848 - INFO - Progress: 71.7% Speed: 1.60 MB/s
+2025-02-14 07:41:06,441 - INFO - Progress: 71.9% Speed: 1.54 MB/s
+2025-02-14 07:41:07,043 - INFO - Progress: 71.9% Speed: 1.54 MB/s
+2025-02-14 07:41:07,671 - INFO - Progress: 71.9% Speed: 1.62 MB/s
+2025-02-14 07:41:08,294 - INFO - Progress: 72.0% Speed: 1.52 MB/s
+2025-02-14 07:41:08,916 - INFO - Progress: 72.0% Speed: 1.42 MB/s
+2025-02-14 07:41:09,536 - INFO - Progress: 72.3% Speed: 1.38 MB/s
+2025-02-14 07:41:10,127 - INFO - Progress: 72.4% Speed: 1.32 MB/s
+2025-02-14 07:41:10,645 - INFO - Progress: 73.0% Speed: 1.15 MB/s
+2025-02-14 07:41:11,237 - INFO - Progress: 73.4% Speed: 1.16 MB/s
+2025-02-14 07:41:11,814 - INFO - Progress: 74.0% Speed: 1.06 MB/s
+2025-02-14 07:41:12,435 - INFO - Progress: 74.2% Speed: 1006.21 KB/s
+2025-02-14 07:41:13,055 - INFO - Progress: 75.2% Speed: 1.11 MB/s
+2025-02-14 07:41:13,662 - INFO - Progress: 75.6% Speed: 1.10 MB/s
+2025-02-14 07:41:14,286 - INFO - Progress: 75.6% Speed: 1.03 MB/s
+2025-02-14 07:41:14,788 - INFO - Progress: 75.6% Speed: 922.34 KB/s
+2025-02-14 07:41:15,306 - INFO - Progress: 75.7% Speed: 889.62 KB/s
+2025-02-14 07:41:15,922 - INFO - Progress: 75.8% Speed: 908.04 KB/s
+2025-02-14 07:41:16,544 - INFO - Progress: 75.9% Speed: 874.40 KB/s
+2025-02-14 07:41:17,169 - INFO - Progress: 76.1% Speed: 853.95 KB/s
+2025-02-14 07:41:17,793 - INFO - Progress: 76.6% Speed: 979.03 KB/s
+2025-02-14 07:41:18,414 - INFO - Progress: 77.1% Speed: 1000.91 KB/s
+2025-02-14 07:41:19,036 - INFO - Progress: 77.7% Speed: 1.09 MB/s
+2025-02-14 07:41:19,631 - INFO - Progress: 77.9% Speed: 1.06 MB/s
+2025-02-14 07:41:20,238 - INFO - Progress: 78.8% Speed: 1.12 MB/s
+2025-02-14 07:41:20,861 - INFO - Progress: 79.3% Speed: 1.14 MB/s
+2025-02-14 07:41:21,484 - INFO - Progress: 79.4% Speed: 1.05 MB/s
+2025-02-14 07:41:22,108 - INFO - Progress: 79.4% Speed: 1011.52 KB/s
+2025-02-14 07:41:22,648 - INFO - Progress: 79.4% Speed: 816.41 KB/s
+2025-02-14 07:41:23,247 - INFO - Progress: 79.5% Speed: 909.70 KB/s
+2025-02-14 07:41:23,841 - INFO - Progress: 79.6% Speed: 873.22 KB/s
+2025-02-14 07:41:24,421 - INFO - Progress: 79.9% Speed: 861.86 KB/s
+2025-02-14 07:41:24,993 - INFO - Progress: 80.3% Speed: 887.42 KB/s
+2025-02-14 07:41:25,599 - INFO - Progress: 80.8% Speed: 1017.16 KB/s
+2025-02-14 07:41:26,222 - INFO - Progress: 81.3% Speed: 1.07 MB/s
+2025-02-14 07:41:26,737 - INFO - Progress: 81.6% Speed: 1.09 MB/s
+2025-02-14 07:41:27,360 - INFO - Progress: 82.2% Speed: 1.06 MB/s
+2025-02-14 07:41:27,982 - INFO - Progress: 82.9% Speed: 1.14 MB/s
+2025-02-14 07:41:28,605 - INFO - Progress: 83.1% Speed: 1.08 MB/s
+2025-02-14 07:41:29,227 - INFO - Progress: 83.1% Speed: 1.01 MB/s
+2025-02-14 07:41:29,851 - INFO - Progress: 83.1% Speed: 815.31 KB/s
+2025-02-14 07:41:30,475 - INFO - Progress: 83.3% Speed: 791.88 KB/s
+2025-02-14 07:41:31,081 - INFO - Progress: 83.3% Speed: 872.92 KB/s
+2025-02-14 07:41:31,705 - INFO - Progress: 83.6% Speed: 866.05 KB/s
+2025-02-14 07:41:32,327 - INFO - Progress: 84.0% Speed: 885.56 KB/s
+2025-02-14 07:41:32,949 - INFO - Progress: 84.6% Speed: 1013.67 KB/s
+2025-02-14 07:41:33,568 - INFO - Progress: 85.0% Speed: 1.07 MB/s
+2025-02-14 07:41:34,192 - INFO - Progress: 85.4% Speed: 1.07 MB/s
+2025-02-14 07:41:34,791 - INFO - Progress: 86.1% Speed: 1.09 MB/s
+2025-02-14 07:41:35,293 - INFO - Progress: 86.7% Speed: 1.16 MB/s
+2025-02-14 07:41:35,795 - INFO - Progress: 87.0% Speed: 1.12 MB/s
+2025-02-14 07:41:36,379 - INFO - Progress: 87.0% Speed: 1.06 MB/s
+2025-02-14 07:41:36,960 - INFO - Progress: 87.0% Speed: 865.15 KB/s
+2025-02-14 07:41:37,461 - INFO - Progress: 87.2% Speed: 861.91 KB/s
+2025-02-14 07:41:38,042 - INFO - Progress: 87.4% Speed: 988.33 KB/s
+2025-02-14 07:41:38,645 - INFO - Progress: 87.8% Speed: 995.35 KB/s
+2025-02-14 07:41:39,267 - INFO - Progress: 87.9% Speed: 954.59 KB/s
+2025-02-14 07:41:39,860 - INFO - Progress: 88.3% Speed: 1.03 MB/s
+2025-02-14 07:41:40,480 - INFO - Progress: 88.9% Speed: 1.08 MB/s
+2025-02-14 07:41:41,101 - INFO - Progress: 89.3% Speed: 1.16 MB/s
+2025-02-14 07:41:41,695 - INFO - Progress: 89.7% Speed: 1.17 MB/s
+2025-02-14 07:41:42,317 - INFO - Progress: 90.6% Speed: 1.23 MB/s
+2025-02-14 07:41:42,898 - INFO - Progress: 91.1% Speed: 1.25 MB/s
+2025-02-14 07:41:43,491 - INFO - Progress: 91.3% Speed: 1.20 MB/s
+2025-02-14 07:41:44,080 - INFO - Progress: 91.3% Speed: 1.13 MB/s
+2025-02-14 07:41:44,581 - INFO - Progress: 91.3% Speed: 933.91 KB/s
+2025-02-14 07:41:45,201 - INFO - Progress: 91.6% Speed: 935.21 KB/s
+2025-02-14 07:41:45,792 - INFO - Progress: 91.9% Speed: 1.05 MB/s
+2025-02-14 07:41:46,398 - INFO - Progress: 92.1% Speed: 1.03 MB/s
+2025-02-14 07:41:47,022 - INFO - Progress: 92.4% Speed: 1.02 MB/s
+2025-02-14 07:41:47,581 - INFO - Progress: 93.0% Speed: 1.09 MB/s
+2025-02-14 07:41:48,204 - INFO - Progress: 93.4% Speed: 1.10 MB/s
+2025-02-14 07:41:48,763 - INFO - Progress: 93.8% Speed: 1.16 MB/s
+2025-02-14 07:41:49,320 - INFO - Progress: 94.4% Speed: 1.22 MB/s
+2025-02-14 07:41:49,896 - INFO - Progress: 95.3% Speed: 1.27 MB/s
+2025-02-14 07:41:50,512 - INFO - Progress: 95.6% Speed: 1.23 MB/s
+2025-02-14 07:41:51,013 - INFO - Progress: 95.6% Speed: 1.17 MB/s
+2025-02-14 07:41:51,523 - INFO - Progress: 95.6% Speed: 1015.43 KB/s
+2025-02-14 07:41:52,372 - INFO - Progress: 95.6% Speed: 938.23 KB/s
+2025-02-14 07:41:52,873 - INFO - Progress: 96.0% Speed: 1.06 MB/s
+2025-02-14 07:41:53,452 - INFO - Progress: 96.5% Speed: 1.08 MB/s
+2025-02-14 07:41:53,988 - INFO - Progress: 96.5% Speed: 1.03 MB/s
+2025-02-14 07:41:54,557 - INFO - Progress: 97.1% Speed: 1.09 MB/s
+2025-02-14 07:41:55,148 - INFO - Progress: 97.3% Speed: 1.06 MB/s
+2025-02-14 07:41:55,728 - INFO - Progress: 97.4% Speed: 1.06 MB/s
+2025-02-14 07:41:56,228 - INFO - Progress: 97.7% Speed: 1.07 MB/s
+2025-02-14 07:41:56,848 - INFO - Progress: 98.2% Speed: 1.07 MB/s
+2025-02-14 07:41:57,467 - INFO - Progress: 98.6% Speed: 1.09 MB/s
+2025-02-14 07:41:58,057 - INFO - Progress: 98.7% Speed: 1.02 MB/s
+2025-02-14 07:41:58,650 - INFO - Progress: 98.8% Speed: 1000.30 KB/s
+2025-02-14 07:41:59,272 - INFO - Progress: 98.8% Speed: 725.74 KB/s
+2025-02-14 07:41:59,882 - INFO - Progress: 98.8% Speed: 680.79 KB/s
+2025-02-14 07:42:00,496 - INFO - Progress: 98.8% Speed: 718.39 KB/s
+2025-02-14 07:42:00,498 - INFO - Download stuck, mencoba restart...
+2025-02-14 07:42:01,109 - INFO - Progress: 0.0% Speed: 0.00 B/s
+2025-02-14 08:13:16,061 - INFO - Logging system initialized
+2025-02-14 08:13:16,062 - INFO - Berhasil memuat konfigurasi
+2025-02-14 08:13:16,062 - INFO - Memulai fetch trackers dari GitHub...
+2025-02-14 08:13:16,106 - ERROR - Gagal fetch trackers, menggunakan default: HTTPSConnectionPool(host='raw.githubusercontent.com', port=443): Max retries exceeded with url: /ngosang/trackerslist/master/trackers_all.txt (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000256DE295190>: Failed to establish a new connection: [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions'))
+2025-02-14 08:13:16,107 - INFO - Berhasil menyimpan konfigurasi
+2025-02-14 08:13:16,115 - INFO - Aria2 berhasil disetup dengan konfigurasi CLI
