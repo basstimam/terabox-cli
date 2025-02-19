@@ -20,6 +20,7 @@ import multiprocessing
 import sv_ttk
 from PIL import Image, ImageTk
 from concurrent.futures import ThreadPoolExecutor
+from terabox1 import TeraboxLink, TeraboxFile
 
 class TeraboxGUI:
     """
@@ -315,6 +316,15 @@ class TeraboxGUI:
             padding=5
         )
         list_frame.pack(fill=tk.BOTH, expand=True, pady=(0, 10), padx=5)
+        
+        # Tambah checkbox untuk speedtest
+        self.speedtest_var = tk.BooleanVar(value=False)
+        speedtest_check = ttk.Checkbutton(
+            list_frame,
+            text="Test kecepatan URL sebelum download",
+            variable=self.speedtest_var
+        )
+        speedtest_check.pack(anchor=tk.W, padx=5, pady=(0, 5))
         
         tree_container = ttk.Frame(list_frame)
         tree_container.pack(fill=tk.BOTH, expand=True)
@@ -679,15 +689,28 @@ class TeraboxGUI:
                 if tf.result['status'] != 'success':
                     raise Exception("Failed to get file information!")
                     
-                self.current_uk = tf.result['uk']
-                self.current_shareid = tf.result['shareid']
-                self.current_timestamp = tf.result['timestamp']
-                self.current_sign = tf.result['sign']
-                self.current_js_token = tf.result['js_token']
+                # Simpan credentials ke file
+                creds_file = Path("config/creds.json")
+                creds_file.parent.mkdir(exist_ok=True)
+                
+                creds = {
+                    "uk": tf.result['uk'],
+                    "shareid": tf.result['shareid'],
+                    "timestamp": tf.result['timestamp'],
+                    "sign": tf.result['sign'],
+                    "js_token": tf.result['js_token'],
+                    "cookie": tf.result['cookie']
+                }
+                
+                # Simpan cookie untuk digunakan dalam download
                 self.current_cookie = tf.result['cookie']
                 
-                self.file_list_data = self.downloader.flatten_files(tf.result['list'])
+                with open(creds_file, 'w') as f:
+                    json.dump(creds, f, indent=4)
+                    
+                self.logger.info("Credentials berhasil disimpan")
                 
+                self.file_list_data = self.downloader.flatten_files(tf.result['list'])
                 self._file_cache[url] = self.file_list_data
                 self._last_file_check = current_time
                 
@@ -770,29 +793,11 @@ class TeraboxGUI:
             self.root.after(0, lambda: self.cancel_btn.config(state=tk.NORMAL))
             
             self.logger.info(f"Getting download link for {file_data['name']}...")
-            from terabox1 import TeraboxLink
-            tl = TeraboxLink(
-                fs_id=str(file_data['fs_id']),
-                uk=str(self.current_uk),
-                shareid=str(self.current_shareid),
-                timestamp=str(self.current_timestamp),
-                sign=str(self.current_sign),
-                js_token=str(self.current_js_token),
-                cookie=str(self.current_cookie)
-            )
-            tl.generate()
             
-            if tl.result['status'] != 'success':
-                error_msg = f"Gagal mendapatkan link download: {tl.result.get('message', 'Unknown error')}"
-                self.logger.error(error_msg)
-                raise Exception(error_msg)
-                
-            download_url = tl.result['download_link'].get('url_1', '')
+            # Generate download link
+            download_url = self.generate_download_link(file_data)
             if not download_url:
                 raise Exception("Tidak ada URL download yang valid!")
-                
-            download_url = download_url.replace('//cdn.', '//d.').replace('//c.', '//d.').replace('//b.', '//d.').replace('//a.', '//d.')
-            self.logger.info(f"URL download: {download_url}")
                 
             download_dir = Path(self.settings.get("download_dir", "downloads"))
             download_dir.mkdir(exist_ok=True)
@@ -1101,7 +1106,7 @@ class TeraboxGUI:
         """Download dan update trackers dari GitHub."""
         try:
             trackers_urls = [
-                "https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt",
+                "https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best.txt",
                 "https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt"
             ]
             
@@ -1312,6 +1317,196 @@ class TeraboxGUI:
             self.logger.info("Berhasil mematikan proses aria2c.exe")
         except Exception as e:
             self.logger.error(f"Error saat mematikan proses aria2c.exe: {str(e)}")
+
+    def test_url_speed(self, url: str, timeout: int = 10) -> float:
+        """Test kecepatan download dari URL tertentu."""
+        try:
+            chunk_size = 1024 * 1024  # 1MB
+            total_downloaded = 0
+            start_time = time.time()
+            
+            headers = {
+                'Cookie': self.current_cookie,
+                'User-Agent': self.settings.get("user_agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"),
+                'Accept': '*/*',
+                'Accept-Language': 'en-US,en;q=0.9',
+                'Connection': 'keep-alive'
+            }
+            
+            with requests.get(url, stream=True, timeout=timeout, headers=headers) as response:
+                response.raise_for_status()
+                for chunk in response.iter_content(chunk_size=chunk_size):
+                    if time.time() - start_time > timeout:
+                        break
+                    if chunk:
+                        total_downloaded += len(chunk)
+            
+            duration = time.time() - start_time
+            speed = total_downloaded / duration if duration > 0 else 0
+            return speed
+            
+        except Exception as e:
+            self.logger.error(f"Error testing URL speed: {str(e)}")
+            return 0
+
+    def show_url_selection(self, urls: Dict[str, str]) -> Optional[str]:
+        """Tampilkan dialog pemilihan URL dengan hasil speedtest."""
+        selection_window = tk.Toplevel(self.root)
+        selection_window.title("Pilih URL Download")
+        selection_window.geometry("800x400")
+        selection_window.transient(self.root)
+        selection_window.grab_set()
+        
+        # Buat tabel untuk menampilkan URL dan kecepatan
+        columns = ("Server", "URL", "Speed")
+        tree = ttk.Treeview(
+            selection_window,
+            columns=columns,
+            show="headings",
+            style="Treeview"
+        )
+        
+        tree.heading("Server", text="Server")
+        tree.heading("URL", text="URL")
+        tree.heading("Speed", text="Kecepatan")
+        
+        tree.column("Server", width=100)
+        tree.column("URL", width=500)
+        tree.column("Speed", width=150)
+        
+        scrollbar = ttk.Scrollbar(selection_window, orient=tk.VERTICAL, command=tree.yview)
+        tree.configure(yscrollcommand=scrollbar.set)
+        
+        tree.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
+        scrollbar.pack(side=tk.RIGHT, fill=tk.Y, pady=5)
+        
+        selected_url = None
+        
+        def on_select():
+            nonlocal selected_url
+            selection = tree.selection()
+            if selection:
+                item = tree.item(selection[0])
+                selected_url = item['values'][1]
+                selection_window.destroy()
+        
+        btn_frame = ttk.Frame(selection_window)
+        btn_frame.pack(fill=tk.X, padx=5, pady=5)
+        
+        select_btn = ttk.Button(
+            btn_frame,
+            text="Pilih URL",
+            command=on_select,
+            style="Accent.TButton"
+        )
+        select_btn.pack(side=tk.RIGHT)
+        
+        # Tampilkan progress speedtest
+        progress_var = tk.DoubleVar()
+        progress = ttk.Progressbar(
+            selection_window,
+            variable=progress_var,
+            mode='determinate'
+        )
+        progress.pack(fill=tk.X, padx=5, pady=5)
+        
+        def update_progress(current, total):
+            progress_var.set((current / total) * 100)
+            selection_window.update()
+        
+        # Test kecepatan untuk setiap URL
+        total_urls = len(urls)
+        for idx, (server, url) in enumerate(urls.items(), 1):
+            if url:
+                update_progress(idx - 1, total_urls)
+                speed = self.test_url_speed(url)
+                speed_text = f"{self.downloader.format_size(speed)}/s"
+                tree.insert("", tk.END, values=(server, url, speed_text))
+                
+        update_progress(total_urls, total_urls)
+        
+        selection_window.wait_window()
+        return selected_url
+
+    def generate_download_link(self, file_data: Dict[str, Any]) -> Optional[str]:
+        """Generate download link untuk file tertentu."""
+        try:
+            # Load credentials dari file
+            creds_file = Path("config/creds.json")
+            if not creds_file.exists():
+                raise Exception("File credentials tidak ditemukan! Silakan proses URL terlebih dahulu.")
+                
+            with open(creds_file, 'r') as f:
+                creds = json.load(f)
+            
+            # Simpan cookie untuk digunakan dalam download
+            self.current_cookie = creds['cookie']
+            
+            # Log credentials untuk debugging (kecuali cookie)
+            debug_creds = {k: v for k, v in creds.items() if k != 'cookie'}
+            self.logger.info(f"Using credentials: {debug_creds}")
+            
+            # Buat instance TeraboxLink dengan credentials
+            from terabox1 import TeraboxLink
+            tl = TeraboxLink(
+                fs_id=str(file_data['fs_id']),
+                uk=str(creds['uk']),
+                shareid=str(creds['shareid']),
+                timestamp=str(creds['timestamp']),
+                sign=str(creds['sign']),
+                js_token=str(creds['js_token']),
+                cookie=str(creds['cookie'])
+            )
+            
+            # Generate link
+            tl.generate()
+            
+            # Log hasil generate link untuk debugging (kecuali URL)
+            result_debug = {k: v for k, v in tl.result.items() if k != 'download_link'}
+            self.logger.info(f"Generate link result: {result_debug}")
+            
+            if tl.result['status'] != 'success':
+                error_msg = f"Gagal mendapatkan link download: {tl.result.get('message', 'Unknown error')}"
+                self.logger.error(error_msg)
+                raise Exception(error_msg)
+            
+            # Log semua URL yang didapat
+            url_log_dir = Path("url_logs")
+            url_log_dir.mkdir(exist_ok=True)
+            log_file = url_log_dir / f"url_log_{datetime.now():%Y%m%d}.txt"
+            
+            with open(log_file, 'a', encoding='utf-8') as f:
+                f.write(f"\n{'='*50}\n")
+                f.write(f"Timestamp: {datetime.now():%Y-%m-%d %H:%M:%S}\n")
+                f.write(f"File: {file_data['name']}\n")
+                f.write(f"FS_ID: {file_data['fs_id']}\n")
+                f.write(f"{'='*50}\n")
+                
+                for key, url in tl.result['download_link'].items():
+                    if url:
+                        f.write(f"\n{key}:\n{url}\n")
+                        self.logger.info(f"URL {key}: {url}")
+            
+            # Jika speedtest diaktifkan, tampilkan dialog pemilihan URL
+            if self.speedtest_var.get():
+                selected_url = self.show_url_selection(tl.result['download_link'])
+                if selected_url:
+                    return selected_url
+                else:
+                    raise Exception("Tidak ada URL yang dipilih!")
+            
+            # Jika tidak, gunakan URL default dengan domain d.terabox.com
+            download_url = tl.result['download_link'].get('url_1', '')
+            if download_url:
+                download_url = download_url.replace('//cdn.', '//d.').replace('//c.', '//d.').replace('//b.', '//d.').replace('//a.', '//d.')
+                self.logger.info(f"URL yang akan digunakan: {download_url}")
+                return download_url
+            else:
+                raise Exception("Tidak ada URL download yang valid!")
+                
+        except Exception as e:
+            self.logger.error(f"Error generating download link: {str(e)}")
+            raise
 
 def main():
     """Main entry point for the TeraBox GUI application."""
