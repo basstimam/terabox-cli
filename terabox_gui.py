@@ -20,6 +20,7 @@ import multiprocessing
 import sv_ttk
 from PIL import Image, ImageTk
 from concurrent.futures import ThreadPoolExecutor
+import workers
 
 class TeraboxGUI:
     """
@@ -657,10 +658,10 @@ class TeraboxGUI:
         """Process the TeraBox URL and display file list."""
         url = self.url_var.get().strip()
         if not url:
-            messagebox.showerror("Error", "URL cannot be empty!")
+            messagebox.showerror("Error", "URL tidak boleh kosong!")
             return
             
-        self.status_var.set("Processing URL...")
+        self.status_var.set("Memproses URL...")
         self.tree.delete(*self.tree.get_children())
         
         def process():
@@ -669,36 +670,67 @@ class TeraboxGUI:
                 if url in self._file_cache and current_time - self._last_file_check < self._cache_timeout:
                     self.file_list_data = self._file_cache[url]
                     self.root.after(0, self.update_file_list)
-                    self.status_var.set("URL processed successfully (cached)")
+                    self.status_var.set("URL berhasil diproses (cache)")
                     return
-                    
-                from terabox1 import TeraboxFile
-                tf = TeraboxFile()
-                tf.search(url)
                 
-                if tf.result['status'] != 'success':
-                    raise Exception("Failed to get file information!")
-                    
-                self.current_uk = tf.result['uk']
-                self.current_shareid = tf.result['shareid']
-                self.current_timestamp = tf.result['timestamp']
-                self.current_sign = tf.result['sign']
-                self.current_js_token = tf.result['js_token']
-                self.current_cookie = tf.result['cookie']
+                # Ekstrak shorturl dari URL lengkap
+                shorturl = workers.extract_shorturl(url)
+                if not shorturl:
+                    raise Exception("Format URL tidak valid! Pastikan URL dalam format: https://terabox.com/s/XXXXX")
                 
-                self.file_list_data = self.downloader.flatten_files(tf.result['list'])
+                self.logger.info(f"Memproses shorturl: {shorturl}")
                 
+                # Coba dapatkan info file
+                info = workers.get_info(shorturl)
+                if not info or not info.get('ok'):
+                    error_msg = "Gagal mendapatkan info file dari workers.dev!\n\n"
+                    error_msg += "Kemungkinan penyebab:\n"
+                    error_msg += "1. URL tidak valid atau file sudah dihapus\n"
+                    error_msg += "2. Server workers.dev sedang down\n"
+                    error_msg += "3. Koneksi internet bermasalah\n\n"
+                    error_msg += "Silakan coba lagi nanti atau gunakan URL lain."
+                    raise Exception(error_msg)
+                
+                self.current_uk = info['uk']
+                self.current_shareid = info['shareid']
+                self.current_timestamp = info['timestamp']
+                self.current_sign = info['sign']
+                self.current_cookie = None  # Tidak diperlukan untuk workers.dev
+                self.current_js_token = None
+                
+                # Flatten file list
+                def flatten_files(file_list):
+                    result = []
+                    for f in file_list:
+                        if str(f.get('is_dir', 0)) == '1' or f.get('is_dir', 0) == 1:
+                            # Folder, recursive
+                            children = f.get('children', [])
+                            for c in children:
+                                c['is_dir'] = c.get('is_dir', 0)
+                                # Pastikan kunci 'name' ada untuk kompatibilitas dengan kode lama
+                                if 'filename' in c and 'name' not in c:
+                                    c['name'] = c['filename']
+                                result.append(c)
+                        else:
+                            f['is_dir'] = f.get('is_dir', 0)
+                            # Pastikan kunci 'name' ada untuk kompatibilitas dengan kode lama
+                            if 'filename' in f and 'name' not in f:
+                                f['name'] = f['filename']
+                            result.append(f)
+                    return result
+                
+                self.file_list_data = flatten_files(info['list'])
                 self._file_cache[url] = self.file_list_data
                 self._last_file_check = current_time
                 
                 self.root.after(0, self.update_file_list)
-                self.status_var.set("URL processed successfully")
+                self.status_var.set("URL berhasil diproses")
                 
             except Exception as e:
                 self.root.after(0, lambda: messagebox.showerror("Error", str(e)))
                 self.status_var.set("Error: " + str(e))
                 self.logger.error(f"Error processing URL: {str(e)}")
-                
+        
         threading.Thread(target=process, daemon=True).start()
         
     def update_file_list(self):
@@ -769,42 +801,60 @@ class TeraboxGUI:
             self.cancel_flag.clear()
             self.root.after(0, lambda: self.cancel_btn.config(state=tk.NORMAL))
             
-            self.logger.info(f"Getting download link for {file_data['name']}...")
-            from terabox1 import TeraboxLink
-            tl = TeraboxLink(
-                fs_id=str(file_data['fs_id']),
-                uk=str(self.current_uk),
-                shareid=str(self.current_shareid),
-                timestamp=str(self.current_timestamp),
-                sign=str(self.current_sign),
-                js_token=str(self.current_js_token),
-                cookie=str(self.current_cookie)
-            )
-            tl.generate()
+            file_name = file_data.get('filename', file_data.get('name', 'Unknown'))
+            self.logger.info(f"Mendapatkan link download untuk {file_name}...")
             
-            if tl.result['status'] != 'success':
-                error_msg = f"Gagal mendapatkan link download: {tl.result.get('message', 'Unknown error')}"
+            params = {
+                "shareid": self.current_shareid,
+                "uk": self.current_uk,
+                "sign": self.current_sign,
+                "timestamp": self.current_timestamp,
+                "fs_id": file_data['fs_id']
+            }
+            
+            link_result = workers.get_download_link(params)
+            if not link_result or not link_result.get('ok'):
+                error_msg = f"Gagal mendapatkan link download dari workers.dev!\n\n"
+                error_msg += "Kemungkinan penyebab:\n"
+                error_msg += "1. Server workers.dev sedang down\n"
+                error_msg += "2. File mungkin sudah dihapus\n"
+                error_msg += "3. Koneksi internet bermasalah\n\n"
+                error_msg += "Silakan coba lagi nanti."
                 self.logger.error(error_msg)
                 raise Exception(error_msg)
                 
-            download_url = tl.result['download_link'].get('url_1', '')
+            download_url = link_result.get('downloadLink', '')
             if not download_url:
                 raise Exception("Tidak ada URL download yang valid!")
-                
-            download_url = download_url.replace('//cdn.', '//d.').replace('//c.', '//d.').replace('//b.', '//d.').replace('//a.', '//d.')
+            
+            # Cek apakah ini URL proxy dan tampilkan URL asli jika ada
+            if workers.is_proxy_url(download_url) and 'originalLink' in link_result:
+                self.logger.info(f"URL asli (dari proxy): {link_result['originalLink'][:100]}...")
+            else:
+                # Jika bukan URL proxy, coba gunakan fungsi wrap_url
+                try:
+                    # Bungkus URL dengan proxy untuk menghindari pembatasan
+                    wrapped_url = workers.wrap_url(download_url)
+                    self.logger.info(f"URL original dibungkus dengan proxy: {wrapped_url[:100]}...")
+                    # Gunakan URL yang dibungkus
+                    download_url = wrapped_url
+                except Exception as e:
+                    self.logger.warning(f"Gagal membungkus URL: {str(e)}, menggunakan URL asli")
+            
+            # Log URL download yang akan digunakan
             self.logger.info(f"URL download: {download_url}")
-                
+            
             download_dir = Path(self.settings.get("download_dir", "downloads"))
             download_dir.mkdir(exist_ok=True)
             
-            filename = download_dir / file_data['name']
-            filesize = int(file_data['size'])
+            filename = download_dir / file_name
+            filesize = int(file_data.get('size', 0))
             
-            self.status_var.set(f"Downloading: {file_data['name']}")
-            self.logger.info(f"Starting download {file_data['name']} ({self.downloader.format_size(filesize)})")
+            self.status_var.set(f"Downloading: {file_name}")
+            self.logger.info(f"Starting download {file_name} ({self.downloader.format_size(filesize)})")
             
             for item in self.tree.get_children():
-                if self.tree.item(item)['values'][0] == file_data['name']:
+                if self.tree.item(item)['values'][0] == file_name:
                     self.tree.set(item, "Status", "Downloading...")
                     break
             
@@ -817,7 +867,7 @@ class TeraboxGUI:
                 [download_url],
                 options={
                     "dir": str(download_dir),
-                    "out": file_data['name'],
+                    "out": file_name,
                     "max-connection-per-server": str(self.settings.get("max_connections", 16)),
                     "split": str(self.settings.get("split", 16)),
                     "min-split-size": self.settings.get("min_split_size", "1M"),
@@ -876,7 +926,7 @@ class TeraboxGUI:
                         self.logger.info(f"Progress: {progress:.1f}% Speed: {self.downloader.format_size(speed)}/s Downloaded: {self.downloader.format_size(downloaded)} / {self.downloader.format_size(filesize)}")
                         
                         self.update_progress_ui(
-                            file_data['name'],
+                            file_name,
                             downloaded,
                             filesize,
                             speed
@@ -896,7 +946,7 @@ class TeraboxGUI:
                                         [download_url],
                                         options={
                                             "dir": str(download_dir),
-                                            "out": file_data['name'],
+                                            "out": file_name,
                                             "continue": "true",
                                             "max-connection-per-server": "8",
                                             "split": "8",
@@ -935,7 +985,7 @@ class TeraboxGUI:
                             while chunk := f.read(chunk_size):
                                 pass
                         success = True
-                        self.logger.info(f"File {file_data['name']} berhasil diverifikasi")
+                        self.logger.info(f"File {file_name} berhasil diverifikasi")
                     except Exception as e:
                         success = False
                         self.logger.error(f"File corrupt: {str(e)}")
@@ -947,7 +997,7 @@ class TeraboxGUI:
                 self.logger.error("File tidak ditemukan setelah download")
                 
             for item in self.tree.get_children():
-                if self.tree.item(item)['values'][0] == file_data['name']:
+                if self.tree.item(item)['values'][0] == file_name:
                     status = "Completed" if success else "Failed"
                     if self.cancel_flag.is_set():
                         status = "Cancelled"
@@ -955,7 +1005,7 @@ class TeraboxGUI:
                     break
             
             if success and not self.cancel_flag.is_set():
-                self.status_var.set(f"Successfully downloaded: {file_data['name']}")
+                self.status_var.set(f"Successfully downloaded: {file_name}")
                 self.add_to_history(file_data, "Completed")
             elif self.cancel_flag.is_set():
                 self.status_var.set("Download cancelled")
@@ -963,7 +1013,7 @@ class TeraboxGUI:
                 if os.path.exists(filename):
                     os.remove(filename)
             else:
-                self.status_var.set(f"Failed to download: {file_data['name']}")
+                self.status_var.set(f"Failed to download: {file_name}")
                 self.add_to_history(file_data, "Failed")
                 if os.path.exists(filename):
                     os.remove(filename)
@@ -979,11 +1029,11 @@ class TeraboxGUI:
             ])
                 
         except Exception as e:
-            self.logger.error(f"Error downloading {file_data['name']}: {str(e)}")
+            self.logger.error(f"Error downloading {file_name}: {str(e)}")
             self.status_var.set(f"Error: {str(e)}")
             self.add_to_history(file_data, "Error")
             for item in self.tree.get_children():
-                if self.tree.item(item)['values'][0] == file_data['name']:
+                if self.tree.item(item)['values'][0] == file_name:
                     status = "Cancelled"
                     if "dibatalkan" in str(e):
                         status = "Cancelled"
