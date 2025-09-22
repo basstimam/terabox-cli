@@ -394,8 +394,20 @@ wss://tracker.openwebtorrent.com:443/announce"""
 [/bold cyan]"""
         console.print(banner)
         
-    def format_size(self, size: int) -> str:
+    def format_size(self, size) -> str:
         """Format ukuran file ke format yang mudah dibaca"""
+        # Handle different input types
+        if isinstance(size, str):
+            try:
+                size = int(size)
+            except (ValueError, TypeError):
+                size = 0
+        elif not isinstance(size, (int, float)):
+            size = 0
+            
+        # Ensure size is a number
+        size = float(size)
+        
         for unit in ['B', 'KB', 'MB', 'GB', 'TB']:
             if size < 1024:
                 return f"{size:.2f} {unit}"

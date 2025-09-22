@@ -5,6 +5,7 @@ import re
 import base64
 import urllib.parse
 import random
+import json
 from urllib.parse import quote
 
 # Daftar base URL workers.dev
@@ -17,12 +18,13 @@ BASE_URLS = [
 ]
 
 # Beberapa alternatif workers jika yang utama gagal
+# Prioritas endpoint berdasarkan memory: terabox.hnn.workers.dev prioritas utama
+# Skip endpoint yang diketahui tidak berfungsi: terabox.app.workers.dev dan terabox.cf.workers.dev
 WORKERS_ENDPOINTS = [
-    "https://terabox.hnn.workers.dev",
-    "https://terabox.app.workers.dev",
-    "https://terabox.cf.workers.dev"
+    "https://terabox.hnn.workers.dev",  # Primary endpoint dengan prioritas tinggi
 ]
 
+# Tambahkan endpoint alternatif dari BASE_URLS
 for base_url in BASE_URLS:
     WORKERS_ENDPOINTS.append(f"https://{base_url}.workers.dev")
 
@@ -49,6 +51,7 @@ def extract_shorturl(url: str) -> Optional[str]:
         r'4funbox\.com/s/([^/?&]+)',
         r'mirrobox\.com/s/([^/?&]+)',
         r'teraboxapp\.com/s/([^/?&]+)',
+        r'surl=([^&]+)',
         r'/s/([^/?&]+)'
     ]
     
@@ -147,6 +150,7 @@ def wrap_url(original_url: str) -> str:
 def get_info(shorturl: str, cookies: Optional[Dict[str, str]] = None) -> Optional[Dict[str, Any]]:
     """
     Mendapatkan informasi file/folder dari shorturl TeraBox via workers.dev.
+    Menggunakan endpoint /api/get-info-new sebagai prioritas utama dengan fallback ke /api/get-info.
 
     Args:
         shorturl (str): Kode shorturl dari link TeraBox (contoh: '1DcGWQPuMVDgkXrFhP7AlcQ').
@@ -160,44 +164,76 @@ def get_info(shorturl: str, cookies: Optional[Dict[str, str]] = None) -> Optiona
     if extracted:
         shorturl = extracted
     
-    url = f"{WORKERS_BASE_URL}/api/get-info"
     params = {"shorturl": shorturl, "pwd": ""}
     
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.6261.112 Safari/537.36",
         "Accept": "*/*",
-        "Accept-Language": "en-US,en;q=0.9,id;q=0.8",
+        "Accept-Language": "en-US,en;q=0.9",
+        "Accept-Encoding": "gzip, deflate",
         "Connection": "keep-alive",
         "Sec-Fetch-Site": "same-origin",
         "Sec-Fetch-Mode": "cors",
         "Sec-Fetch-Dest": "empty",
-        "Referer": f"{WORKERS_BASE_URL}/",
-        "Origin": WORKERS_BASE_URL,
-        "sec-ch-ua": "\"Google Chrome\";v=\"137\", \"Chromium\";v=\"137\", \"Not/A)Brand\";v=\"24\"",
+        "sec-ch-ua": '"Not(A:Brand";v="24", "Chromium";v="122"',
         "sec-ch-ua-mobile": "?0",
-        "sec-ch-ua-platform": "\"Windows\""
+        "sec-ch-ua-platform": '"Windows"',
+        "Priority": "u=1, i"
     }
     
-    # Coba semua endpoint jika gagal
+    # Endpoint API yang akan dicoba berdasarkan prioritas
+    api_endpoints = ["/api/get-info-new", "/api/get-info"]
+    
+    # Coba semua endpoint dengan fallback mechanism
     for i, base_url in enumerate(WORKERS_ENDPOINTS):
-        try:
-            current_url = f"{base_url}/api/get-info"
-            headers["Referer"] = f"{base_url}/"
-            headers["Origin"] = base_url
-            
-            resp = requests.get(current_url, params=params, headers=headers, cookies=cookies, timeout=20)
-            resp.raise_for_status()
-            data = resp.json()
-            
-            if data.get("ok"):
-                # Jika berhasil, set base URL ke endpoint yang berhasil
-                set_base_url(i)
-                return data
+        # Update headers untuk endpoint saat ini
+        headers["Referer"] = f"{base_url}/"
+        headers["Origin"] = base_url
+        
+        # Coba endpoint utama terlebih dahulu, kemudian fallback
+        for api_endpoint in api_endpoints:
+            try:
+                current_url = f"{base_url}{api_endpoint}"
+                logger.info(f"Mencoba endpoint: {current_url}")
                 
-            logger.warning(f"Endpoint {base_url} gagal: {data}")
-            
-        except Exception as e:
-            logger.warning(f"Exception pada endpoint {base_url}: {e}")
+                resp = requests.get(current_url, params=params, headers=headers, cookies=cookies, timeout=20)
+                resp.raise_for_status()
+                
+                # Handle potential JSON parsing issues by ensuring proper decoding
+                try:
+                    # Let requests handle decompression automatically
+                    data = resp.json()
+                except ValueError as e:
+                    logger.warning(f"Endpoint {current_url} tidak mengembalikan JSON valid: {e}")
+                    logger.warning(f"Response content type: {resp.headers.get('content-type', 'unknown')}")
+                    logger.warning(f"Response status: {resp.status_code}")
+                    logger.warning(f"Response encoding: {resp.encoding}")
+                    logger.warning(f"Response headers: {dict(resp.headers)}")
+                    logger.warning(f"Response raw content preview: {repr(resp.content[:100])}")
+                    
+                    # Try to get text and parse manually
+                    try:
+                        text_content = resp.text
+                        if text_content.strip():
+                            data = json.loads(text_content)
+                            logger.info(f"Successfully parsed JSON from text content")
+                        else:
+                            logger.warning("Empty response text")
+                            continue
+                    except Exception as e2:
+                        logger.warning(f"Failed to parse JSON from text: {e2}")
+                        continue
+                
+                if data.get("ok"):
+                    logger.info(f"Berhasil mendapatkan info dari {current_url}")
+                    # Jika berhasil, set base URL ke endpoint yang berhasil
+                    set_base_url(i)
+                    return data
+                    
+                logger.warning(f"Endpoint {current_url} return tidak ok: {data}")
+                
+            except Exception as e:
+                logger.warning(f"Exception pada endpoint {current_url}: {e}")
     
     logger.error(f"Semua endpoint gagal untuk shorturl: {shorturl}")
     return None
@@ -206,6 +242,7 @@ def get_info(shorturl: str, cookies: Optional[Dict[str, str]] = None) -> Optiona
 def get_download_link(params: Dict[str, Any], cookies: Optional[Dict[str, str]] = None) -> Optional[Dict[str, Any]]:
     """
     Mendapatkan direct download link dari workers.dev.
+    Menggunakan endpoint /api/get-downloadp.
 
     Args:
         params (Dict[str, Any]): Dict berisi shareid, uk, sign, timestamp, fs_id.
@@ -214,21 +251,20 @@ def get_download_link(params: Dict[str, Any], cookies: Optional[Dict[str, str]] 
     Returns:
         Optional[Dict[str, Any]]: Hasil JSON dari API jika sukses, None jika gagal.
     """
-    url = f"{WORKERS_BASE_URL}/api/get-downloadp"
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.6261.112 Safari/537.36",
         "Content-Type": "application/json",
         "Accept": "*/*",
-        "Accept-Language": "en-US,en;q=0.9,id;q=0.8",
+        "Accept-Language": "en-US,en;q=0.9",
         "Connection": "keep-alive",
         "Sec-Fetch-Site": "same-origin",
         "Sec-Fetch-Mode": "cors",
         "Sec-Fetch-Dest": "empty",
-        "Origin": WORKERS_BASE_URL,
-        "Referer": f"{WORKERS_BASE_URL}/",
-        "sec-ch-ua": "\"Google Chrome\";v=\"137\", \"Chromium\";v=\"137\", \"Not/A)Brand\";v=\"24\"",
+        "Accept-Encoding": "gzip, deflate",
+        "sec-ch-ua": '"Not(A:Brand";v="24", "Chromium";v="122"',
         "sec-ch-ua-mobile": "?0",
-        "sec-ch-ua-platform": "\"Windows\""
+        "sec-ch-ua-platform": '"Windows"',
+        "Priority": "u=1, i"
     }
     
     # Coba semua endpoint jika gagal
@@ -240,7 +276,31 @@ def get_download_link(params: Dict[str, Any], cookies: Optional[Dict[str, str]] 
             
             resp = requests.post(current_url, json=params, headers=headers, cookies=cookies, timeout=20)
             resp.raise_for_status()
-            data = resp.json()
+            
+            # Handle potential JSON parsing issues by ensuring proper decoding
+            try:
+                # Let requests handle decompression automatically
+                data = resp.json()
+            except ValueError as e:
+                logger.warning(f"Endpoint {current_url} tidak mengembalikan JSON valid: {e}")
+                logger.warning(f"Response content type: {resp.headers.get('content-type', 'unknown')}")
+                logger.warning(f"Response status: {resp.status_code}")
+                logger.warning(f"Response encoding: {resp.encoding}")
+                logger.warning(f"Response headers: {dict(resp.headers)}")
+                logger.warning(f"Response raw content preview: {repr(resp.content[:100])}")
+                
+                # Try to get text and parse manually
+                try:
+                    text_content = resp.text
+                    if text_content.strip():
+                        data = json.loads(text_content)
+                        logger.info(f"Successfully parsed JSON from text content")
+                    else:
+                        logger.warning("Empty response text")
+                        continue
+                except Exception as e2:
+                    logger.warning(f"Failed to parse JSON from text: {e2}")
+                    continue
             
             if data.get("ok"):
                 # Jika berhasil, set base URL ke endpoint yang berhasil
