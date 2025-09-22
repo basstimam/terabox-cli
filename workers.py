@@ -8,13 +8,13 @@ import random
 import json
 from urllib.parse import quote
 
-# Daftar base URL workers.dev
+# Daftar base URL workers.dev yang lebih lengkap
 BASE_URLS = [
     'plain-grass-58b2.comprehensiveaquamarine',
     'bold-hall-f23e.7rochelle',
-    # 'winter-thunder-0360.belitawhite',
-    # 'fragrant-term-0df9.elviraeducational',
-    # 'purple-glitter-924b.miguelalocal'
+    'winter-thunder-0360.belitawhite',
+    'fragrant-term-0df9.elviraeducational',
+    'purple-glitter-924b.miguelalocal'
 ]
 
 # Beberapa alternatif workers jika yang utama gagal
@@ -239,7 +239,7 @@ def get_info(shorturl: str, cookies: Optional[Dict[str, str]] = None) -> Optiona
     return None
 
 
-def get_download_link(params: Dict[str, Any], cookies: Optional[Dict[str, str]] = None) -> Optional[Dict[str, Any]]:
+def get_download_link(params: Dict[str, Any], cookies: Optional[Dict[str, str]] = None, shorturl: Optional[str] = None) -> Optional[Dict[str, Any]]:
     """
     Mendapatkan direct download link dari workers.dev.
     Menggunakan endpoint /api/get-downloadp.
@@ -247,6 +247,7 @@ def get_download_link(params: Dict[str, Any], cookies: Optional[Dict[str, str]] 
     Args:
         params (Dict[str, Any]): Dict berisi shareid, uk, sign, timestamp, fs_id.
         cookies (Optional[Dict[str, str]]): Cookies opsional untuk request.
+        shorturl (Optional[str]): Shorturl untuk refresh token jika diperlukan.
 
     Returns:
         Optional[Dict[str, Any]]: Hasil JSON dari API jika sukses, None jika gagal.
@@ -320,8 +321,43 @@ def get_download_link(params: Dict[str, Any], cookies: Optional[Dict[str, str]] 
                         data['originalLink'] = real_url
                 
                 return data
-                
-            logger.warning(f"Endpoint {base_url} gagal: {data}")
+            else:
+                # Handle specific errors
+                error_msg = data.get('message', 'Unknown error')
+                if 'KVTOKENS' in error_msg:
+                    logger.warning(f"Endpoint {base_url} mengalami masalah konfigurasi (KVTOKENS): {error_msg}")
+                elif 'expired' in error_msg.lower() or 'invalid' in error_msg.lower():
+                    logger.warning(f"Endpoint {base_url} mengatakan token expired/invalid: {error_msg}")
+                    # Try to refresh token if shorturl is provided
+                    if shorturl and i == 0:  # Only retry on first endpoint
+                        logger.info(f"Mencoba refresh token untuk {base_url}...")
+                        fresh_info = get_info(shorturl)
+                        if fresh_info and fresh_info.get('ok'):
+                            # Update params with fresh token data
+                            params.update({
+                                'shareid': int(fresh_info['shareid']),
+                                'uk': int(fresh_info['uk']),
+                                'sign': str(fresh_info['sign']),
+                                'timestamp': int(fresh_info['timestamp'])
+                            })
+                            logger.info(f"Token berhasil di-refresh, mencoba download lagi...")
+                            # Retry the request with fresh params
+                            try:
+                                resp = requests.post(current_url, json=params, headers=headers, cookies=cookies, timeout=20)
+                                resp.raise_for_status()
+                                data = resp.json()
+                                if data.get("ok"):
+                                    logger.info(f"Berhasil dengan token yang di-refresh!")
+                                    download_link = data.get('downloadLink', '')
+                                    if download_link:
+                                        logger.info(f"Berhasil mendapatkan download link: {download_link[:100]}...")
+                                        if is_proxy_url(download_link):
+                                            data['originalLink'] = decode_proxy_url(download_link)
+                                    return data
+                            except Exception as retry_e:
+                                logger.warning(f"Retry dengan token fresh juga gagal: {retry_e}")
+                else:
+                    logger.warning(f"Endpoint {base_url} gagal: {data}")
             
         except Exception as e:
             logger.warning(f"Exception pada endpoint {base_url}: {e}")
